@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hello Kitchen</title>
+	<style>
+		header {
+			width: 1100px;
+			margin: 0 auto;
+		}
+		#logo {
+			width: 96px;
+			height: 96px;
+			background-color: #EC773F;
+			margin: 5px auto;
+		}
+		.lang {
+			width: 100px;
+			font-size: 12px;
+			color: darkgray;
+			float: right;
+			text-align: right;
+		}
+		nav {
+			width: 1100px;
+			margin: 0 auto;
+		}
+		#fixed_nav {
+			background-color: white;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			position: sticky;
+			top: 0;
+		}
+		.main_nav {
+			width: 100%;
+			display: inline-flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			display: inline-flex;
+			align-items: center;
+			border: 1px solid lightgray;
+		}
+		.left_nav li {
+			width: 140px;
+			height: 40px;
+			padding: 0 4px;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.right_nav li {
+			height: 40px;
+			padding: 0 4px;
+			font-size: 12px;
+		}
+
+		.imgslider {
+			width: 100%;
+			height: 450px;
+			background-color: khaki;
+		}
+		section#main_s {
+			width: 1100px;
+			margin: 0 auto;
+		}
+		.main_content {
+			width: 100%;
+			display: inline-flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 30px 0;
+		}
+		.main_content > div:nth-child(2n+1) {
+			width: 320px;
+			height: 130px;
+			border: 1px solid gray;
+			margin: 0 10px;
+		}
+		.main_content > div:nth-child(2n) {
+			width: 0.1px;
+			height: 100px;
+			border-right: 1px solid #EC773F;
+		}
+		section.middle_s {
+			background-color: beige;
+			padding-top: 20px;
+		}
+		.bottom_main {
+			width: 100%;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 30px 0;
+		}
+		.title_font {
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+		}
+		.recipes_pic {
+			width: 300px;
+			height: 300px;
+			margin: 0 30px;
+			border: 1px solid gray;
+		}
+		.bottom_menu {
+			width: 180px;
+			height: 300px;
+			margin: 0 15px;
+			border: 1px solid gray;
+		}
+		.banner {
+			width: 150px;
+			height: 100px;
+			margin: 0 auto;
+			border: 1px solid gray;
+		}
+		footer {
+			margin-top: 20px;
+			width: 100%;
+			height: 150px;
+			background-color: #EC773F;
+		}
+		.foot_nav {
+			width: 100%;
+			display: inline-flex;
+			justify-content: center;
+		}
+		.foot_nav ul {
+			margin-top: 30px;
+			color: white;
+		}
+		.foot_nav li {
+			border: none;
+		}
+		.foot_info {
+			width: 1100px;
+			color: white;
+			margin: 20px auto;
+			text-align: center;
+			font-size: 12px;
+		}
+	</style>
+</head>
+
+<body style="margin:0;">
+	<div>
+		<header>
+			<div class="lang">한국어 | English</div>
+			<div id="logo">로고</div>			
+		</header>
+
+		<div id="fixed_nav">
+			<nav>
+				<div class="main_nav">
+					<div class="left_nav">
+						<ul>
+							<li>정보 소개</li>
+							<li>밀플랜 정기구독</li>
+							<li>레시피 커뮤니티</li>
+							<li>마이 키친</li>
+						</ul>
+					</div>
+					<div class="right_nav">
+						<ul>
+							<li style="width:140px;">레시피 검색</li>
+							<li style="width:100px;">로그인/회원가입</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<main>
+			<div class="imgslider">이미지 슬라이더</div>
+			<section id="main_s">
+				<div class="main_content">
+					<div>밀플랜</div>
+					<div></div>
+					<div>커뮤니티</div>
+					<div></div>
+					<div>마이 키친</div>
+				</div>
+			</section>
+			<section class="middle_s">
+				<div class="title_font">이런 레시피는 어떤가요?</div>
+				<div class="bottom_main">
+					<div class="recipes_pic">레시피 바로가기</div>
+					<div class="recipes_pic">레시피 바로가기</div>
+				</div>
+			</section>
+			<section class="bottom_main">
+				<div class="bottom_menu">SNS</div>
+				<div class="bottom_menu">
+					이벤트<br><br>
+					<div class="banner">배너1</div><br>
+					<div class="banner">배너2</div>
+				</div>
+				<div class="bottom_menu">CONTACT</div>
+				<div class="bottom_menu">고객센터</div>				
+			</section>
+		</main>
+
+		<footer>
+			<nav>
+				<div class="foot_nav">
+					<ul>
+						<li>정보 소개 |&nbsp;</li>
+						<li>밀플랜 정기구독 |&nbsp;</li>
+						<li>레시피 커뮤니티 |&nbsp;</li>
+						<li>마이 키친 |&nbsp;</li>
+						<li>로그인 |&nbsp;</li>
+						<li>회원가입</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="foot_info">법인명<br>주소<br>카피라잇</div>
+		</footer>
+	</div>
+</body>
+</html>
