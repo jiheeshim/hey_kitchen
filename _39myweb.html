@@ -3,10 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Hello Kitchen</title>
+	<title>HEY KITCHEN</title>
 	<style>
+		body { margin: 0; }
 		header {
-			width: 1100px;
+			width: 1440px;
 			margin: 0 auto;
 		}
 		#logo {
@@ -27,6 +28,7 @@
 			margin: 0 auto;
 		}
 		#fixed_nav {
+			width: 1440px;
 			background-color: white;
 			border-top: 1px solid black;
 			border-bottom: 1px solid black;
@@ -62,16 +64,18 @@
 		}
 
 		.imgslider {
-			width: 100%;
+			width: 1440px;
 			height: 450px;
 			background-color: khaki;
 		}
-		section#main_s {
-			width: 1100px;
+		section.main_s {
+			width: 1440px;
 			margin: 0 auto;
+			display: inline-flex;
+			justify-content: center;
 		}
 		.main_content {
-			width: 100%;
+			width: 1100px;
 			display: inline-flex;
 			justify-content: space-between;
 			align-items: center;
@@ -89,11 +93,12 @@
 			border-right: 1px solid #EC773F;
 		}
 		section.middle_s {
+			width: 1440px;
 			background-color: beige;
 			padding-top: 20px;
 		}
 		.bottom_main {
-			width: 100%;
+			width: 1440px;
 			display: inline-flex;
 			justify-content: center;
 			align-items: center;
@@ -124,7 +129,7 @@
 		}
 		footer {
 			margin-top: 20px;
-			width: 100%;
+			width: 1440px;
 			height: 150px;
 			background-color: #EC773F;
 		}
@@ -150,7 +155,7 @@
 	</style>
 </head>
 
-<body style="margin:0;">
+<body>
 	<div>
 		<header>
 			<div class="lang">한국어 | English</div>
@@ -180,7 +185,7 @@
 
 		<main>
 			<div class="imgslider">이미지 슬라이더</div>
-			<section id="main_s">
+			<section class="main_s">
 				<div class="main_content">
 					<div>밀플랜</div>
 					<div></div>
