@@ -3,221 +3,328 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>회원가입</title>
+	<title>헤이키친 회원가입</title>
+	<style>
+		body { margin: 0; }
+		body > div {
+			width: 1440px;
+			margin: 0 auto;
+		}
+		header {
+			width: 1100px;
+			margin: 0 auto;
+		}
+		.logo {
+			width: 96px;
+			height: 96px;
+			background-color: #EC773F;
+			margin: 8px auto;
+		}
+		.lang {
+			width: 100px;
+			font-size: 12px;
+			color: darkgray;
+			text-align: right;
+			float: right;
+		}
+		.nav_box {
+			background-color: white;
+			border-top: 1px solid black;
+			border-bottom: 1px solid black;
+			position: sticky;
+			top: 0;
+		}
+		.nav_main {
+			width: 1100px;
+			display: flex;
+			justify-content: space-between;
+			margin: 0 auto;
+		}
+		.nav_main ul {
+			margin: 0;
+		}
+		.nav_main li {
+			display: inline-flex;
+			align-items: center;
+			border: 1px solid lightgray;
+		}
+		.left_ul li {
+			width: 120px;
+			height: 40px;
+			padding: 0 4px;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.right_ul li {
+			width: 100px;
+			height: 40px;
+			padding: 0 4px;
+			font-size: 12px;
+			text-align: right;
+		}
+		.right_ul li:first-child {
+			width: 140px;
+		}
+
+		main {
+			width: 430px;
+			margin: 0 auto;
+		}
+		main section:first-child {
+			font-size: 25px;
+			font-weight: bold;
+			text-align: center;
+			padding: 40px 0;
+			border-bottom: 2px solid black;
+			margin: 20px 0;
+		}
+		.labelstyle, input[type="radio"] {
+			font-weight: bold;
+			margin: 10px 0;
+		}
+		input[type="text"], input[type="password"] {
+			border: 1px solid black;
+			border-radius: 4px;
+			height: 30px;
+		}
+		input[type="text"]:focus, input[type="password"]:focus {
+			outline-color: #EC773F;
+		}
+		table input[type="text"] {
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-radius: 0;
+			height: 20px;
+		}
+		.underlinetxt {
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			height: 20px;
+		}
+		button {
+			height: 40px;
+			border-radius: 30px 10px;
+			border-color: white;
+			background-color: #FFAE87;;
+			padding: 5px 15px;
+			text-align: center;
+			font-weight: bold;
+		}
+		button:hover {
+			background-color: #EC773F;
+		}
+		.emailstyle {
+			width: 198px;
+			height: 35px;
+			border: 1px solid black;
+			border-radius: 4px;
+			margin-left: 6px;
+		}
+		.selectstyle {
+			width: 80px;
+			height: 35px;
+			text-align: center;
+			border: 1px solid black;
+			border-radius: 4px;
+		}
+		.bottom_btn {
+			display: flex;
+			justify-content: center;
+		}
+
+		footer {
+			background-color: #EC773F;
+			margin: 60px auto 0 auto;
+			height: 150px;
+			display: flex;
+			justify-content: center;
+		}
+		footer ul {
+			margin: 30px 0 0 0;
+		}
+		footer li {
+			display: inline;
+			color: white;
+		}
+		.foot_info {
+			color: white;
+			font-size: 12px;
+			margin: 20px auto;
+			text-align: center;
+		}
+
+	</style>
 </head>
-
-<link rel="stylesheet" type="text/css" href="_18signUpStyle.css">
-
 <body>
+	<div>
+		<header>
+			<div class="lang">한국어 | English</div>
+			<div class="logo">로고</div>
+		</header>
 
-<table class="tablestyle">
-	<tr>
-		<td align="center"><img src="img/cook_hat.png"></td>
-	</tr>
-	<tr>
-		<td id="titlestyle" align="center">SHIM JI HEE MEMBERSHIP</td>
-	</tr>
-	<tr>
-		<td class="labelstyle" align="center">CREATE ACCOUNT</td>
-	</tr>
-</table>
+		<div class="nav_box">
+			<nav class="nav_main">
+				<ul class="left_ul">
+					<li>정보 소개</li>
+					<li>밀플랜 정기구독</li>
+					<li>레시피 커뮤니티</li>
+					<li>마이 키친</li>
+				</ul>
+				<ul class="right_ul">
+					<li>레시피 검색</li>
+					<li>로그인/회원가입</li>
+				</ul>
+			</nav>
+		</div>
 
-<form>
-	<div id="borderstyle">
-	<table class="tablestyle">
-		<tr>
-			<td class="labelstyle">아이디<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td>
-				<input class="textstyle" type="text" name="idtxt" size="40" maxlength="20">
-				<button class="buttonstyle" type="button" name="idcheck">중복확인</button>
-			</td>
-		</tr>
-		<tr>
-			<td class="labelstyle">비밀번호<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td><input class="textstyle" type="password" name="pwtxt1" size="50" maxlength="20"></td>
-		</tr>
-		<tr>
-			<td class="labelstyle">비밀번호 확인<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td><input class="textstyle" type="password" name="pwtxt2" size="50" maxlength="20"></td>
-		</tr>
-		<tr>
-			<td class="labelstyle">이름<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td><input class="textstyle" type="text" name="nametxt" size="50" maxlength="10"></td>
-		</tr>
-		<tr>
-			<td class="labelstyle">이메일<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td>
-				<input class="textstyle" type="text" name="emailid" size="25" maxlength="50">
-				<select id="emailstyle" name="emailback">
-				<option value="@gmail.com">@gmail.com</option>
-				<option value="@naver.com">@naver.com</option>
-				<option value="@hanmail.net">@hanmail.net</option>
-				<option value="@nate.com">@nate.com</option>
-				<option value="@hotmail.com">@hotmail.com</option>
-				<option value="@yahoo.com">@yahoo.com</option>
-				<option value="">직접입력</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td class="labelstyle">생년월일<font size=2 color="gray">&nbsp;(입력하시면 생일 쿠폰이 지급됩니다.)</font></td>
-		</tr>
-		<tr>
-			<td class="labelstyle">
-				<input class="boxstyle" type="text" name="birthyear" size="5">년&nbsp;
-				<select class="boxstyle" name="birthmonth">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-				</select>월&nbsp;
-				<select class="boxstyle" name="birthmonth">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14">14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					<option value="22">22</option>
-					<option value="23">23</option>
-					<option value="24">24</option>
-					<option value="25">25</option>
-					<option value="26">26</option>
-					<option value="27">27</option>
-					<option value="28">28</option>
-					<option value="29">29</option>
-					<option value="30">30</option>
-					<option value="31">31</option>
-				</select>일&nbsp;
-			</td>
-		</tr>
-		<tr>
-			<td class="labelstyle">휴대번호<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td>
-				<select class="boxstyle" name="tel_head">
-					<option value="010">010</option>
-					<option value="011">011</option>
-					<option value="017">017</option>
-				</select>
-				&nbsp;-&nbsp;<input class="boxstyle" type="text" name="tel_body" size="3" maxlength="4">
-				&nbsp;-&nbsp;<input class="boxstyle" type="text" name="tel-foot" size="3" maxlength="4">
-			</td>
-		</tr>
-		<tr>
-			<td class="labelstyle">우편번호<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td>
-				<input class="textstyle" type="text" name="postcode" size="10" maxlength="5">
-				<button class="buttonstyle" type="button" name="search">&nbsp;찾기&nbsp;</button>
-			</td>
-		</tr>
-		<tr>
-			<td class="labelstyle">주소<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td><input class="textstyle" type="text" name="addr1" size="50" maxlength="30"></td>
-		</tr>
-		<tr>
-			<td class="labelstyle">상세주소<font color="red">&nbsp;*</font></td>
-		</tr>
-		<tr>
-			<td><input class="textstyle" type="text" name="addr1" size="50" maxlength="30"></td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="labelstyle"><font color="#91A800">우리집 가구원 수 &nbsp;&nbsp;</font>
-				<select class="boxstyle" name="familynum">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6+</option>
-				</select>
-				&nbsp;명
-			</td>
-		</tr>
-		<tr>
-			<td class="labelstyle"><font color="#91A800">알게된 경로&nbsp;</font><font size=2 color="gray">(중복선택 가능)</font></td>
-		</tr>
-		<tr>
-			<td>
-				<input type="checkbox" name="insta">인스타그램
-				<input type="checkbox" name="facebook">페이스북
-				<input type="checkbox" name="news">뉴스
-				<input type="checkbox" name="wom">지인추천
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input type="checkbox" name="ytube">유튜브
-				<input type="checkbox" name="ad">광고
-				<input type="checkbox" name="influencer">인플루언서
-				<input type="checkbox" name="megazine">잡지
-			</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td class="labelstyle"><font color="#91A800">추천인 코드</font></td>
-		</tr>
-		<tr>
-			<td>
-				<input class="textstyle" type="text" name="rec_code" size="40" maxlength="20">
-				<button class="buttonstyle" type="button" name="idcheck">코드확인</button>
-			</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="center">
-				<button class="buttonstyle" type="button">&nbsp;가입&nbsp;</button>
-				<button class="buttonstyle" type="button">&nbsp;취소&nbsp;</button>
-			</td>
-		</tr>
-	</table>
-	</div id="borderstyle">
-</form>
+		<main>
+			<section>회원가입</section>
+			<section>
+				<form>
+					<div class="labelstyle">아이디&nbsp;<font color="red">*</font></div>
+					<input type="text" id="id" size="45" maxlength="20">
+					&nbsp;&nbsp;
+					<button type="button" name="idcheck">중복확인</button>
 
+					<div class="labelstyle">비밀번호&nbsp;<font color="red">*</font></div>
+					<input type="password" id="pw" size="60" maxlength="20">
+					<div class="labelstyle">비밀번호 확인&nbsp;<font color="red">*</font></div>
+					<input type="password" id="pwcheck" size="60" maxlength="20">
+
+					<div class="labelstyle">이름&nbsp;<font color="red">*</font></div>
+					<input type="text" id="name" size="60" maxlength="10">
+
+					<div class="labelstyle">이메일&nbsp;<font color="red">*</font></div>
+					<input type="text" id="emailid" size="30" maxlength="50">
+					<select class="emailstyle" name="emailback">
+						<option value="@gmail.com">@gmail.com</option>
+						<option value="@naver.com">@naver.com</option>
+						<option value="@hanmail.net">@hanmail.net</option>
+						<option value="@nate.com">@nate.com</option>
+						<option value="@hotmail.com">@hotmail.com</option>
+						<option value="@yahoo.com">@yahoo.com</option>
+						<option value="">직접입력</option>
+					</select>
+
+					<div class="labelstyle">휴대번호&nbsp;<font color="red">*</font></div>
+					<input type="text" id="tel" size="60" maxlength="12">
+
+					<div class="labelstyle">성별&nbsp;<font color="red">*</font></div>
+					<input type="radio" name="gender" value="1">&nbsp;&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="2">&nbsp;&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="0">&nbsp;&nbsp;선택안함
+					<div class="labelstyle">생년월일</div>
+					<input type="text" id="birthyear" size="10" maxlength="4">&nbsp;년&nbsp;&nbsp;
+					<select class="selectstyle" name="birthmonth">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>&nbsp;월&nbsp;&nbsp;
+					<select class="selectstyle" name="birthdate">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>&nbsp;일
+
+					<div class="labelstyle">우편번호</div>
+					<input type="text" name="postcode" size="15" maxlength="6">&nbsp;&nbsp;
+					<button type="button" name="search">&nbsp;찾기&nbsp;</button>
+					<div class="labelstyle">주소</div>
+					<input type="text" name="addr1" size="60" maxlength="50">
+					<div class="labelstyle">상세주소</div>
+					<input type="text" name="addr2" size="60" maxlength="50">
+
+					<div class="labelstyle">우리집 가구원 수</div>
+					<select class="selectstyle" name="familynum">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6+</option>
+					</select>&nbsp;&nbsp;명
+
+					<div class="labelstyle">가입 경로&nbsp;<font size="2" color="gray">(중복선택 가능)</font></div>
+					<table>
+						<tr>
+							<td><input type="checkbox" name="insta">&nbsp;인스타그램&nbsp;</td>
+							<td><input type="checkbox" name="facebook">&nbsp;페이스북&nbsp;</td>
+							<td><input type="checkbox" name="news">&nbsp;유튜브&nbsp;</td>
+							<td><input type="checkbox" name="wom">&nbsp;검색&nbsp;</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="insta">&nbsp;지인추천&nbsp;</td>
+							<td><input type="checkbox" name="facebook">&nbsp;잡지/뉴스&nbsp;</td>
+							<td colspan="2"><input type="checkbox" name="etc">&nbsp;기타&nbsp;<input type="text" name="etc_txt" size="10" maxlength="20"></td>
+						</tr>
+					</table>
+
+					<div class="labelstyle">추천인 코드</div>
+					<input type="text" name="refcode" size="45" maxlength="20">&nbsp;&nbsp;
+					<button type="button" name="refcheck">코드확인</button><br><br>
+
+					<div class="bottom_btn">
+						<button type="button">&nbsp;가입&nbsp;</button>
+						<button type="button">&nbsp;취소&nbsp;</button>
+					</div>
+				</form>
+			</section>
+		</main>
+
+		<footer>
+			<div>
+				<nav>
+					<ul>
+						<li>정보 소개 |&nbsp;</li>
+						<li>밀플랜 정기구독 |&nbsp;</li>
+						<li>레시피 커뮤니티 |&nbsp;</li>
+						<li>마이 키친 |&nbsp;</li>
+						<li>로그인 |&nbsp;</li>
+						<li>회원가입</li>
+					</ul>
+				</nav>
+				<div class="foot_info">법인명<br>주소<br>카피라잇</div>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>
