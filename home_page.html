@@ -7,7 +7,7 @@
 	<style>
 		body { margin: 0; }
 		body > div {
-			width: 1440px;
+			max-width: 1920px;
 			margin: 0 auto;
 		}
 		header {
@@ -46,14 +46,16 @@
 		.nav_main li {
 			display: inline-flex;
 			align-items: center;
-			border: 1px solid lightgray;
 		}
 		.left_ul li {
-			width: 120px;
 			height: 40px;
-			padding: 0 4px;
+			padding: 0 35px 0 5px;
 			font-size: 15px;
 			font-weight: bold;
+		}
+		.left_ul li:hover {
+			background-color: #EC773F;
+			color: white;
 		}
 		.right_ul li {
 			width: 100px;
@@ -67,16 +69,16 @@
 		}
 
 		.imgslider {
-			height: 450px;
+			height: 400px;
 			background-color: khaki;
 		}
 
 		section {
 			margin: 40px auto;
-			display: flex;
 		}
 		.main_menu {
 			width: 1000px;
+			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
@@ -92,9 +94,9 @@
 			border-right: 1px solid #EC773F;
 		}
 
+		.beigebg { background-color: beige; }
 		.main_middle {
-			flex-direction: column;
-			background-color: beige;
+			width: 1000px;
 			padding-top: 30px;
 		}
 		.main_recipes {
@@ -114,6 +116,8 @@
 		}
 
 		.main_board {
+			width: 1000px;
+			display: flex;
 			justify-content: center;
 		}
 		.boardbox {
@@ -135,16 +139,21 @@
 			height: 150px;
 			display: flex;
 			justify-content: center;
+			color: white;
 		}
-		footer ul {
+		.foot_nav {
+			width: 1000px;
+			display: flex;
+			justify-content: center;
+		}
+		.foot_nav ul {
 			margin: 30px 0 0 0;
 		}
-		footer li {
+		.foot_nav li {
 			display: inline;
-			color: white;
 		}
 		.foot_info {
-			color: white;
+			width: 1000px;
 			font-size: 12px;
 			margin: 20px auto;
 			text-align: center;
@@ -185,6 +194,7 @@
 				<div class="menubox">마이 키친</div>
 			</section>
 
+			<div class="beigebg">
 			<section class="main_middle">
 				<div class="title_font">이런 레시피는 어떤가요?</div>
 				<div class="main_recipes">
@@ -192,6 +202,7 @@
 					<div class="recipes_pic">레시피 바로가기</div>
 				</div>
 			</section>
+			</div>
 
 			<section class="main_board">
 				<div class="boardbox">SNS</div>
@@ -207,7 +218,7 @@
 
 		<footer>
 			<div>
-				<nav>
+				<nav class="foot_nav">
 					<ul>
 						<li>정보 소개 |&nbsp;</li>
 						<li>밀플랜 정기구독 |&nbsp;</li>
