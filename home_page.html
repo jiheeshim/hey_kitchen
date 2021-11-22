@@ -48,9 +48,9 @@
 			align-items: center;
 		}
 		.left_ul li {
-			height: 40px;
+			height: 50px;
 			padding: 0 35px 0 5px;
-			font-size: 15px;
+			font-size: 16px;
 			font-weight: bold;
 		}
 		.left_ul li:hover {
@@ -59,7 +59,7 @@
 		}
 		.right_ul li {
 			width: 100px;
-			height: 40px;
+			height: 50px;
 			padding: 0 4px;
 			font-size: 12px;
 			text-align: right;
@@ -74,51 +74,55 @@
 		}
 
 		section {
-			margin: 40px auto;
-		}
-		.main_menu {
 			width: 1000px;
 			display: flex;
-			justify-content: space-between;
+			justify-content: center;
+		}
+		.main_menu {
+			margin: 50px auto;
 			align-items: center;
 		}
 		.menubox {
-			width: 300px;
-			height: 120px;
+			width: 250px;
+			height: 200px;
 			border: 1px solid gray;
-			margin: 0 10px;
+			margin: 0 20px;
 		}
 		.vline {
 			width: 0.1px;
-			height: 100px;
+			height: 150px;
 			border-right: 1px solid #EC773F;
 		}
 
-		.beigebg { background-color: beige; }
-		.main_middle {
-			width: 1000px;
-			padding-top: 30px;
+		.beigebg {
+			background-color: beige;
+			padding-top: 10px;
 		}
-		.main_recipes {
-			display: flex;
-			justify-content: center;
+		.main_middle {
+			margin: 0 auto;
+			border-top: 2px solid beige;
 		}
 		.title_font {
 			font-size: 30px;
 			font-weight: bold;
 			text-align: center;
+			padding: 15px 0;
+		}
+		.mealplan_pic {
+			width: 240px;
+			height: 240px;
+			margin: 20px 10px 40px 10px;
+			border: 1px solid gray;
 		}
 		.recipes_pic {
-			width: 260px;
-			height: 260px;
-			margin: 20px 20px 40px 20px;
+			width: 240px;
+			height: 300px;
+			margin: 10px 20px 40px 20px;
 			border: 1px solid gray;
 		}
 
 		.main_board {
-			width: 1000px;
-			display: flex;
-			justify-content: center;
+			margin: 50px auto;
 		}
 		.boardbox {
 			width: 180px;
@@ -194,14 +198,27 @@
 				<div class="menubox">마이 키친</div>
 			</section>
 
+			<!-- <div class="beigeborder"> -->
+				<section class="main_middle">
+					<div class="title_font">이번주 밀플랜 메뉴 미리보기</div>
+				</section>
+				<section class="main_middle">
+					<div class="mealplan_pic">밀키트1</div>
+					<div class="mealplan_pic">밀키트2</div>
+					<div class="mealplan_pic">밀키트3</div>
+					<div class="mealplan_pic">밀키트4</div>
+				</section>
+			<!-- </div> -->
+
 			<div class="beigebg">
-			<section class="main_middle">
-				<div class="title_font">이런 레시피는 어떤가요?</div>
-				<div class="main_recipes">
-					<div class="recipes_pic">레시피 바로가기</div>
-					<div class="recipes_pic">레시피 바로가기</div>
-				</div>
-			</section>
+				<section class="main_middle">
+					<div class="title_font">이런 레시피는 어떤가요?</div>
+				</section>
+				<section class="main_middle">
+					<div class="recipes_pic">가구원수 기준 레시피 추천 바로가기</div>
+					<div class="recipes_pic">조회수 기준 레시피 추천 바로가기</div>
+					<div class="recipes_pic">후기수 기준 레시피 추천 바로가기</div>
+				</section>
 			</div>
 
 			<section class="main_board">
