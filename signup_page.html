@@ -4,165 +4,90 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>헤이키친 회원가입</title>
-	<style>
-		body { margin: 0; }
-		body > div {
-			max-width: 1920px;
-			margin: 0 auto;
+	<link rel="stylesheet" type="text/css" href="signup_page_style.css">
+	<script>
+		function pointByRef(refcode) {
+			if(refcode == '') {
+				return "";
+			} else {
+				return "5000원";
+			}
 		}
-		header {
-			width: 1100px;
-			margin: 0 auto;
+		function birthday(year, month, date) {
+			if((year == '') || (month == '') || (date == '')) {
+				return "";
+			} else {
+				return year + "년 " + month + "월 " + date + "일";
+			}
 		}
-		.logo {
-			width: 96px;
-			height: 96px;
-			background-color: #EC773F;
-			margin: 8px auto;
-		}
-		.lang {
-			width: 100px;
-			font-size: 12px;
-			color: darkgray;
-			text-align: right;
-			float: right;
-		}
-		.nav_box {
-			background-color: white;
-			border-top: 1px solid black;
-			border-bottom: 1px solid black;
-			position: sticky;
-			top: 0;
-		}
-		.nav_main {
-			width: 1100px;
-			display: flex;
-			justify-content: space-between;
-			margin: 0 auto;
-		}
-		.nav_main ul {
-			margin: 0;
-		}
-		.nav_main li {
-			display: inline-flex;
-			align-items: center;
-		}
-		.left_ul li {
-			height: 40px;
-			padding: 0 35px 0 5px;
-			font-size: 15px;
-			font-weight: bold;
-		}
-		.left_ul li:hover {
-			background-color: #EC773F;
-			color: white;
-		}
-		.right_ul li {
-			width: 100px;
-			height: 40px;
-			padding: 0 4px;
-			font-size: 12px;
-			text-align: right;
-		}
-		.right_ul li:first-child {
-			width: 140px;
-		}
+		function signup(form) {
+			var txt_must = document.getElementsByClassName("txt_must"); // 필수항목 불러오기
 
-		main {
-			width: 460px;
-			margin: 0 auto;
+			// 필수항목 공백없이 입력
+			for(var i = 0; i < txt_must.length; i++) {
+				if(txt_must[i].value == '' || txt_must[i].value.includes(' ')) {
+					alert("필수항목은 공백 없이 입력해주세요.");
+					txt_must[i].focus();
+					return;
+				}
+			}
+			// 아이디, 비밀번호 6~20자리
+			if(form.id.value.length < 6) {
+				alert("아이디는 6~20자리만 입력 가능합니다.");
+				form.id.focus();
+			}
+			else if(form.pw.value.length < 6) {
+				alert("아이디는 6~20자리만 입력 가능합니다.");
+				form.pw.focus();
+			}
+			// 비밀번호 & 비밀번호 확인
+			else if(form.pw.value != form.pw2.value) {
+				alert("비밀번호 확인을 위해 동일한 비밀번호를 입력해주세요.");
+				form.pw2.focus();
+			}
+			// 이메일 주소 선택
+			else if(form.emailback.value == "") {
+				alert("이메일 주소를 선택해주세요.");
+				form.emailback.focus();
+			}
+			// 이용약관 동의
+			else if(!form.agree_service.checked || !form.agree_privacy.checked) {
+				alert("필수 약관에 동의하셔야 가입이 가능합니다.");
+			}
+			else {
+				alert("회원가입이 완료되었습니다."
+					+ "\n아이디 : " + form.id.value
+					+ "\n비밀번호 : " + form.pw.value
+					+ "\n이름 : " + form.name.value
+					+ "\n이메일 : " + form.emailid.value + form.emailback.value
+					+ "\n휴대번호 : " + form.tel.value
+					+ "\n성별 : " + form.gender.value
+					+ "\n생년월일 : " + birthday(form.birthyear.value, form.birthmonth.value, form.birthdate.value)
+					+ "\n우편번호 : " + form.postcode.value
+					+ "\n주소 : " + form.addr1.value + " " + form.addr2.value
+					+ "\n가구원 수 : " + form.familynum.value
+					+ "\n적립금 : " + pointByRef(form.refcode.value));
+				}
 		}
-		main section:first-child {
-			font-size: 25px;
-			font-weight: bold;
-			text-align: center;
-			padding: 40px 0;
-			border-bottom: 2px solid black;
-			margin: 20px 0;
+		function checkAll(form) {
+			if(form.agree_all.checked) {
+				form.agree_service.checked = true;
+				form.agree_privacy.checked = true;
+				form.agree_marketing.checked = true;
+			}
+			// else if(!form.agree_service.checked || !form.agree_privacy.checked || !form.agree_marketing.checked) {
+			// 	form.agree_all.checked = false;
+			// }
+			else if(!form.agree_all.checked) {
+				form.agree_service.checked = false;
+				form.agree_privacy.checked = false;
+				form.agree_marketing.checked = false;
+			}
+			else {
+				form.agree_all.checked = false;
+			}
 		}
-		.labelstyle, input[type="radio"] {
-			font-weight: bold;
-			margin: 10px 0;
-		}
-		input[type="text"], input[type="password"] {
-			border: 1px solid black;
-			border-radius: 4px;
-			height: 30px;
-		}
-		input[type="text"]:focus, input[type="password"]:focus {
-			outline-color: #EC773F;
-		}
-		table input[type="text"] {
-			border-top: none;
-			border-left: none;
-			border-right: none;
-			border-radius: 0;
-			height: 20px;
-		}
-		.underlinetxt {
-			border-top: none;
-			border-left: none;
-			border-right: none;
-			height: 20px;
-		}
-		button {
-			height: 40px;
-			border-radius: 30px 10px;
-			border-color: white;
-			background-color: #FFAE87;;
-			padding: 5px 15px;
-			text-align: center;
-			font-weight: bold;
-		}
-		button:hover {
-			background-color: #EC773F;
-		}
-		.emailstyle {
-			width: 198px;
-			height: 35px;
-			border: 1px solid black;
-			border-radius: 4px;
-			margin-left: 6px;
-		}
-		.selectstyle {
-			width: 80px;
-			height: 35px;
-			text-align: center;
-			border: 1px solid black;
-			border-radius: 4px;
-		}
-		.bottom_btn {
-			display: flex;
-			justify-content: center;
-		}
-
-		footer {
-			background-color: #EC773F;
-			margin: 60px auto 0 auto;
-			height: 150px;
-			display: flex;
-			justify-content: center;
-			color: white;
-		}
-		.foot_nav {
-			width: 1000px;
-			display: flex;
-			justify-content: center;
-		}
-		.foot_nav ul {
-			margin: 30px 0 0 0;
-		}
-		.foot_nav li {
-			display: inline;
-		}
-		.foot_info {
-			width: 1000px;
-			font-size: 12px;
-			margin: 20px auto;
-			text-align: center;
-		}
-
-	</style>
+	</script>
 </head>
 <body>
 	<div>
@@ -191,40 +116,41 @@
 			<section>
 				<form>
 					<div class="labelstyle">아이디&nbsp;<font color="red">*</font></div>
-					<input type="text" id="id" size="45" maxlength="20">
+					<input class="txt_must" type="text" id="id" size="45" maxlength="20">
 					&nbsp;&nbsp;
 					<button type="button" name="idcheck">중복확인</button>
 
 					<div class="labelstyle">비밀번호&nbsp;<font color="red">*</font></div>
-					<input type="password" id="pw" size="60" maxlength="20">
+					<input class="txt_must" type="password" id="pw" size="60" maxlength="20">
 					<div class="labelstyle">비밀번호 확인&nbsp;<font color="red">*</font></div>
-					<input type="password" id="pwcheck" size="60" maxlength="20">
+					<input class="txt_must" type="password" id="pw2" size="60" maxlength="20">
 
 					<div class="labelstyle">이름&nbsp;<font color="red">*</font></div>
-					<input type="text" id="name" size="60" maxlength="10">
+					<input class="txt_must" type="text" id="name" size="60" maxlength="10">
 
 					<div class="labelstyle">이메일&nbsp;<font color="red">*</font></div>
-					<input type="text" id="emailid" size="30" maxlength="50">
+					<input class="txt_must" type="text" id="emailid" size="30" maxlength="50">
 					<select class="emailstyle" name="emailback">
+						<option></option>
 						<option value="@gmail.com">@gmail.com</option>
 						<option value="@naver.com">@naver.com</option>
 						<option value="@hanmail.net">@hanmail.net</option>
 						<option value="@nate.com">@nate.com</option>
 						<option value="@hotmail.com">@hotmail.com</option>
 						<option value="@yahoo.com">@yahoo.com</option>
-						<option value="">직접입력</option>
 					</select>
 
 					<div class="labelstyle">휴대번호&nbsp;<font color="red">*</font></div>
-					<input type="text" id="tel" size="60" maxlength="12">
+					<input class="txt_must" type="text" id="tel" size="60" maxlength="12">
 
 					<div class="labelstyle">성별&nbsp;<font color="red">*</font></div>
-					<input type="radio" name="gender" value="1">&nbsp;&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="gender" value="2">&nbsp;&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="gender" value="0">&nbsp;&nbsp;선택안함
+					<input type="radio" name="gender" value="남자">&nbsp;&nbsp;남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="여자">&nbsp;&nbsp;여자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="선택 안함" checked>&nbsp;&nbsp;선택안함
 					<div class="labelstyle">생년월일</div>
 					<input type="text" id="birthyear" size="10" maxlength="4">&nbsp;년&nbsp;&nbsp;
 					<select class="selectstyle" name="birthmonth">
+						<option></option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -239,6 +165,7 @@
 						<option value="12">12</option>
 					</select>&nbsp;월&nbsp;&nbsp;
 					<select class="selectstyle" name="birthdate">
+						<option></option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -282,6 +209,7 @@
 
 					<div class="labelstyle">우리집 가구원 수</div>
 					<select class="selectstyle" name="familynum">
+						<option></option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -294,9 +222,42 @@
 					<input type="text" name="refcode" size="45" maxlength="20">&nbsp;&nbsp;
 					<button type="button" name="refcheck">코드확인</button><br><br>
 
+					<hr><br>
+
+					<div class="labelstyle">< 이용 약관 동의 ></div>
+					<p><input type="checkbox" id="agree_all" onchange="checkAll(this.form)">
+					<span class="labelstyle">전체 동의합니다.</span></p>
+
+					<p><input type="checkbox" id="agree_service"> (필수) 서비스 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p>
+
+					<p><input type="checkbox" id="agree_privacy"> (필수) 개인정보 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p>
+
+					<p><input type="checkbox" id="agree_marketing"> (선택) 마케팅 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p><br>
+				
 					<div class="bottom_btn">
-						<button type="button">&nbsp;가입&nbsp;</button>
-						<button type="button">&nbsp;취소&nbsp;</button>
+						<button type="button" onclick="signup(this.form)">&nbsp;가입&nbsp;</button>
+						<button type="button" onclick="location.href='home_page.html'">&nbsp;취소&nbsp;</button>
 					</div>
 				</form>
 			</section>
