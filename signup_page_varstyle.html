@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>헤이키친 회원가입</title>
+	<link rel="stylesheet" type="text/css" href="signup_page_style.css">
+	<script>
+		function pointByRef(refcode) {
+			if(refcode == '') {
+				return "";
+			} else {
+				return "5000원";
+			}
+		}
+		function birthday(year, month, date) {
+			if((year == '') || (month == '') || (date == '')) {
+				return "";
+			} else {
+				return year + "년 " + month + "월 " + date + "일";
+			}
+		}
+		function signup() {
+			var must_info = document.querySelectorAll(".label_must + input"); // 필수항목 불러오기
+			var chkbox = document.querySelectorAll("input[type='checkbox']"); // 약관 체크박스 불러오기
+			var emailback = document.getElementById("emailback");
+			var gender = document.querySelectorAll("input[name='gender']");
+			var gender_chk = "";
+			var birthyear = document.getElementById("birthyear");
+			var birthmonth = document.getElementById("birthmonth");
+			var birthdate = document.getElementById("birthdate");
+			var postcode = document.getElementById("postcode");
+			var addr1 = document.getElementById("addr1");
+			var addr2 = document.getElementById("addr2");
+			var familynum = document.getElementById("familynum");
+			var refcode = document.getElementById("refcode");
+
+			// 성별 체크된 항목 불러오기
+			for(var i = 0; i < gender.length; i++) {
+				if(gender[i].checked) {
+					gender_chk = gender[i].value
+				}
+			}
+
+			// 필수항목 공백없이 입력
+			for(var i = 0; i < must_info.length; i++) {
+				if(must_info[i].value == '' || must_info[i].value.includes(' ')) {
+					alert("필수항목은 공백 없이 입력해주세요.");
+					must_info[i].focus();
+					return;
+				}
+			}
+			// 아이디, 비밀번호 6~20자리
+			if(must_info[0].value.length < 6) {
+				alert("아이디는 6~20자리만 입력 가능합니다.");
+				must_info[0].focus();
+			}
+			else if(must_info[1].value.length < 6) {
+				alert("비밀번호는 6~20자리만 입력 가능합니다.");
+				must_info[1].focus();
+			}
+			// 비밀번호 & 비밀번호 확인
+			else if(must_info[1].value != must_info[2].value) {
+				alert("비밀번호 확인을 위해 동일한 비밀번호를 입력해주세요.");
+				must_info[2].focus();
+			}
+			// 이메일 주소 선택
+			else if(emailback.value == "") {
+				alert("이메일 주소를 선택해주세요.");
+				emailback.focus();
+			}
+			// 이용약관 동의
+			else if(!chkbox[0].checked || !chkbox[1].checked) {
+				alert("필수 약관에 동의하셔야 가입이 가능합니다.");
+			}
+			else {
+				alert("회원가입이 완료되었습니다."
+					+ "\n아이디 : " + must_info[0].value
+					+ "\n비밀번호 : " + must_info[1].value
+					+ "\n이름 : " + must_info[3].value
+					+ "\n이메일 : " + must_info[4].value + emailback.value
+					+ "\n휴대번호 : " + must_info[5].value
+					+ "\n성별 : " + gender_chk
+					+ "\n생년월일 : " + birthday(birthyear.value, birthmonth.value, birthdate.value)
+					+ "\n우편번호 : " + postcode.value
+					+ "\n주소 : " + addr1.value + " " + addr2.value
+					+ "\n가구원 수 : " + familynum.value
+					+ "\n적립금 : " + pointByRef(refcode.value));
+				}
+		}
+		function cancel() {
+			if(confirm("돌아가시겠습니까?") == true) {
+				location.href = "home_page.html";
+			} else {
+				return;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<header>
+			<div class="lang">한국어 | English</div>
+			<div class="logo">로고</div>
+		</header>
+
+		<div class="nav_box">
+			<nav class="nav_main">
+				<ul class="left_ul">
+					<li>정보 소개</li>
+					<li>밀플랜 정기구독</li>
+					<li>레시피 커뮤니티</li>
+					<li>마이 키친</li>
+				</ul>
+				<ul class="right_ul">
+					<li>레시피 검색</li>
+					<li>로그인/회원가입</li>
+				</ul>
+			</nav>
+		</div>
+
+		<main>
+			<section>회원가입</section>
+			<section>
+				<form>
+					<div class="label_must">아이디&nbsp;<font>*</font></div>
+					<input type="text" id="id" size="45" maxlength="20">
+					&nbsp;&nbsp;
+					<button type="button" name="idcheck">중복확인</button>
+
+					<div class="label_must">비밀번호&nbsp;<font>*</font></div>
+					<input type="password" id="pw" size="60" maxlength="20">
+					<div class="label_must">비밀번호 확인&nbsp;<font>*</font></div>
+					<input type="password" id="pw2" size="60" maxlength="20">
+
+					<div class="label_must">이름&nbsp;<font>*</font></div>
+					<input type="text" id="name" size="60" maxlength="10">
+
+					<div class="label_must">이메일&nbsp;<font>*</font></div>
+					<input type="text" id="emailid" size="30" maxlength="50">
+					<select class="emailstyle" id="emailback">
+						<option></option>
+						<option value="@gmail.com">@gmail.com</option>
+						<option value="@naver.com">@naver.com</option>
+						<option value="@hanmail.net">@hanmail.net</option>
+						<option value="@nate.com">@nate.com</option>
+						<option value="@hotmail.com">@hotmail.com</option>
+						<option value="@yahoo.com">@yahoo.com</option>
+					</select>
+
+					<div class="label_must">휴대번호&nbsp;<font>*</font></div>
+					<input type="text" id="tel" size="60" maxlength="12">
+
+					<div class="labelstyle">성별&nbsp;</div>
+					<input type="radio" name="gender" value="남자">남자&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="여자">여자&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="gender" value="">선택 안함&nbsp;&nbsp;&nbsp;&nbsp;
+					<div class="labelstyle">생년월일</div>
+					<input type="text" id="birthyear" size="10" maxlength="4">&nbsp;년&nbsp;&nbsp;
+					<select class="selectstyle" id="birthmonth">
+						<option></option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>&nbsp;월&nbsp;&nbsp;
+					<select class="selectstyle" id="birthdate">
+						<option></option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select>&nbsp;일
+
+					<div class="labelstyle">우편번호</div>
+					<input type="text" id="postcode" size="15" maxlength="6">&nbsp;&nbsp;
+					<button type="button" name="search">&nbsp;찾기&nbsp;</button>
+					<div class="labelstyle">주소</div>
+					<input type="text" id="addr1" size="60" maxlength="50">
+					<div class="labelstyle">상세주소</div>
+					<input type="text" id="addr2" size="60" maxlength="50">
+
+					<div class="labelstyle">우리집 가구원 수</div>
+					<select class="selectstyle" id="familynum">
+						<option></option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6+</option>
+					</select>&nbsp;&nbsp;명
+
+					<div class="labelstyle">추천인 코드</div>
+					<input type="text" id="refcode" size="45" maxlength="20">&nbsp;&nbsp;
+					<button type="button" name="refcheck">코드확인</button><br><br>
+
+					<hr><br>
+
+					<div class="labelstyle">< 이용 약관 동의 ></div>
+
+					<p><input type="checkbox" id="agree_service"> (필수) 서비스 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p>
+
+					<p><input type="checkbox" id="agree_privacy"> (필수) 개인정보 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p>
+
+					<p><input type="checkbox" id="agree_marketing"> (선택) 마케팅 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p><br>
+				
+					<div class="bottom_btn">
+						<button type="button" onclick="signup()">&nbsp;가입&nbsp;</button>
+						<button type="button" onclick="cancel()">&nbsp;취소&nbsp;</button>
+					</div>
+				</form>
+			</section>
+		</main>
+
+		<footer>
+			<div>
+				<nav class="foot_nav">
+					<ul>
+						<li>정보 소개 |&nbsp;</li>
+						<li>밀플랜 정기구독 |&nbsp;</li>
+						<li>레시피 커뮤니티 |&nbsp;</li>
+						<li>마이 키친 |&nbsp;</li>
+						<li>로그인 |&nbsp;</li>
+						<li>회원가입</li>
+					</ul>
+				</nav>
+				<div class="foot_info">법인명<br>주소<br>카피라잇</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

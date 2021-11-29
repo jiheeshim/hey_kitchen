@@ -77,24 +77,23 @@ main section:first-child {
 	border-bottom: 2px solid black;
 	margin: 20px auto;
 }
-.labelstyle, input[type="radio"] {
+.labelstyle, .label_must {
 	font-weight: bold;
 	margin: 10px 0;
+}
+input[type="radio"] {
+	margin: 10px 10px 10px 0;
+}
+.label_must > font {
+	color: red;
 }
 input[type="text"], input[type="password"] {
 	border: 1px solid black;
 	border-radius: 4px;
 	height: 30px;
 }
-input[type="text"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, input[type="password"]:focus, .emailstyle:focus {
 	outline-color: #EC773F;
-}
-table input[type="text"] {
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	border-radius: 0;
-	height: 20px;
 }
 button {
 	height: 40px;
