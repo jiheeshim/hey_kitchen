@@ -20,27 +20,9 @@
 				return year + "년 " + month + "월 " + date + "일";
 			}
 		}
-		function signup() {
+		function signup(form) {
 			var must_info = document.querySelectorAll(".label_must + input"); // 필수항목 불러오기
 			var chkbox = document.querySelectorAll("input[type='checkbox']"); // 약관 체크박스 불러오기
-			var emailback = document.getElementById("emailback");
-			var gender = document.querySelectorAll("input[name='gender']");
-			var gender_chk = "";
-			var birthyear = document.getElementById("birthyear");
-			var birthmonth = document.getElementById("birthmonth");
-			var birthdate = document.getElementById("birthdate");
-			var postcode = document.getElementById("postcode");
-			var addr1 = document.getElementById("addr1");
-			var addr2 = document.getElementById("addr2");
-			var familynum = document.getElementById("familynum");
-			var refcode = document.getElementById("refcode");
-
-			// 성별 체크된 항목 불러오기
-			for(var i = 0; i < gender.length; i++) {
-				if(gender[i].checked) {
-					gender_chk = gender[i].value
-				}
-			}
 
 			// 필수항목 공백없이 입력
 			for(var i = 0; i < must_info.length; i++) {
@@ -65,9 +47,9 @@
 				must_info[2].focus();
 			}
 			// 이메일 주소 선택
-			else if(emailback.value == "") {
+			else if(form.emailback.value == "") {
 				alert("이메일 주소를 선택해주세요.");
-				emailback.focus();
+				form.emailback.focus();
 			}
 			// 이용약관 동의
 			else if(!chkbox[0].checked || !chkbox[1].checked) {
@@ -78,14 +60,14 @@
 					+ "\n아이디 : " + must_info[0].value
 					+ "\n비밀번호 : " + must_info[1].value
 					+ "\n이름 : " + must_info[3].value
-					+ "\n이메일 : " + must_info[4].value + emailback.value
+					+ "\n이메일 : " + must_info[4].value + form.emailback.value
 					+ "\n휴대번호 : " + must_info[5].value
-					+ "\n성별 : " + gender_chk
-					+ "\n생년월일 : " + birthday(birthyear.value, birthmonth.value, birthdate.value)
-					+ "\n우편번호 : " + postcode.value
-					+ "\n주소 : " + addr1.value + " " + addr2.value
-					+ "\n가구원 수 : " + familynum.value
-					+ "\n적립금 : " + pointByRef(refcode.value));
+					+ "\n성별 : " + form.gender.value
+					+ "\n생년월일 : " + birthday(form.birthyear.value, form.birthmonth.value, form.birthdate.value)
+					+ "\n우편번호 : " + form.postcode.value
+					+ "\n주소 : " + form.addr1.value + " " + form.addr2.value
+					+ "\n가구원 수 : " + form.familynum.value
+					+ "\n적립금 : " + pointByRef(form.refcode.value));
 				}
 		}
 		function cancel() {
@@ -262,7 +244,7 @@
 					</textarea></p><br>
 				
 					<div class="bottom_btn">
-						<button type="button" onclick="signup()">&nbsp;가입&nbsp;</button>
+						<button type="button" onclick="signup(this.form)">&nbsp;가입&nbsp;</button>
 						<button type="button" onclick="cancel()">&nbsp;취소&nbsp;</button>
 					</div>
 				</form>
