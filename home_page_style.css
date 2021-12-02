@@ -10,7 +10,8 @@ header {
 .logo {
 	width: 200px;
 	height: 96px;
-	background-color: #EC773F;
+	background-color: #FF5D49;
+	color: white;
 	margin: 8px auto;
 }
 .lang {
@@ -37,9 +38,12 @@ header {
 .nav_main ul {
 	margin: 0;
 }
-a:link, a:visited {
+.nav_box a:link, .nav_box a:visited {
 	text-decoration: none;
 	color: black;
+}
+.level1 > a {
+	border-bottom: 2px solid white;
 }
 .level1 {
 	height: 50px;
@@ -58,11 +62,11 @@ a:link, a:visited {
 .level2 > div {
 	position: absolute;
 	top: 0;
-	left: -20px;
-	padding: 10px 20px;
+	left: -8px;
+	padding: 5px 20px;
 	background-color: white;
 	box-shadow: 5px 5px gray;
-	border: 1px solid #EC773F;
+	border: 1px solid #FF5D49;
 }
 .level2_wrapper {
 	width: 180px;
@@ -119,16 +123,22 @@ section {
 .vline {
 	width: 0.1px;
 	height: 100px;
-	border-right: 1px solid #EC773F;
+	border-right: 1px solid #FF5D49;
 }
 
-.beigebg {
-	background-color: beige;
-	padding-top: 10px;
+.backgroundbox {
+	background-color: #f7f7f7;
+	padding-top: 1px;
 }
-.main_middle {
-	margin: 0 auto;
-	border-top: 2px solid beige;
+.maintitle {
+	margin: 30px auto 10px auto;
+}
+.maincontent {
+	margin: 0 auto 30px auto;
+}
+main > .maintitle {
+	border-top: 2px solid gray;
+	border-bottom: 2px solid gray;
 }
 .title_font {
 	font-size: 30px;
@@ -138,7 +148,6 @@ section {
 }
 .mealplan_menu {
 	width: 1000px;
-	border-top: 2px solid beige;
 	margin: 0 auto 20px auto;
 	padding: 20px 0;
 }
@@ -146,7 +155,7 @@ section {
 .recipes_pic {
 	width: 240px;
 	height: 280px;
-	margin: 10px 15px 40px 15px;
+	margin: 0 15px 40px 15px;
 	border: 3px solid white;
 	overflow: hidden;
 }
@@ -157,9 +166,6 @@ section {
 	transform: scale(1.2);
 }
 
-.main_board {
-	margin: 50px auto;
-}
 .boardbox {
 	width: 180px;
 	height: 300px;
@@ -174,7 +180,7 @@ section {
 }
 
 footer {
-	background-color: #EC773F;
+	background-color: #FF5D49;
 	margin: 60px auto 0 auto;
 	height: 150px;
 	display: flex;

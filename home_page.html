@@ -15,12 +15,12 @@
 		$(function() {
 			$(".level2_wrapper, .level2_wrapperL").hide();
 			$(".level1").hover(function() {
-				$(this).css("background-color", "#EC773F");
-				$(this).children("a").css("color", "white");
+				$(this).children("a").css("color", "#FF5D49");
+				$(this).children("a").css("border-bottom", "2px solid #FF5D49");
 				$(this).find(".level2_wrapper, .level2_wrapperL").slideDown("fast");
 			}, function() {
-				$(this).css("background-color", "white");
 				$(this).children("a").css("color", "black");
+				$(this).children("a").css("border-bottom", "2px solid white");
 				$(this).find(".level2_wrapper, .level2_wrapperL").hide();
 			});
 			$('#demo1').skdslider({
@@ -43,7 +43,6 @@
 </head>
 
 <body>
-	<!-- test -->
 	<div>
 		<header>
 			<div class="lang">한국어 | English</div>
@@ -217,7 +216,7 @@
 				<div class="menubox">마이 키친</div>
 			</section>
 
-			<section class="main_middle">
+			<section class="maintitle">
 				<div class="title_font">이번주 밀플랜 메뉴 미리보기</div>
 			</section>
 
@@ -232,11 +231,11 @@
 				</div>
 			</div>
 
-			<div class="beigebg">
-				<section class="main_middle">
+			<div class="backgroundbox">
+				<section class="maintitle">
 					<div class="title_font">이런 레시피는 어떤가요?</div>
 				</section>
-				<section class="main_middle">
+				<section class="maincontent">
 					<div class="recipes_pic">
 						<a href="#"><img src="http://placehold.it/240x280" /></a> <!-- 가구원수 기준 레시피 추천 바로가기 -->
 					</div>
@@ -249,7 +248,7 @@
 				</section>
 			</div>
 
-			<section class="main_board">
+			<section class="main_menu">
 				<div class="boardbox">SNS</div>
 				<div class="boardbox">
 					이벤트<br><br>
