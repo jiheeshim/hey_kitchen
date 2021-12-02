@@ -8,10 +8,10 @@ header {
 	margin: 0 auto;
 }
 .logo {
-	width: 200px;
-	height: 96px;
-	background-color: #FF5D49;
-	color: white;
+	width: 320px;
+	height: 80px;
+	/*background-color: #FF5D49;
+	color: white;*/
 	margin: 8px auto;
 }
 .lang {
