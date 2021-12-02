@@ -6,9 +6,10 @@
 	<title>HEY KITCHEN</title>
 	<link rel="stylesheet" type="text/css" href="home_page_style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<link href="skdslider.css" rel="stylesheet">
+    <script src="skdslider.min.js"></script>
 	<script>
 		$(function() {
-			// 슬라이드 메뉴바
 			$(".level2_wrapper, .level2_wrapperL").hide();
 			$(".level1").hover(function() {
 				$(this).css("background-color", "#EC773F");
@@ -18,6 +19,16 @@
 				$(this).css("background-color", "white");
 				$(this).children("a").css("color", "black");
 				$(this).find(".level2_wrapper, .level2_wrapperL").hide();
+			});
+			$('#demo1').skdslider({
+				slideSelector: '.slide',
+				delay:5000,
+				animationSpeed: 1000,
+				showNextPrev:true,
+				showPlayButton:false,
+				autoSlide:true,
+				animationType:'fading',
+				pauseOnHover: true
 			});
 		});
 	</script>
@@ -63,93 +74,93 @@
 									<a href="#">삼시네끼</a>
 									<ul class="level3">
 										<li>></li>
-										<li>아침</li>
+										<li><a href="#">아침</a></li>
 										<li>|</li>
-										<li>점심</li>
+										<li><a href="#">점심</a></li>
 										<li>|</li>
-										<li>저녁</li>
+										<li><a href="#">저녁</a></li>
 										<li>|</li>
-										<li>간식</li>
+										<li><a href="#">간식</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">디쉬</a>
 									<ul class="level3">
 										<li>></li>
-										<li>애피타이저</li>
+										<li><a href="#">애피타이저</a></li>
 										<li>|</li>
-										<li>메인</li>
+										<li><a href="#">메인</a></li>
 										<li>|</li>
-										<li>반찬</li>
+										<li><a href="#">반찬</a></li>
 										<li>|</li>
-										<li>후식</li>
+										<li><a href="#">후식</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">전세계</a>
 									<ul class="level3">
 										<li>></li>
-										<li>한식</li>
+										<li><a href="#">한식</a></li>
 										<li>|</li>
-										<li>양식</li>
+										<li><a href="#">양식</a></li>
 										<li>|</li>
-										<li>중식</li>
+										<li><a href="#">중식</a></li>
 										<li>|</li>
-										<li>일식</li>
+										<li><a href="#">일식</a></li>
 										<li>|</li>
-										<li>유럽</li>
+										<li><a href="#">유럽</a></li>
 										<li>|</li>
-										<li>동남아</li>
+										<li><a href="#">동남아</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">다이어트</a>
 									<ul class="level3">
 										<li>></li>
-										<li>비건</li>
+										<li><a href="#">비건</a></li>
 										<li>|</li>
-										<li>베지테리언</li>
+										<li><a href="#">베지테리언</a></li>
 										<li>|</li>
-										<li>로칼로리</li>
+										<li><a href="#">로칼로리</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">특별한 날</a>
 									<ul class="level3">
 										<li>></li>
-										<li>단체 식사</li>
+										<li><a href="#">단체 식사</a></li>
 										<li>|</li>
-										<li>명절</li>
+										<li><a href="#">명절</a></li>
 										<li>|</li>
-										<li>크리스마스</li>
+										<li><a href="#">크리스마스</a></li>
 										<li>|</li>
-										<li>할로윈</li>
+										<li><a href="#">할로윈</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">베이킹</a>
 									<ul class="level3">
 										<li>></li>
-										<li>쿠키</li>
+										<li><a href="#">쿠키</a></li>
 										<li>|</li>
-										<li>케이크</li>
+										<li><a href="#">케이크</a></li>
 										<li>|</li>
-										<li>타르트</li>
+										<li><a href="#">타르트</a></li>
 										<li>|</li>
-										<li>빵</li>
+										<li><a href="#">빵</a></li>
 										<li>|</li>
-										<li>디저트</li>
+										<li><a href="#">디저트</a></li>
 									</ul>
 								</li>
 								<li>
 									<a href="#">음료</a>
 									<ul class="level3">
 										<li>></li>
-										<li>스무디</li>
+										<li><a href="#">스무디</a></li>
 										<li>|</li>
-										<li>칵테일</li>
+										<li><a href="#">칵테일</a></li>
 										<li>|</li>
-										<li>기타</li>
+										<li><a href="#">기타</a></li>
 									</ul>
 								</li>
 							</div>
@@ -175,7 +186,19 @@
 		</div>
 
 		<main>
-			<article><div class="imgslider">이미지 슬라이더</div></article>
+			<div id="imageslider">
+				<div id="demo1">
+					<div class="slide">
+						<img src="http://placehold.it/1920x400" />
+					</div>
+					<div class="slide">
+						<img src="http://placehold.it/1920x400" />
+					</div>
+					<div class="slide">
+						<img src="http://placehold.it/1920x400" />
+					</div>
+				</div>
+			</div>
 
 			<section class="main_menu">
 				<div class="menubox">밀플랜</div>

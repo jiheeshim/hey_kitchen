@@ -96,9 +96,9 @@ a:link, a:visited {
 	width: 140px;
 }
 
-.imgslider {
-	height: 400px;
-	background-color: khaki;
+#imageslider {
+	display: flex;
+	justify-content: center;
 }
 
 section {
