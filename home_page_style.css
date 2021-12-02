@@ -136,12 +136,19 @@ section {
 	text-align: center;
 	padding: 15px 0;
 }
-.mealplan_pic {
+/*.mealplan_pic {
 	width: 240px;
 	height: 240px;
 	margin: 20px 10px 40px 10px;
 	border: 1px solid gray;
+}*/
+.mealplan_menu {
+	width: 1000px;
+	border-top: 2px solid beige;
+	margin: 0 auto 20px auto;
+	padding: 20px 0;
 }
+
 .recipes_pic {
 	width: 240px;
 	height: 300px;

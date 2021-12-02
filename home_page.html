@@ -8,6 +8,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<link href="skdslider.css" rel="stylesheet">
     <script src="skdslider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
 	<script>
 		$(function() {
 			$(".level2_wrapper, .level2_wrapperL").hide();
@@ -29,6 +32,11 @@
 				autoSlide:true,
 				animationType:'fading',
 				pauseOnHover: true
+			});
+			$('.lazy').slick({
+			  lazyLoad: 'ondemand',
+			  slidesToShow: 4,
+			  slidesToScroll: 1
 			});
 		});
 	</script>
@@ -211,12 +219,16 @@
 			<section class="main_middle">
 				<div class="title_font">이번주 밀플랜 메뉴 미리보기</div>
 			</section>
-			<section class="main_middle">
-				<div class="mealplan_pic">밀키트1</div>
-				<div class="mealplan_pic">밀키트2</div>
-				<div class="mealplan_pic">밀키트3</div>
-				<div class="mealplan_pic">밀키트4</div>
-			</section>
+
+			<div class="mealplan_menu">
+				<div class="lazy">
+						<div><img data-lazy="http://placehold.it/240x280" /></div>
+						<div><img data-lazy="http://placehold.it/240x280" /></div>
+						<div><img data-lazy="http://placehold.it/240x280" /></div>
+						<div><img data-lazy="http://placehold.it/240x280" /></div>
+						<div><img data-lazy="http://placehold.it/240x280" /></div>
+				</div>
+			</div>
 
 			<div class="beigebg">
 				<section class="main_middle">
