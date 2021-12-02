@@ -4,165 +4,23 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>HEY KITCHEN</title>
-	<style>
-		body { margin: 0; }
-		body > div {
-			max-width: 1920px;
-			margin: 0 auto;
-		}
-		header {
-			width: 1100px;
-			margin: 0 auto;
-		}
-		.logo {
-			width: 96px;
-			height: 96px;
-			background-color: #EC773F;
-			margin: 8px auto;
-		}
-		.lang {
-			width: 100px;
-			font-size: 12px;
-			color: darkgray;
-			text-align: right;
-			float: right;
-		}
-		.nav_box {
-			background-color: white;
-			border-top: 1px solid black;
-			border-bottom: 1px solid black;
-			position: sticky;
-			top: 0;
-		}
-		.nav_main {
-			width: 1100px;
-			display: flex;
-			justify-content: space-between;
-			margin: 0 auto;
-		}
-		.nav_main ul {
-			margin: 0;
-		}
-		.nav_main li {
-			display: inline-flex;
-			align-items: center;
-		}
-		.left_ul li {
-			height: 50px;
-			padding: 0 35px 0 5px;
-			font-size: 16px;
-			font-weight: bold;
-		}
-		.left_ul li:hover {
-			background-color: #EC773F;
-			color: white;
-		}
-		.right_ul li {
-			width: 100px;
-			height: 50px;
-			padding: 0 4px;
-			font-size: 12px;
-			text-align: right;
-		}
-		.right_ul li:first-child {
-			width: 140px;
-		}
-
-		.imgslider {
-			height: 400px;
-			background-color: khaki;
-		}
-
-		section {
-			width: 1000px;
-			display: flex;
-			justify-content: center;
-		}
-		.main_menu {
-			margin: 50px auto;
-			align-items: center;
-		}
-		.menubox {
-			width: 250px;
-			height: 200px;
-			border: 1px solid gray;
-			margin: 0 20px;
-		}
-		.vline {
-			width: 0.1px;
-			height: 150px;
-			border-right: 1px solid #EC773F;
-		}
-
-		.beigebg {
-			background-color: beige;
-			padding-top: 10px;
-		}
-		.main_middle {
-			margin: 0 auto;
-			border-top: 2px solid beige;
-		}
-		.title_font {
-			font-size: 30px;
-			font-weight: bold;
-			text-align: center;
-			padding: 15px 0;
-		}
-		.mealplan_pic {
-			width: 240px;
-			height: 240px;
-			margin: 20px 10px 40px 10px;
-			border: 1px solid gray;
-		}
-		.recipes_pic {
-			width: 240px;
-			height: 300px;
-			margin: 10px 20px 40px 20px;
-			border: 1px solid gray;
-		}
-
-		.main_board {
-			margin: 50px auto;
-		}
-		.boardbox {
-			width: 180px;
-			height: 300px;
-			margin: 0 15px;
-			border: 1px solid gray;
-		}
-		.banner {
-			width: 150px;
-			height: 100px;
-			margin: 0 auto;
-			border: 1px solid gray;
-		}
-
-		footer {
-			background-color: #EC773F;
-			margin: 60px auto 0 auto;
-			height: 150px;
-			display: flex;
-			justify-content: center;
-			color: white;
-		}
-		.foot_nav {
-			width: 1000px;
-			display: flex;
-			justify-content: center;
-		}
-		.foot_nav ul {
-			margin: 30px 0 0 0;
-		}
-		.foot_nav li {
-			display: inline;
-		}
-		.foot_info {
-			width: 1000px;
-			font-size: 12px;
-			margin: 20px auto;
-			text-align: center;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="home_page_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		$(function() {
+			// 슬라이드 메뉴바
+			$(".level2_wrapper, .level2_wrapperL").hide();
+			$(".level1").hover(function() {
+				$(this).css("background-color", "#EC773F");
+				$(this).children("a").css("color", "white");
+				$(this).find(".level2_wrapper, .level2_wrapperL").slideDown("fast");
+			}, function() {
+				$(this).css("background-color", "white");
+				$(this).children("a").css("color", "black");
+				$(this).find(".level2_wrapper, .level2_wrapperL").hide();
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -175,10 +33,139 @@
 		<div class="nav_box">
 			<nav class="nav_main">
 				<ul class="left_ul">
-					<li>정보 소개</li>
-					<li>밀플랜 정기구독</li>
-					<li>레시피 커뮤니티</li>
-					<li>마이 키친</li>
+					<li class="level1">
+						<a href="#">정보 소개</a>
+						<ul class="level2">
+							<div class="level2_wrapper">
+								<li><a href="#">기획 의도</a></li>
+								<li><a href="#">웹사이트 소개</a></li>
+								<li><a href="#">회사 소개</a></li>
+								<li><a href="#">밀키트가 만들어지는<br>과정을 알고 싶다면?</a></li>
+							</div>
+						</ul>
+					</li>
+					<li class="level1">
+						<a href="#">밀플랜 정기구독</a>
+						<ul class="level2">
+							<div class="level2_wrapper">
+								<li><a href="#">구독하기</a></li>
+								<li><a href="#">메뉴 선택</a></li>
+								<li><a href="#">밀플랜 레시피</a></li>
+								<li><a href="#">밀플랜 구독관리</a></li>
+							</div>
+						</ul>
+					</li>
+					<li class="level1">
+						<a href="#">레시피 커뮤니티</a>
+						<ul class="level2">
+							<div class="level2_wrapperL">
+								<li>
+									<a href="#">삼시네끼</a>
+									<ul class="level3">
+										<li>></li>
+										<li>아침</li>
+										<li>|</li>
+										<li>점심</li>
+										<li>|</li>
+										<li>저녁</li>
+										<li>|</li>
+										<li>간식</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">디쉬</a>
+									<ul class="level3">
+										<li>></li>
+										<li>애피타이저</li>
+										<li>|</li>
+										<li>메인</li>
+										<li>|</li>
+										<li>반찬</li>
+										<li>|</li>
+										<li>후식</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">전세계</a>
+									<ul class="level3">
+										<li>></li>
+										<li>한식</li>
+										<li>|</li>
+										<li>양식</li>
+										<li>|</li>
+										<li>중식</li>
+										<li>|</li>
+										<li>일식</li>
+										<li>|</li>
+										<li>유럽</li>
+										<li>|</li>
+										<li>동남아</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">다이어트</a>
+									<ul class="level3">
+										<li>></li>
+										<li>비건</li>
+										<li>|</li>
+										<li>베지테리언</li>
+										<li>|</li>
+										<li>로칼로리</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">특별한 날</a>
+									<ul class="level3">
+										<li>></li>
+										<li>단체 식사</li>
+										<li>|</li>
+										<li>명절</li>
+										<li>|</li>
+										<li>크리스마스</li>
+										<li>|</li>
+										<li>할로윈</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">베이킹</a>
+									<ul class="level3">
+										<li>></li>
+										<li>쿠키</li>
+										<li>|</li>
+										<li>케이크</li>
+										<li>|</li>
+										<li>타르트</li>
+										<li>|</li>
+										<li>빵</li>
+										<li>|</li>
+										<li>디저트</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">음료</a>
+									<ul class="level3">
+										<li>></li>
+										<li>스무디</li>
+										<li>|</li>
+										<li>칵테일</li>
+										<li>|</li>
+										<li>기타</li>
+									</ul>
+								</li>
+							</div>
+						</ul>
+					</li>
+					<li class="level1">
+						<a href="#">마이 키친</a>
+						<ul class="level2">
+							<div class="level2_wrapper">
+								<li><a href="#">레시피 스크랩 갤러리</a></li>
+								<li><a href="#">나의 레시피 피드</a></li>
+								<li><a href="#">나의 재료 쇼핑리스트</a></li>
+								<li><a href="#">마이 키친 관리</a></li>
+							</div>
+						</ul>
+					</li>
 				</ul>
 				<ul class="right_ul">
 					<li>레시피 검색</li>
@@ -198,17 +185,15 @@
 				<div class="menubox">마이 키친</div>
 			</section>
 
-			<!-- <div class="beigeborder"> -->
-				<section class="main_middle">
-					<div class="title_font">이번주 밀플랜 메뉴 미리보기</div>
-				</section>
-				<section class="main_middle">
-					<div class="mealplan_pic">밀키트1</div>
-					<div class="mealplan_pic">밀키트2</div>
-					<div class="mealplan_pic">밀키트3</div>
-					<div class="mealplan_pic">밀키트4</div>
-				</section>
-			<!-- </div> -->
+			<section class="main_middle">
+				<div class="title_font">이번주 밀플랜 메뉴 미리보기</div>
+			</section>
+			<section class="main_middle">
+				<div class="mealplan_pic">밀키트1</div>
+				<div class="mealplan_pic">밀키트2</div>
+				<div class="mealplan_pic">밀키트3</div>
+				<div class="mealplan_pic">밀키트4</div>
+			</section>
 
 			<div class="beigebg">
 				<section class="main_middle">

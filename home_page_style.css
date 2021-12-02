@@ -1,0 +1,192 @@
+body { margin: 0; }
+body > div {
+	max-width: 1920px;
+	margin: 0 auto;
+}
+header {
+	width: 1100px;
+	margin: 0 auto;
+}
+.logo {
+	width: 96px;
+	height: 96px;
+	background-color: #EC773F;
+	margin: 8px auto;
+}
+.lang {
+	width: 100px;
+	font-size: 12px;
+	color: darkgray;
+	text-align: right;
+	float: right;
+}
+.nav_box {
+	background-color: white;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+.nav_main {
+	width: 1200px;
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+.nav_main ul {
+	margin: 0;
+}
+a:link, a:visited {
+	text-decoration: none;
+	color: black;
+}
+.level1 {
+	height: 50px;
+	padding: 0 20px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.level1, .right_ul li {
+	display: inline-flex;
+	align-items: center;
+}
+.level2 {
+	position: absolute;
+	top: 50px;
+}
+.level2 > div {
+	position: absolute;
+	top: 0;
+	left: -20px;
+	padding: 10px 20px;
+	background-color: white;
+	box-shadow: 5px 5px gray;
+	border: 1px solid #EC773F;
+}
+.level2_wrapper {
+	width: 180px;
+}
+.level2_wrapperL {
+	width: 580px;
+}
+.level2_wrapper > li, .level2_wrapperL > li {
+	list-style: none;
+	margin: 10px 0;
+}
+.level3 {
+	display: inline;
+	padding-left: 8px;
+}
+.level3 > li {
+	display: inline;
+	margin: 0 8px;
+}
+.level3 li:nth-child(2n+1) {
+	color: darkgray;
+}
+.right_ul li {
+	width: 100px;
+	height: 50px;
+	padding: 0 4px;
+	font-size: 12px;
+	text-align: right;
+}
+.right_ul li:first-child {
+	width: 140px;
+}
+
+.imgslider {
+	height: 400px;
+	background-color: khaki;
+}
+
+section {
+	width: 1000px;
+	display: flex;
+	justify-content: center;
+}
+.main_menu {
+	margin: 50px auto;
+	align-items: center;
+}
+.menubox {
+	width: 250px;
+	height: 200px;
+	border: 1px solid gray;
+	margin: 0 20px;
+}
+.vline {
+	width: 0.1px;
+	height: 150px;
+	border-right: 1px solid #EC773F;
+}
+
+.beigebg {
+	background-color: beige;
+	padding-top: 10px;
+}
+.main_middle {
+	margin: 0 auto;
+	border-top: 2px solid beige;
+}
+.title_font {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding: 15px 0;
+}
+.mealplan_pic {
+	width: 240px;
+	height: 240px;
+	margin: 20px 10px 40px 10px;
+	border: 1px solid gray;
+}
+.recipes_pic {
+	width: 240px;
+	height: 300px;
+	margin: 10px 20px 40px 20px;
+	border: 1px solid gray;
+}
+
+.main_board {
+	margin: 50px auto;
+}
+.boardbox {
+	width: 180px;
+	height: 300px;
+	margin: 0 15px;
+	border: 1px solid gray;
+}
+.banner {
+	width: 150px;
+	height: 100px;
+	margin: 0 auto;
+	border: 1px solid gray;
+}
+
+footer {
+	background-color: #EC773F;
+	margin: 60px auto 0 auto;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	color: white;
+}
+.foot_nav {
+	width: 1000px;
+	display: flex;
+	justify-content: center;
+}
+.foot_nav ul {
+	margin: 30px 0 0 0;
+}
+.foot_nav li {
+	display: inline;
+}
+.foot_info {
+	width: 1000px;
+	font-size: 12px;
+	margin: 20px auto;
+	text-align: center;
+}
