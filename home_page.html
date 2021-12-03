@@ -11,35 +11,6 @@
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <script type="text/javascript" src="slick/slick.min.js"></script>
-	<script>
-		$(function() {
-			$(".level2_wrapper, .level2_wrapperL").hide();
-			$(".level1").hover(function() {
-				$(this).children("a").css("color", "#FF5D49");
-				$(this).children("a").css("border-bottom", "2px solid #FF5D49");
-				$(this).find(".level2_wrapper, .level2_wrapperL").slideDown("fast");
-			}, function() {
-				$(this).children("a").css("color", "black");
-				$(this).children("a").css("border-bottom", "2px solid white");
-				$(this).find(".level2_wrapper, .level2_wrapperL").hide();
-			});
-			$('#demo1').skdslider({
-				slideSelector: '.slide',
-				delay:5000,
-				animationSpeed: 1000,
-				showNextPrev:true,
-				showPlayButton:false,
-				autoSlide:true,
-				animationType:'fading',
-				pauseOnHover: true
-			});
-			$('.lazy').slick({
-			  lazyLoad: 'ondemand',
-			  slidesToShow: 4,
-			  slidesToScroll: 1
-			});
-		});
-	</script>
 </head>
 
 <body>
@@ -52,7 +23,8 @@
 		<div class="nav_box">
 			<nav class="nav_main">
 				<ul class="left_ul">
-					<li class="level1">
+					<!-- ☰ -->
+					<li class="level1"> 
 						<a href="#">정보 소개</a>
 						<ul class="level2">
 							<div class="level2_wrapper">
@@ -187,11 +159,34 @@
 					</li>
 				</ul>
 				<ul class="right_ul">
-					<li>레시피 검색</li>
-					<li>로그인/회원가입</li>
+					<li><a href="#">회원가입</a></li>
+					<li><a href="#">로그인</a></li>
+					<li>
+						<div class="recSearch">
+							<a href="#"><img src="img/searchicon.png" /></a>
+						</div>
+					</li>
 				</ul>
 			</nav>
 		</div>
+		<script>
+			// 상단메뉴 슬라이드 효과 & 글자 색 강조 효과
+			$(".level2_wrapper, .level2_wrapperL").hide();
+			$(".level1").hover(function() {
+				$(this).children("a").css("color", "#FF5D49");
+				$(this).children("a").css("border-bottom", "2px solid #FF5D49");
+				$(this).find(".level2_wrapper, .level2_wrapperL").slideDown("fast");
+			}, function() {
+				$(this).children("a").css("color", "black");
+				$(this).children("a").css("border-bottom", "2px solid white");
+				$(this).find(".level2_wrapper, .level2_wrapperL").hide();
+			});
+			$(".level2 a").hover(function() {
+				$(this).css("color", "#FF5D49");
+			}, function() {
+				$(this).css("color", "black")
+			});
+		</script>
 
 		<main>
 			<div id="imageslider">
@@ -207,6 +202,18 @@
 					</div>
 				</div>
 			</div>
+			<script>
+				// 메인 슬라이드쇼 효과 설정
+				$('#demo1').skdslider({
+					slideSelector: '.slide',
+					delay:5000,
+					animationSpeed: 1000,
+					showNextPrev:true,
+					showPlayButton:false,
+					autoSlide:true,
+					animationType:'fading',
+				});
+			</script>
 
 			<section class="main_menu">
 				<div class="menubox">밀플랜</div>
@@ -230,6 +237,14 @@
 						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
 				</div>
 			</div>
+			<script>
+				// 밀플랜 메뉴 넘기기 슬라이드 효과
+				$('.lazy').slick({
+				  lazyLoad: 'ondemand',
+				  slidesToShow: 4,
+				  slidesToScroll: 1
+				});
+			</script>
 
 			<div class="backgroundbox">
 				<section class="maintitle">
