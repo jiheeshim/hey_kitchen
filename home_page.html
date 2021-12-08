@@ -23,7 +23,6 @@
 		<div class="nav_box">
 			<nav class="nav_main">
 				<ul class="left_ul">
-					<!-- ☰ -->
 					<li class="level1"> 
 						<a href="#">정보 소개</a>
 						<ul class="level2">
@@ -162,9 +161,10 @@
 					<li><a href="#">회원가입</a></li>
 					<li><a href="#">로그인</a></li>
 					<li>
-						<div class="recSearch">
-							<a href="#"><img src="img/searchicon.png" /></a>
-						</div>
+						<form id="searchbox">
+							<input type="text" id="searchtxt" size="30">
+							<button type="button" id="searchbtn"><img src="img/searchicon.png" /></button>
+						</form>
 					</li>
 				</ul>
 			</nav>
@@ -192,13 +192,13 @@
 			<div id="imageslider">
 				<div id="demo1">
 					<div class="slide">
-						<img src="http://placehold.it/1920x400" />
+						<img src="img/firstImgSlider.png" />
 					</div>
 					<div class="slide">
-						<img src="http://placehold.it/1920x400" />
+						<img src="img/secondImgSlider.png" />
 					</div>
 					<div class="slide">
-						<img src="http://placehold.it/1920x400" />
+						<img src="img/thirdImgSlider.png" />
 					</div>
 				</div>
 			</div>
@@ -207,7 +207,7 @@
 				$('#demo1').skdslider({
 					slideSelector: '.slide',
 					delay:5000,
-					animationSpeed: 1000,
+					animationSpeed: 700,
 					showNextPrev:true,
 					showPlayButton:false,
 					autoSlide:true,
@@ -216,11 +216,11 @@
 			</script>
 
 			<section class="main_menu">
-				<div class="menubox">밀플랜</div>
+				<div class="menubox"><a href=#><img src="img/mealplannav2.png" /></a></div>
 				<div class="vline"></div>
-				<div class="menubox">커뮤니티</div>
+				<div class="menubox"><a href=#><img src="img/communitynav2.png" /></a></div>
 				<div class="vline"></div>
-				<div class="menubox">마이 키친</div>
+				<div class="menubox"><a href=#><img src="img/mykitchennav2.png" /></a></div>
 			</section>
 
 			<section class="maintitle">
@@ -229,12 +229,12 @@
 
 			<div class="mealplan_menu">
 				<div class="lazy">
-						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
-						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
-						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
-						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
-						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
-						<div><a href="#"><img data-lazy="http://placehold.it/240x280" /></a></div>
+					<div><a href="#"><img data-lazy="img/mealkit1.png" /></a></div>
+					<div><a href="#"><img data-lazy="img/mealkit2.png" /></a></div>
+					<div><a href="#"><img data-lazy="img/mealkit3.png" /></a></div>
+					<div><a href="#"><img data-lazy="img/mealkit4.png" /></a></div>
+					<div><a href="#"><img data-lazy="img/mealkit5.png" /></a></div>
+					<div><a href="#"><img data-lazy="img/mealkit6.png" /></a></div>
 				</div>
 			</div>
 			<script>

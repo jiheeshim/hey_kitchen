@@ -73,7 +73,7 @@ header {
 	width: 170px;
 }
 .level2_wrapperL {
-	width: 550px;
+	width: 560px;
 }
 .level2_wrapper > li, .level2_wrapperL > li {
 	list-style: none;
@@ -108,15 +108,20 @@ header {
 .right_ul a {
 	font-size: 14px;
 }
-.recSearch {
-	width: 280px;
-	height: 36px;
+#searchbox {
+	display: inline-flex;
+	align-items: center;
+}
+#searchtxt {
 	border: 2px solid #FF5D49;
 	border-radius: 15px;
-	clear: both;
+	height: 28px;
+	outline-color: #FF5D49;
 }
-.recSearch img {
-	padding: 2px;
+#searchbtn {
+	all: unset;
+	cursor: pointer;
+	margin-left: 2px;
 }
 
 #imageslider {
@@ -134,15 +139,17 @@ section {
 	align-items: center;
 }
 .menubox {
-	width: 250px;
-	height: 150px;
-	border: 1px solid gray;
+	width: 220px;
+	height: 100px;
+	/*border: 2px solid #FF5D49;
+	border-radius: 10px;*/
 	margin: 0 20px;
+	overflow: hidden;
 }
 .vline {
 	width: 0.1px;
-	height: 100px;
-	border-right: 1px solid #FF5D49;
+	height: 70px;
+	border-right: 2px solid #FF5D49;
 }
 
 .backgroundbox {
