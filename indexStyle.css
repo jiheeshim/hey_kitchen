@@ -5,7 +5,15 @@ section { width: 1000px; display: flex; justify-content: center; }
 .menubox {
 	width: 220px; height: 100px;
 	margin: 0 20px;	overflow: hidden;
+	border-radius: 7px;
 }
+.menubox > div { width: 100%; height: 100%; }
+#nav1 { background: url("image/mealplannav.png"); }
+#nav1:hover { background: url("image/mealplannav2.png"); }
+#nav2 { background: url("image/communitynav.png"); }
+#nav2:hover { background: url("image/communitynav2.png"); }
+#nav3 { background: url("image/mykitchennav.png"); }
+#nav3:hover { background: url("image/mykitchennav2.png"); }
 .vline { width: 0.1px; height: 70px; border-right: 2px solid #FF5D49; }
 
 .backgroundbox { background-color: #f7f7f7; padding-top: 1px; }
@@ -25,13 +33,31 @@ main > .maintitle {
 .lazy img:hover { transform: scale(1.05); }
 
 .recipes_pic {
-	width: 240px; height: 280px;
-	margin: 0 15px 40px 15px;
+	width: 250px; height: 250px;
+	margin: 0 5px 40px 5px;
 	border: 3px solid white;
 	overflow: hidden;
+	position: relative;
 }
 .recipes_pic img { transition: all 0.3s ease-in-out; }
-.recipes_pic img:hover { transform: scale(1.05); }
+.recipes_pic .details {
+	width: 250px; height: 250px;
+	opacity: .8; background-color: #e9e7e7;
+	position:absolute; top:0; left:0;
+	margin-left:-250px;
+	-webkit-transition: margin-left;
+	-webkit-transition-timing-function: ease-in;
+	-webkit-transition-duration: 200ms;
+}
+.recipes_pic p {
+	color: black; text-align: center;
+	font-weight: bold;
+}
+.details p:first-child { margin-top: 105px; font-size: 20px; }
+.details p:last-child { font-size: 12px; }
+.recipes_pic:hover .details { margin-left: 0; }
+.recipes_pic:hover img { transform: scale(1.05); }
+
 
 .boardbox {
 	width: 180px; height: 300px;
