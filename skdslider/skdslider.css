@@ -29,23 +29,23 @@
 
 .skdslider ul.slide-navs li {
   float: left;
-	background: url("image/slide-bg.png") no-repeat scroll 0 0 transparent;
+	background: url("../image/slide-bg.png") no-repeat scroll 0 0 transparent;
 	height:12px;
 	width:12px;
 	margin-right:4px;
 	cursor:pointer;
 }
 .skdslider ul.slide-navs li.active {
-  background: url("image/slide-bg-active.png") no-repeat scroll 0 0 transparent;
+  background: url("../image/slide-bg-active.png") no-repeat scroll 0 0 transparent;
 }
 
 .skdslider .slide-desc {
-    background: url("image/slide_desc.png") repeat scroll 0 0 transparent;
+    background: url("../image/slide_desc.png") repeat scroll 0 0 transparent;
     top: 40%;
     left: 30%;
     padding: 0 15px 0 15px;
     position: absolute;
-    /*bottom: 15%;*/
+    bottom: 15%;
     max-width: 85%;
 	  display:inline-block;
 }
@@ -75,7 +75,7 @@
 }
 
 .skdslider a.prev{
-  background: url("image/left.png") no-repeat scroll 0 0 transparent;
+  background: url("../image/left.png") no-repeat scroll 0 0 transparent;
 	width:35px;
 	height:35px;
 	display:block;
@@ -87,7 +87,7 @@
 }
 
 .skdslider a.next{
-  background: url("image/right.png") no-repeat scroll 0 0 transparent;
+  background: url("../image/right.png") no-repeat scroll 0 0 transparent;
 	width:35px;
 	height:35px;
 	display:block;
@@ -105,7 +105,7 @@
 }
 
 .skdslider a.play {
-    background: url("image/play.png") no-repeat scroll center center transparent;
+    background: url("../image/play.png") no-repeat scroll center center transparent;
 	width:35px;
 	height:35px;
 	display:none;
@@ -115,21 +115,3 @@
 	left:48%;
 	margin-top:-17px;
 }
-
-/*Some Responsive CSS */
-/*@media screen and (max-width:767px) {
-	.skdslider .slide-desc > h2 {
-		font-size: 20px;
-		margin-bottom: 5px;
-		margin-top: 5px;
-	}
-	
-	.skdslider .slide-desc > p {
-		font-size: 14px;
-		line-height: 15px;
-		margin-top: 5px;
-	}
-	.skdslider .slide-desc > p a.more {
-		font-size:14px;
-	}
-}*/

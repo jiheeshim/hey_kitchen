@@ -1,0 +1,41 @@
+main { width: 1100px; margin: 0 auto; }
+section { width: 640px;	margin: 0 auto; }
+main section:first-child {
+	font-size: 25px; font-weight: bold; text-align: center;
+	padding: 40px 0; margin: 20px auto;
+	border-bottom: 2px solid black;
+}
+table { border-spacing: 0 20px; margin: 0 auto; }
+.labelstyle, .label_must {
+	width: 140px;
+	font-weight: bold;
+}
+input[type="radio"] { margin: 10px 10px 10px 0; }
+.label_must > font { color: red; }
+input[type="text"], input[type="password"] {
+	border: 1px solid gray;	border-radius: 4px;
+	height: 35px;
+}
+input[type="text"]:focus, input[type="password"]:focus, .emailstyle:focus, .selectstyle:focus {
+	outline-color: #686868;
+}
+button {
+	all: unset;
+	border: 1px solid #FF5D49; border-radius: 5px;
+	width: 97px; height: 37px;
+	position: relative; top: 2px;
+	color: #FF5D49; text-align: center;
+	font-size: 15px; font-weight: bold;
+	cursor: pointer;
+}
+button:hover { background-color: #FF5D49; color: white; }
+select { height: 38px; border: 1px solid gray; border-radius: 4px; }
+.emailstyle { width: 198px; margin-left: 6px; }
+.selectstyle { width: 80px; text-align: center; }
+hr { border: 0; height: 1px; background-color: black; }
+.terms_title { font-size: 20px; font-weight: bold; text-align: center; margin: 20px 0; }
+input[type="checkbox"]:checked + textarea {
+	display: none; height: 0;
+}
+textarea { width: 100%; height: 100px; overflow: scroll; }
+.bottom_btn { display: flex; justify-content: center; }

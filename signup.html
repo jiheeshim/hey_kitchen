@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>헤이키친 회원가입</title>
+	<link rel="stylesheet" type="text/css" href="headerFooter.css">
+	<link rel="stylesheet" type="text/css" href="signupStyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="menuslide.js"></script>
+</head>
+<body>
+	<div>
+		<header>
+			<div class="lang">한국어 | English</div>
+			<div class="logo"><a href="index.html"><img src="image/logodraft.png" /></a></div>
+		</header>
+
+		<div class="nav_box">
+			<nav class="nav_main">
+				<ul class="left_ul">
+					<li class="level1"> 
+						<a href="#">정보 소개</a>
+						<ul class="level2">
+							<div class="level2_wrapper">
+								<li><a href="#">기획 의도</a></li>
+								<li><a href="#">웹사이트 소개</a></li>
+								<li><a href="#">회사 소개</a></li>
+								<li><a href="#">밀키트가 만들어지는<br>과정을 알고 싶다면?</a></li>
+							</div>
+						</ul>
+					</li>
+					<li class="level1">
+						<a href="#">밀플랜 정기구독</a>
+						<ul class="level2">
+							<div class="level2_wrapper">
+								<li><a href="#">구독하기</a></li>
+								<li><a href="#">메뉴 선택</a></li>
+								<li><a href="#">밀플랜 레시피</a></li>
+								<li><a href="#">밀플랜 구독관리</a></li>
+							</div>
+						</ul>
+					</li>
+					<li class="level1">
+						<a href="#">레시피 커뮤니티</a>
+						<ul class="level2">
+							<div class="level2_wrapperL">
+								<li>
+									<a href="#">삼시네끼</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">아침</a></li>
+										<li>|</li>
+										<li><a href="#">점심</a></li>
+										<li>|</li>
+										<li><a href="#">저녁</a></li>
+										<li>|</li>
+										<li><a href="#">간식</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">디쉬</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">애피타이저</a></li>
+										<li>|</li>
+										<li><a href="#">메인</a></li>
+										<li>|</li>
+										<li><a href="#">반찬</a></li>
+										<li>|</li>
+										<li><a href="#">후식</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">전세계</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">한식</a></li>
+										<li>|</li>
+										<li><a href="#">양식</a></li>
+										<li>|</li>
+										<li><a href="#">중식</a></li>
+										<li>|</li>
+										<li><a href="#">일식</a></li>
+										<li>|</li>
+										<li><a href="#">유럽</a></li>
+										<li>|</li>
+										<li><a href="#">동남아</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">다이어트</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">비건</a></li>
+										<li>|</li>
+										<li><a href="#">베지테리언</a></li>
+										<li>|</li>
+										<li><a href="#">로칼로리</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">특별한 날</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">단체 식사</a></li>
+										<li>|</li>
+										<li><a href="#">명절</a></li>
+										<li>|</li>
+										<li><a href="#">크리스마스</a></li>
+										<li>|</li>
+										<li><a href="#">할로윈</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">베이킹</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">쿠키</a></li>
+										<li>|</li>
+										<li><a href="#">케이크</a></li>
+										<li>|</li>
+										<li><a href="#">타르트</a></li>
+										<li>|</li>
+										<li><a href="#">빵</a></li>
+										<li>|</li>
+										<li><a href="#">디저트</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">음료</a>
+									<ul class="level3">
+										<li>></li>
+										<li><a href="#">스무디</a></li>
+										<li>|</li>
+										<li><a href="#">칵테일</a></li>
+										<li>|</li>
+										<li><a href="#">기타</a></li>
+									</ul>
+								</li>
+							</div>
+						</ul>
+					</li>
+					<li class="level1">
+						<a href="#">마이 키친</a>
+						<ul class="level2">
+							<div class="level2_wrapper">
+								<li><a href="#">레시피 스크랩 갤러리</a></li>
+								<li><a href="#">나의 레시피 피드</a></li>
+								<li><a href="#">나의 재료 쇼핑리스트</a></li>
+								<li><a href="#">마이 키친 관리</a></li>
+							</div>
+						</ul>
+					</li>
+				</ul>
+				<ul class="right_ul">
+					<li><a href="#">회원가입</a></li>
+					<li><a href="#">로그인</a></li>
+					<li>
+						<form id="searchbox">
+							<input type="text" id="searchtxt" size="30">
+							<button type="button" id="searchbtn"><img src="image/searchicon.png" /></button>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<main>
+			<section>회원가입</section>
+			<section>
+				<form>
+					<table>
+						<tr>
+							<td class="label_must">아이디&nbsp;<font>*</font></td>
+							<td>
+								<input type="text" id="id" size="45" maxlength="20">
+								<button type="button" name="idcheck">중복확인</button>
+							</td>
+						</tr>
+						<tr>
+							<td class="label_must">비밀번호 입력&nbsp;<font>*</font></td>
+							<td>
+								<input type="password" id="pw" size="60" maxlength="20">
+							</td>
+						</tr>
+						<tr>
+							<td class="label_must">비밀번호 확인&nbsp;<font>*</font></td>
+							<td>
+								<input type="password" id="pw2" size="60" maxlength="20">
+							</td>
+						</tr>
+						<tr>
+							<td class="label_must">이름&nbsp;<font>*</font></td>
+							<td>
+								<input type="text" id="name" size="60" maxlength="10">
+							</td>
+						</tr>
+						<tr>
+							<td class="label_must">이메일&nbsp;<font>*</font></td>
+							<td>
+								<input type="text" id="emailid" size="30" maxlength="50">
+								<select class="emailstyle" id="emailback">
+									<option></option>
+									<option value="@gmail.com">@gmail.com</option>
+									<option value="@naver.com">@naver.com</option>
+									<option value="@hanmail.net">@hanmail.net</option>
+									<option value="@nate.com">@nate.com</option>
+									<option value="@hotmail.com">@hotmail.com</option>
+									<option value="@yahoo.com">@yahoo.com</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="label_must">휴대번호&nbsp;<font>*</font></td>
+							<td>
+								<input type="text" id="tel" size="60" maxlength="12">
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">성별</td>
+							<td>
+								<input type="radio" name="gender" value="남자">남자&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="gender" value="여자">여자&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="gender" value="">선택 안함&nbsp;&nbsp;&nbsp;&nbsp;
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">생년월일</td>
+							<td>
+								<input type="text" id="birthyear" size="10" maxlength="4">&nbsp;년&nbsp;&nbsp;
+								<select class="selectstyle" id="birthmonth">
+									<option></option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>&nbsp;월&nbsp;&nbsp;
+								<select class="selectstyle" id="birthdate">
+									<option></option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
+								</select>&nbsp;일
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">우편번호</td>
+							<td>
+								<input type="text" id="postcode" size="15" maxlength="6">
+								<button type="button" name="search">찾기</button>
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">주소</td>
+							<td>
+								<input type="text" id="addr1" size="60" maxlength="50">
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">상세주소</td>
+							<td>
+								<input type="text" id="addr2" size="60" maxlength="50">
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">우리집 가구원 수</td>
+							<td>
+								<select class="selectstyle" id="familynum">
+									<option></option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6+</option>
+								</select>&nbsp;&nbsp;명
+							</td>
+						</tr>
+						<tr>
+							<td class="labelstyle">추천인 코드</td>
+							<td>
+								<input type="text" id="refcode" size="45" maxlength="20">
+								<button type="button" name="refcheck">코드확인</button><br><br>
+						</tr>
+					</table>
+
+					<hr>
+
+					<div class="terms_title">이용 약관 동의</div>
+					<p><input type="checkbox" id="agree_all" onchange="checkAll()"> 모든 약관에 동의합니다.</p>
+
+					<p><input type="checkbox" id="agree_service" onchange="checkTerms()"> (필수) 서비스 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p>
+
+					<p><input type="checkbox" id="agree_privacy" onchange="checkTerms()"> (필수) 개인정보 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p>
+
+					<p><input type="checkbox" id="agree_marketing" onchange="checkTerms()"> (선택) 마케팅 약관에 동의합니다.
+					<textarea disabled="disabled">
+개인정보보호법에 따라 헤이키친에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+
+1. 수집하는 개인정보
+2. 수집한 개인정보의 이용
+3. 개인정보의 보관기간
+					</textarea></p><br>
+				
+					<div class="bottom_btn">
+						<button type="button" onclick="signup(this.form)">가입</button>
+					</div>
+				</form>
+			</section>
+		</main>
+		<script src="signupScript.js"></script>
+
+		<footer>
+			<div>
+				<nav class="foot_nav">
+					<ul>
+						<li>정보 소개 |&nbsp;</li>
+						<li>밀플랜 정기구독 |&nbsp;</li>
+						<li>레시피 커뮤니티 |&nbsp;</li>
+						<li>마이 키친 |&nbsp;</li>
+						<li>로그인 |&nbsp;</li>
+						<li>회원가입</li>
+					</ul>
+				</nav>
+				<div class="foot_info">법인명<br>주소<br>카피라잇</div>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>

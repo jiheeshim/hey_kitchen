@@ -3,21 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>HEY KITCHEN</title>
-	<link rel="stylesheet" type="text/css" href="home_page_style.css">
+	<title>헤이키친</title>
+	<link rel="stylesheet" type="text/css" href="headerFooter.css">
+	<link rel="stylesheet" type="text/css" href="indexStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<link href="skdslider.css" rel="stylesheet">
-    <script src="skdslider.min.js"></script>
+    <script type="text/javascript" src="menuslide.js"></script>
+    <script type="text/javascript" src="skdslider/skdslider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="skdslider/skdslider.css">
+    <script type="text/javascript" src="skdslider/skdsliderInit.js"></script>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="slick/slickInit.js"></script>
 </head>
 
 <body>
 	<div>
 		<header>
 			<div class="lang">한국어 | English</div>
-			<div class="logo"><img src="img/logodraft.png" /></div>
+			<div class="logo"><a href="index.html"><img src="image/logodraft.png" /></a></div>
 		</header>
 
 		<div class="nav_box">
@@ -158,69 +162,39 @@
 					</li>
 				</ul>
 				<ul class="right_ul">
-					<li><a href="#">회원가입</a></li>
+					<li><a href="signup.html">회원가입</a></li>
 					<li><a href="#">로그인</a></li>
 					<li>
 						<form id="searchbox">
 							<input type="text" id="searchtxt" size="30">
-							<button type="button" id="searchbtn"><img src="img/searchicon.png" /></button>
+							<button type="button" id="searchbtn"><img src="image/searchicon.png" /></button>
 						</form>
 					</li>
 				</ul>
 			</nav>
 		</div>
-		<script>
-			// 상단메뉴 슬라이드 효과 & 글자 색 강조 효과
-			$(".level2_wrapper, .level2_wrapperL").hide();
-			$(".level1").hover(function() {
-				$(this).children("a").css("color", "#FF5D49");
-				$(this).children("a").css("border-bottom", "2px solid #FF5D49");
-				$(this).find(".level2_wrapper, .level2_wrapperL").slideDown("fast");
-			}, function() {
-				$(this).children("a").css("color", "black");
-				$(this).children("a").css("border-bottom", "2px solid white");
-				$(this).find(".level2_wrapper, .level2_wrapperL").hide();
-			});
-			$(".level2 a").hover(function() {
-				$(this).css("color", "#FF5D49");
-			}, function() {
-				$(this).css("color", "black")
-			});
-		</script>
 
 		<main>
 			<div id="imageslider">
 				<div id="demo1">
 					<div class="slide">
-						<img src="img/firstImgSlider.png" />
+						<img src="image/firstImgSlider.png" />
 					</div>
 					<div class="slide">
-						<img src="img/secondImgSlider.png" />
+						<img src="image/secondImgSlider.png" />
 					</div>
 					<div class="slide">
-						<img src="img/thirdImgSlider.png" />
+						<img src="image/thirdImgSlider.png" />
 					</div>
 				</div>
 			</div>
-			<script>
-				// 메인 슬라이드쇼 효과 설정
-				$('#demo1').skdslider({
-					slideSelector: '.slide',
-					delay:5000,
-					animationSpeed: 700,
-					showNextPrev:true,
-					showPlayButton:false,
-					autoSlide:true,
-					animationType:'fading',
-				});
-			</script>
 
 			<section class="main_menu">
-				<div class="menubox"><a href=#><img src="img/mealplannav2.png" /></a></div>
+				<div class="menubox"><a href=#><img src="image/mealplannav2.png" /></a></div>
 				<div class="vline"></div>
-				<div class="menubox"><a href=#><img src="img/communitynav2.png" /></a></div>
+				<div class="menubox"><a href=#><img src="image/communitynav2.png" /></a></div>
 				<div class="vline"></div>
-				<div class="menubox"><a href=#><img src="img/mykitchennav2.png" /></a></div>
+				<div class="menubox"><a href=#><img src="image/mykitchennav2.png" /></a></div>
 			</section>
 
 			<section class="maintitle">
@@ -229,22 +203,26 @@
 
 			<div class="mealplan_menu">
 				<div class="lazy">
-					<div><a href="#"><img data-lazy="img/mealkit1.png" /></a></div>
-					<div><a href="#"><img data-lazy="img/mealkit2.png" /></a></div>
-					<div><a href="#"><img data-lazy="img/mealkit3.png" /></a></div>
-					<div><a href="#"><img data-lazy="img/mealkit4.png" /></a></div>
-					<div><a href="#"><img data-lazy="img/mealkit5.png" /></a></div>
-					<div><a href="#"><img data-lazy="img/mealkit6.png" /></a></div>
+					<div>
+						<div class="lazyimg"><a href="#"><img data-lazy="image/mealkit1.png" /></a></div>
+					</div>
+					<div>
+						<div class="lazyimg"><a href="#"><img data-lazy="image/mealkit2.png" /></a></div>
+					</div>
+					<div>
+						<div class="lazyimg"><a href="#"><img data-lazy="image/mealkit3.png" /></a></div>
+					</div>
+					<div>
+						<div class="lazyimg"><a href="#"><img data-lazy="image/mealkit4.png" /></a></div>
+					</div>
+					<div>
+						<div class="lazyimg"><a href="#"><img data-lazy="image/mealkit5.png" /></a></div>
+					</div>
+					<div>
+						<div class="lazyimg"><a href="#"><img data-lazy="image/mealkit6.png" /></a></div>
+					</div>
 				</div>
 			</div>
-			<script>
-				// 밀플랜 메뉴 넘기기 슬라이드 효과
-				$('.lazy').slick({
-				  lazyLoad: 'ondemand',
-				  slidesToShow: 4,
-				  slidesToScroll: 1
-				});
-			</script>
 
 			<div class="backgroundbox">
 				<section class="maintitle">
@@ -252,7 +230,7 @@
 				</section>
 				<section class="maincontent">
 					<div class="recipes_pic">
-						<a href="#"><img src="http://placehold.it/240x280" /></a> <!-- 가구원수 기준 레시피 추천 바로가기 -->
+						<a href="#"><img src="image/duckplate.jpg" /></a> <!-- 가구원수 기준 레시피 추천 바로가기 -->
 					</div>
 					<div class="recipes_pic">
 						<a href="#"><img src="http://placehold.it/240x280" /></a> <!-- 조회수 기준 레시피 추천 바로가기 -->
