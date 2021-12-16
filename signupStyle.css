@@ -22,25 +22,25 @@ table { border-spacing: 0 20px; margin: 0 auto; }
 input[type="radio"] { margin: 10px 10px 10px 0; }
 .label_must > font { color: red; }
 input[type="text"], input[type="password"] {
-	border: 1px solid gray;	border-radius: 4px;
-	height: 35px;
+	border: 1px solid black; border-radius: 4px;
+	height: 35px; padding: 0 5px;
 }
 input[type="text"]:focus, input[type="password"]:focus, .emailstyle:focus, .selectstyle:focus {
-	outline-color: #686868;
+	outline-color: black;
 }
 button {
 	all: unset;
 	border: 1px solid #FF5D49; border-radius: 5px;
-	width: 97px; height: 37px;
-	/*position: relative; top: 2px;*/
+	width: 98px; height: 37px;
+	/*position: relative; top: 2px; 맥에서는 없어야하고 윈도우에서는 있어야 함*/
 	color: #FF5D49; text-align: center;
 	font-size: 15px; font-weight: bold;
 	cursor: pointer;
 }
 button:hover { background-color: #FF5D49; color: white; }
-select { height: 38px; border: 1px solid gray; border-radius: 4px; }
-.emailstyle { width: 198px; margin-left: 6px; }
-.selectstyle { width: 80px; text-align: center; }
+select { height: 38px; border: 1px solid black; border-radius: 4px; }
+.emailstyle { width: 198px; /*margin-left: 6px; */}
+.selectstyle { width: 100px; text-align: center; }
 hr { border: 0; height: 1px; background-color: black; }
 .terms_title { font-size: 20px; font-weight: bold; text-align: center; margin: 20px 0; }
 input[type="checkbox"]:checked + textarea {

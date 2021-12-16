@@ -154,8 +154,8 @@
 					</li>
 				</ul>
 				<ul class="right_ul">
-					<li><a href="#">회원가입</a></li>
-					<li><a href="#">로그인</a></li>
+					<li><a href="signup.html">회원가입</a></li>
+					<li><a href="login.html">로그인</a></li>
 					<li>
 						<form id="searchbox">
 							<input type="text" id="searchtxt" size="30">
@@ -181,52 +181,53 @@
 					<span>직접 회원가입하기</span>
 					<span><font color="red">*</font> 필수입력사항</span>
 				</div>
-				<form id="signupForm">
+				<form id="signupForm" action="signupCheck.jsp" onsubmit="return signup();" method="post">
 					<table>
 						<tr>
 							<td class="label_must">아이디&nbsp;<font>*</font></td>
 							<td>
-								<input type="text" id="id" size="45" maxlength="20">
-								<button type="button" name="idcheck">중복확인</button>
+								<input type="text" name="id" size="42" maxlength="20">
+								<button type="button" id="idcheck">중복확인</button>
 							</td>
 						</tr>
 						<tr>
 							<td class="label_must">비밀번호 입력&nbsp;<font>*</font></td>
 							<td>
-								<input type="password" id="pw" size="60" maxlength="20">
+								<input type="password" name="pw" size="57" maxlength="20">
 							</td>
 						</tr>
 						<tr>
 							<td class="label_must">비밀번호 확인&nbsp;<font>*</font></td>
 							<td>
-								<input type="password" id="pw2" size="60" maxlength="20">
+								<input type="password" name="pw2" size="57" maxlength="20">
 							</td>
 						</tr>
 						<tr>
 							<td class="label_must">이름&nbsp;<font>*</font></td>
 							<td>
-								<input type="text" id="name" size="60" maxlength="10">
+								<input type="text" name="name" size="57" maxlength="10">
 							</td>
 						</tr>
 						<tr>
 							<td class="label_must">이메일&nbsp;<font>*</font></td>
 							<td>
-								<input type="text" id="emailid" size="30" maxlength="50">
-								<select class="emailstyle" id="emailback">
-									<option></option>
+								<input type="text" name="emailfront" size="28" maxlength="50">
+								<select class="emailstyle" name="emailback">
+									<option value="none">선택하기</option>
 									<option value="@gmail.com">@gmail.com</option>
 									<option value="@naver.com">@naver.com</option>
 									<option value="@hanmail.net">@hanmail.net</option>
 									<option value="@nate.com">@nate.com</option>
 									<option value="@hotmail.com">@hotmail.com</option>
 									<option value="@yahoo.com">@yahoo.com</option>
+									<option value="">직접입력</option>
 								</select>
 							</td>
 						</tr>
 						<tr>
 							<td class="label_must">휴대번호&nbsp;<font>*</font></td>
 							<td>
-								<input type="text" id="tel" size="60" maxlength="12">
+								<input type="text" name="tel" size="57" maxlength="12">
 							</td>
 						</tr>
 						<tr>
@@ -234,15 +235,15 @@
 							<td>
 								<input type="radio" name="gender" value="남자">남자&nbsp;&nbsp;&nbsp;&nbsp;
 								<input type="radio" name="gender" value="여자">여자&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio" name="gender" value="">선택 안함&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" name="gender" value="선택 안함">선택 안함&nbsp;&nbsp;&nbsp;&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td class="labelstyle">생년월일</td>
 							<td>
-								<input type="text" id="birthyear" size="10" maxlength="4">&nbsp;년&nbsp;&nbsp;
-								<select class="selectstyle" id="birthmonth">
-									<option></option>
+								<input type="text" name="birthyear" size="12" maxlength="4" placeholder="연도(4자리)">
+								<select class="selectstyle" name="birthmonth">
+									<option value="0">월</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -255,9 +256,9 @@
 									<option value="10">10</option>
 									<option value="11">11</option>
 									<option value="12">12</option>
-								</select>&nbsp;월&nbsp;&nbsp;
-								<select class="selectstyle" id="birthdate">
-									<option></option>
+								</select>
+								<select class="selectstyle" name="birthdate">
+									<option value="0">일</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -289,47 +290,49 @@
 									<option value="29">29</option>
 									<option value="30">30</option>
 									<option value="31">31</option>
-								</select>&nbsp;일
+								</select>
 							</td>
 						</tr>
 						<tr>
 							<td class="labelstyle">우편번호</td>
 							<td>
-								<input type="text" id="postcode" size="15" maxlength="6">
-								<button type="button" name="search">찾기</button>
+								<input type="text" name="postcode" size="12" maxlength="6" readonly>
+								<button type="button" id="search" onclick="searchPostcode()">찾기</button>
 							</td>
 						</tr>
 						<tr>
 							<td class="labelstyle">주소</td>
 							<td>
-								<input type="text" id="addr1" size="60" maxlength="50">
+								<input type="text" name="addr1" size="27" maxlength="50" readonly>
+								<input type="text" name="extraAddr" size="18" readonly>
 							</td>
 						</tr>
 						<tr>
 							<td class="labelstyle">상세주소</td>
 							<td>
-								<input type="text" id="addr2" size="60" maxlength="50">
+								<input type="text" name="addr2" size="60" maxlength="50">
 							</td>
 						</tr>
 						<tr>
 							<td class="labelstyle">우리집 가구원 수</td>
 							<td>
-								<select class="selectstyle" id="familynum">
-									<option></option>
+								<select class="selectstyle" name="familynum">
+									<option value="0">선택</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
 									<option value="4">4</option>
 									<option value="5">5</option>
 									<option value="6">6+</option>
-								</select>&nbsp;&nbsp;명
+								</select>
 							</td>
 						</tr>
 						<tr>
 							<td class="labelstyle">추천인 코드</td>
 							<td>
-								<input type="text" id="refcode" size="45" maxlength="20">
-								<button type="button" name="refcheck">코드확인</button><br><br>
+								<input type="text" name="refcode" size="45" maxlength="20">
+								<button type="button" id="refcheck">코드확인</button><br><br>
+							</td>
 						</tr>
 					</table>
 
@@ -366,11 +369,54 @@
 					</textarea></p><br>
 				
 					<div class="bottom_btn">
-						<button type="button" onclick="signup(this.form)">가입</button>
+						<button type="submit" id="signupBtn">가입</button>
 					</div>
 				</form>
 			</section>
 		</main>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<script>
+		    function searchPostcode() {
+		        new daum.Postcode({
+		            oncomplete: function(data) {
+		                var addr = ''; // 주소 변수
+		                var extraAddr = ''; // 참고항목 변수
+
+		                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+		                    addr = data.roadAddress;
+		                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+		                    addr = data.jibunAddress;
+		                }
+
+		                if(data.userSelectedType === 'R'){
+		                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+		                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                        extraAddr += data.bname;
+		                    }
+		                    // 건물명이 있고, 공동주택일 경우 추가한다.
+		                    if(data.buildingName !== '' && data.apartment === 'Y'){
+		                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                    }
+		                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+		                    if(extraAddr !== ''){
+		                        extraAddr = ' (' + extraAddr + ')';
+		                    }
+		                    // 조합된 참고항목을 해당 필드에 넣는다.
+		                    document.querySelector("input[name='extraAddr']").value = extraAddr;
+		                
+		                } else {
+		                    document.querySelector("input[name='extraAddr']").value = '';
+		                }
+
+		                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+		                document.querySelector("input[name='postcode']").value = data.zonecode;
+		                document.querySelector("input[name='addr1']").value = addr;
+		                // 커서를 상세주소 필드로 이동한다.
+		                document.querySelector("input[name='addr2']").focus();
+		            }
+		        }).open();
+		    }
+		</script>
 		<script src="signupScript.js"></script>
 
 		<footer>
