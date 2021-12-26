@@ -13,22 +13,22 @@ section img {
 
 .topDesc { display: flex; justify-content: space-between; }
 section span { font-size: 14px; margin-bottom: 5px; }
-#signupForm { border-top: 2px solid black; }
+form[name='signupForm'] { border-top: 2px solid black; }
 table { border-spacing: 0 20px; margin: 0 auto; }
 .labelstyle, .label_must {
 	width: 140px;
 	font-weight: bold;
 }
-input[type="radio"] { margin: 10px 10px 10px 0; }
+main input[type="radio"] { margin: 10px 10px 10px 0; }
 .label_must > font { color: red; }
-input[type="text"], input[type="password"] {
+main input[type="text"], input[type="password"] {
 	border: 1px solid black; border-radius: 4px;
-	height: 35px; padding: 0 5px;
+	height: 37px; padding: 0 5px;
 }
-input[type="text"]:focus, input[type="password"]:focus, .emailstyle:focus, .selectstyle:focus {
+main input[type="text"]:focus, input[type="password"]:focus, .emailstyle:focus, .selectstyle:focus {
 	outline-color: black;
 }
-button {
+main button {
 	all: unset;
 	border: 1px solid #FF5D49; border-radius: 5px;
 	width: 98px; height: 37px;
@@ -37,7 +37,7 @@ button {
 	font-size: 15px; font-weight: bold;
 	cursor: pointer;
 }
-button:hover { background-color: #FF5D49; color: white; }
+main button:hover { background-color: #FF5D49; color: white; }
 select { height: 38px; border: 1px solid black; border-radius: 4px; }
 .emailstyle { width: 198px; /*margin-left: 6px; */}
 .selectstyle { width: 100px; text-align: center; }

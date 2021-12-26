@@ -14,7 +14,7 @@
 	  String email = request.getParameter("emailfront") + request.getParameter("emailback");
 	  String tel = request.getParameter("tel");
 	  String gender = (request.getParameter("gender") == null ? "선택 안함" : request.getParameter("gender"));
-	  String birthyear = request.getParameter("birthyear");
+	  String birthyear = Integer.parseInt(request.getParameter("birthyear"));
 	  String birthmonth = request.getParameter("birthmonth");
 	  String birthdate = request.getParameter("birthdate");
 	  String postcode = request.getParameter("postcode");

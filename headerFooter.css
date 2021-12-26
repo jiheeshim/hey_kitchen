@@ -62,7 +62,7 @@ header { width: 1000px; margin: 0 auto; }
 #searchbox { display: inline-flex; align-items: center; margin: 5px 0; }
 #searchtxt {
 	border: 2px solid #FF5D49; border-radius: 15px;
-	height: 28px; outline-color: #FF5D49;
+	height: 28px; width: 200px; outline-color: #FF5D49; padding-left: 8px;
 }
 #searchbtn { all: unset; cursor: pointer; margin-left: 2px; }
 

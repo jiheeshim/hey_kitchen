@@ -1,29 +1,29 @@
 .loginbox {
-	width: 500px; height: 460px;
+	width: 500px; height: 470px;
 	border-radius: 10px; box-shadow: 0 0 10px gray;
 	margin: 120px auto;
 	display: flex; flex-direction: column; align-items: center;
 }
 .loginbox > p {
 	font-size: 25px; font-weight: bold; text-align: center;
-	margin: 25px 0 10px 0; padding: 20px; width: 260px;
+	margin: 25px 0 20px 0; padding: 20px; width: 260px;
 	border-bottom: 3px solid black;
 }
-#login { display: flex; flex-direction: column; align-items: center; }
-.logintxt {
+form[name='loginForm'] { display: flex; flex-direction: column; align-items: center; }
+.loginTxt {
 	border: 1px solid black; border-radius: 4px;
-	height: 30px;
+	height: 40px;
 	padding: 5px; margin: 5px 0;
 	outline-color: black;
 }
-#login button {
+form[name='loginForm'] button {
 	border: 1px solid #FF5D49; border-radius: 5px;
 	background-color: white; color: #FF5D49; text-align: center;
 	font-size: 14px; font-weight: bold;
 	width: 296px; height: 40px;
-	cursor: pointer; margin: 5px 0;
+	cursor: pointer; margin: 5px 0 10px 0;
 }
-#login button:hover { background-color: #FF5D49; color: white; }
+form[name='loginForm'] button:hover { background-color: #FF5D49; color: white; }
 
 .findIdPw {
 	font-size: 12px; text-align: center;

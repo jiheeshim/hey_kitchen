@@ -28,6 +28,9 @@
 
     margin: 0;
     padding: 0;
+
+    height: 280px;
+    /*jsp로 바꾸면서 높이가 이상해져서 따로 추가함*/
 }
 .slick-list:focus
 {
