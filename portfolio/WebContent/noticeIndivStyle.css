@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+main { width: 800px; min-height: 550px;
+	margin: 100px auto; font-size: 14px;
+}
+.title { text-align: center; color: #626262; font-size: 1.6em;
+	margin: 30px 0; padding: 15px 0;
+	border-bottom: 2px solid lightgray; border-top: 2px solid lightgray;
+}
+
+#noticeForm td, #noticeTable td { padding: 8px 0; }
+select[name='category'], input[type='button'] { width: 120px; margin-right: 8px; height: 36px; }
+.tdHead { margin-right: 10px; display: inline-block; }
+input[type='text'] { width: 654px; height: 30px; }
+textarea { resize: none; width: 786px; height: 350px; }
+.noticebtns { text-align: center; }
+.noticebtns button { height: 30px; width: 60px;
+	border-radius: 5px; border: 1px solid lightgray;
+}
+.noticebtns .widebtns { width: 80px; }
+.noticebtns button:hover { background-color: darkgray; }
+
+#noticeTable { width: 100%; border-collapse: collapse; margin: 50px 0; }
+#noticeTable tr { border-top: 1px solid lightgray; }
+#noticeTable tr:last-child { border-bottom: 1px solid lightgray; }
+#noticeTable .content { min-height: 300px; }
+.row2 { display: flex; justify-content: space-between; }
+.noticeDates { float: right; }

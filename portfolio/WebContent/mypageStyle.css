@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+main { width: 1000px; min-height: 670px; font-size: 14px; overflow: hidden;
+	margin: 120px auto; border: 1px solid gray; border-radius: 8px;
+}
+.mainWrapper { display: inline-flex; }
+.mainWrapper > nav { width: 200px; height: 85vh;
+	border-right: 1px solid gray;
+}
+.mypageNav ul { padding: 0; margin: 0; }
+.mypageNav li { padding: 15px 10px; list-style-type: none; border-bottom: 1px solid gray; font-weight: bold; }
+.mypageNav a:visited, .mypageNav a:link { color: black; text-decoration: none; }
+.mypageNav a:hover { text-decoration: underline; }
+.mypageNav ul li:first-child { border-radius: 8px 0 0 0; }
+.currentLi { background-color: #fdedea; }
+
+.mainWrapper > section { width: 790px; overflow: scroll; }
+.pwCheck > div { padding: 30px; display: flex; justify-content: center; }
+.pwCheck input { height: 30px; border-radius: 5px; border: 1px solid black; color:#FF4949; }
+.pwCheck button { height: 35px; width: 60px; border-radius: 5px; border: 1px solid black; background-color: white; font-weight: bold; }
+.pwCheck button:hover { background-color: #fdedea; }
+
+input[type="text"], input[type="password"] { padding-left: 5px; }
+input:focus, select:focus { outline-color: black; }
+.title { font-size: 1.6em; text-align: center; margin: 50px auto 35px auto; }
+.titleLine { width: 500px; margin: 0 auto; border: 1px solid black; }
+
+.userTable { margin: 0 auto; padding: 20px 0; width: 450px; }
+.userTable td { height: 50px; }
+.userTable td:first-child { text-align: right; padding-right: 20px; }
+.userTable input[type='text'] { height: 30px; border-radius: 5px; border: 1px solid black; color: #FF4949; }
+.userTable select { height: 35px; width: 50px; border-radius: 5px; border: 1px solid black; color: #FF4949; }
+.mypageBtns { text-align: center; margin: 30px 0; }
+.mypageBtns button { height: 35px; width: 60px; background-color: white; border-radius: 5px; border: 1px solid black; font-weight: bold; }
+.mypageBtns button:hover { background-color: #fdedea; }
+
+.pwTable { margin: 30px auto; }
+.pwTable input { height: 30px; width: 300px; margin: 5px 0; color:#FF4949; border-radius: 5px; border: 1px solid black; }
+
