@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mappers">
+	<select id="usersSelect" parameterType="model.UsersDTO" resultType="model.UsersDTO">
+		select * from users where id = #{id};
+	</select>
+	<select id="endDateSelect" resultType="model.MealkitDTO">
+		select * from mealkit where endDate = (select max(endDate) from mealkit) limit 1;
+	</select>
+	<select id="mealplanPriceSelect" resultType="model.MealplanPriceDTO">
+		select * from mealplanPrice;
+	</select>
+	<select id="mealkitSelect" parameterType="model.MealplanDeliveryDTO" resultType="model.MealkitDTO">
+		select * from mealkit where #{deliverDate} between startDate and endDate;
+	</select>
+	<select id="mealplanSelect" parameterType="model.MealplanDTO" resultType="model.MealplanDTO">
+		select * from mealplan where mealplanNo = #{mealplanNo};
+	</select>
+	<select id="mealplanDeliverySelect" parameterType="model.MealplanDeliveryDTO" resultType="model.MealplanDeliveryDTO">
+		select * from mealplanDelivery where deliveryNo = #{deliveryNo};
+	</select>
+	<insert id="mealplanInsert" parameterType="model.MealplanDTO">
+		insert into mealplan (mealplanNo, id, serving, servingCnt, subDate, subPrice) values (#{mealplanNo}, #{id}, #{serving}, #{servingCnt}, #{subDate}, #{serving} * (select price from mealplanPrice where servingCnt = #{servingCnt})); 
+	</insert>
+	<insert id="mealplanMenuInsert" parameterType="model.MealplanMenuDTO">
+		insert into mealplanMenu (menuNo, mealplanNo, mealkitNo) values (#{menuNo}, #{mealplanNo}, #{mealkitNo});
+	</insert>
+	<insert id="mealplanDeliveryInsert" parameterType="model.MealplanDeliveryDTO">
+		insert into mealplanDelivery (deliveryNo, mealplanNo, postcode, addr1, extraAddr, addr2, deliverDate) values (#{deliveryNo}, #{mealplanNo}, #{postcode}, #{addr1}, #{extraAddr}, #{addr2}, #{deliverDate});
+	</insert>
+</mapper>

@@ -23,10 +23,10 @@
 				<a href="#">밀플랜 정기구독</a>
 				<ul class="level2">
 					<div class="level2_wrapper">
-						<li><a href="#">구독하기</a></li>
+						<li><a href="javascript:askLogin();">구독하기</a></li>
 						<li><a href="#">메뉴 선택</a></li>
 						<li><a href="#">밀플랜 레시피</a></li>
-						<li><a href="#">밀플랜 구독관리</a></li>
+						<li><a href="mealplanManage.jsp">밀플랜 구독 관리</a></li>
 					</div>
 				</ul>
 			</li>
@@ -135,7 +135,7 @@
 				<ul class="level2">
 					<div class="level2_wrapper">
 						<li><a href="#">레시피 스크랩 갤러리</a></li>
-						<li><a href="#">나의 레시피 피드</a></li>
+						<li><a href="myRecipes.jsp">나의 레시피 피드</a></li>
 						<li><a href="#">나의 재료 쇼핑리스트</a></li>
 						<li><a href="#">마이 키친 관리</a></li>
 					</div>
@@ -172,4 +172,5 @@ if(id != null) {
 %>
 
 <script type="text/javascript" src="logoutScript.js"></script>
+<script type="text/javascript" src="headerScript.js"></script>
 

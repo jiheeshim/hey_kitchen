@@ -29,7 +29,8 @@
 				<section>
 					<div class="title">비밀번호 변경</div>
 					<div class="titleLine"></div>
-					<form>
+					<form action="loginSelect.jsp" onsubmit="return pwCheck();">
+						<input type="hidden" name="purpose" value="pwChange">
 						<table class="pwTable">
 							<tr>
 								<td>현재 비밀번호</td>
@@ -47,7 +48,6 @@
 						<div class="titleLine"></div>
 						<div class="mypageBtns">
 							<button type="submit">확인</button>&nbsp;
-							<button type="reset">취소</button>
 						</div>
 					</form>
 				</section>
@@ -57,4 +57,5 @@
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
+<script type="text/javascript" src="mypageScript.js"></script>
 </html>

@@ -1,8 +1,8 @@
-var textInfo = document.querySelectorAll("td > input[type='text']");
-var birthmonth = document.querySelector("select[name='birthmonth']");
-var birthdate = document.querySelector("select[name='birthdate']");
-
 function mypageUpdateCheck() {
+	var textInfo = document.querySelectorAll("td > input[type='text']");
+	var birthmonth = document.querySelector("select[name='birthmonth']");
+	var birthdate = document.querySelector("select[name='birthdate']");
+	
 	// 이름, 이메일, 휴대번호 입력 필수 + 공백 불가능
 	for(var i = 0; i < 3; i++) {
 		if(textInfo[i].value == "" || textInfo[i].value.includes(" ")) {
@@ -35,6 +35,25 @@ function mypageUpdateCheck() {
 	else if(textInfo[3].value.includes(' ') || (textInfo[3].value != '') && (textInfo[3].value < (new Date().getFullYear() - 140) || textInfo[3].value > (new Date().getFullYear()))) {
 		alert("생년월일이 올바르지 않습니다.");
 		textInfo[3].focus();
+		return false;
+	} else
+		return true;
+}
+
+function pwCheck() {
+	// newPw newPw2 일치 확인
+	var passwords = document.querySelectorAll("input[type='password']");
+	
+	for(var i = 0; i < passwords.length; i++) {
+		if(passwords[i].value == "") {
+			alert("비밀번호를 입력해주세요.");
+			passwords[i].focus();
+			return false;
+		}
+	}
+	if(passwords[1].value != passwords[2].value) {
+		alert("확인을 위해 동일한 비밀번호를 입력해주세요.");
+		passwords[1].focus();
 		return false;
 	} else
 		return true;

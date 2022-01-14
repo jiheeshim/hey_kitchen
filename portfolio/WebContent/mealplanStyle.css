@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'KOTRALEAP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main { width: 950px; margin: 80px auto; font-size: 14px; }
+.title { margin: 30px; font-family: KOTRALEAP; font-size: 2.2em; text-align: center; }
+
+.steps { display: flex; justify-content: center; align-items: center; 
+	font-family: KOTRALEAP; margin: 50px auto 30px auto;
+}
+.step { width: 90px; height: 90px; border-radius: 45px; box-shadow: 0 0 10px gray;
+	display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.step > span:nth-child(2n-1) { font-size: 1.4em; color: #FF5D49; }
+.step > span:nth-child(2n) { color: lightgray; }
+.dashed { width: 30px; height: 0; border: 1px dashed gray; border-radius: 1px; }
+
+.guideBox { border-top: 2px dotted #FF5D49; border-bottom: 2px dotted #FF5D49; padding: 20px 0; margin: 30px auto 40px auto; }
+.guideTitle { font-size: 1.4em; font-family:KOTRALEAP; text-align: center; }
+.guide { margin-top: 10px; font-family:KOTRALEAP; font-size: 1.2em; text-align: center; }
+.guide > div { display: flex; justify-content: space-between; }
+.priceSpan { opacity: 0.5; }
+.priceSpan:first-of-type { opacity: 1; }
+.guide font { color: #FF5D49; }
+
+.mealplanBox { padding: 30px;
+	border-radius: 10px; box-shadow: 0 0 10px gray;
+}
+.mealplanBox form > div, .mealplanBox > div { width: 770px; margin-left: auto; margin-right: auto; }
+.detailTitle { font-size: 1.4em; font-family: KOTRALEAP; color: #FF5D49; }
+.subTitle { font-weight: bold; font-family: KOTRALEAP; font-size: 1.2em; }
+.dotted { margin: 30px auto; border: 1px dotted gray; border-radius: 1px; }
+
+.detailBox1 { margin-top: 30px; display: flex; justify-content: space-between; }
+.detailBox1 select { height: 30px; width: 50px; font-weight: bold; }
+.price { text-align: right; font-family: KOTRALEAP; font-size: 1.4em; }
+
+.detailBox2 { margin-top: 30px; }
+.detailBox2 > div { margin: 40px 0; }
+select[name='deliverDate'] { height: 30px; margin: 0 0 5px 20px; font-weight: bold; }
+.addrRadios { margin: 10px 0; }
+.addr input[type='text'] { height: 25px; margin: 5px 0; }
+.addr button { width: 60px; height: 30px; font-weight: bold; }
+
+.mealkitPic { height: 280px; padding: 20px 0; border-top: 2px solid gray; border-bottom: 2px solid gray; }
+.lazyimg { width: 240px; overflow: hidden; }
+.lazy img { transition: all 0.3s ease-in-out; }
+.lazy img:hover { transform: scale(1.05); }
+
+.mealkitSelect { padding: 5px 10px; background-color: white; border: 2px solid #FF5D49; border-radius: 8px;
+	display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px;
+}
+.mealkitSelect * { border-radius: 8px; }
+.mealkitSelect > div { font-family: KOTRALEAP; font-size: 1.2em; }
+.mealkitSelect select { width: 350px; height: 30px; border: 1px solid #FF5D49; font-weight: bold; }
+
+.orderBtn { margin: 30px auto; text-align: center; }
+.orderBtn button { height: 45px; padding: 0 15px;
+	font-size: 1.4em; font-family: KOTRALEAP; color: #FF5D49; font-weight: bold;
+	border: none; border-radius: 10px; background-color: white; box-shadow: 0 0 8px gray; 
+}
+.orderBtn button:hover { background-color: #FF5D49; color: white; }
+
+.txtCenter { text-align: center; }
+
+.navBtns { text-align: center; }
+.navBtns button { width: 300px; height: 50px; margin: 0 20px;
+	border-radius: 10px; border: none; box-shadow: 0 0 8px #FF5D49; background-color: white;  
+	font-size: 1.4em; font-family: KOTRALEAP; color: #FF5D49;
+}
+.navBtns button:hover { font-weight: bold; }
+#currentBtn { background-color: #FF5D49; color: white; }
+
+

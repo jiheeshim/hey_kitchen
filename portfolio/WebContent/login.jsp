@@ -26,7 +26,7 @@
 				<ul class="findIdPw">
 					<li><a href="#">아이디 찾기</a>&nbsp;&nbsp;|</li>
 					<li>&nbsp;<a href="#">비밀번호 찾기</a>&nbsp;&nbsp;|</li>
-					<li>&nbsp;<a href="#">회원가입</a></li>
+					<li>&nbsp;<a href="signup.jsp">회원가입</a></li>
 				</ul>
 
 				<div class="snsLogin">

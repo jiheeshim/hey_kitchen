@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'KOTRALEAP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main { font-size: 15px; }
+.title { width: 900px; margin: 80px auto 15px auto; font-family: KOTRALEAP; font-size: 2.2em; }
+.title > font { font-size: 0.7em; }
+.topBtn { width: 900px; margin: 10px auto 40px auto; }
+.topBtn button { font-family: KOTRALEAP; font-size: 1.2em; padding: 5px 10px;
+	background-color: #efeeee; border-radius: 4px;
+}
+.topBtn button:hover { background-color: #fdedea; }
+
+.sectionNav { width: 900px; margin: 0 auto; }
+.sectionNav ul { padding: 0; margin: 0; display: inline-flex; }
+.sectionNav li { list-style-type: none; font-weight: bold;
+	border: 2px solid gray; border-radius: 10px;
+	padding: 15px 10px 20px 10px; margin: 0;
+	position: relative; left: -4px;
+}
+.sectionNav li:first-child { left: -2px; }
+.sectionNav a:link, .sectionNav a:visited { text-decoration: none; color: #FF4949; }
+.sectionNav a:hover { text-decoration: underline; }
+
+.sectionWrapper { width: 900px; height: 650px; overflow: scroll; border: 2px solid gray;
+	margin: 0 auto 120px auto; border-radius: 0 10px 10px 10px; background-color: white;
+	position: relative; top: -10px;
+}
+.recipeWrapper { width: 220px; height: 240px; margin: 40px 0 40px 55px; display: inline-block; }
+.recipePic { width: 220px; height: 220px; border: 1px solid black; }
+.recipeTitle { text-align: center; }

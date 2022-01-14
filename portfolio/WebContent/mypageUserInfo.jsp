@@ -127,8 +127,8 @@
 						</table>
 						<div class="titleLine"></div>
 						<div class="mypageBtns">
-							<button type="submit">수정</button>&nbsp;
-							<button type="reset">취소</button>
+							<button type="submit">수정하기</button>&nbsp;
+							<button type="reset">되돌리기</button>
 						</div>
 					</form>
 				</section>

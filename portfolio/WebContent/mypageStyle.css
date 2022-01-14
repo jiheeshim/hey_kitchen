@@ -31,7 +31,7 @@ input:focus, select:focus { outline-color: black; }
 .userTable input[type='text'] { height: 30px; border-radius: 5px; border: 1px solid black; color: #FF4949; }
 .userTable select { height: 35px; width: 50px; border-radius: 5px; border: 1px solid black; color: #FF4949; }
 .mypageBtns { text-align: center; margin: 30px 0; }
-.mypageBtns button { height: 35px; width: 60px; background-color: white; border-radius: 5px; border: 1px solid black; font-weight: bold; }
+.mypageBtns button { height: 35px; width: 70px; background-color: white; border-radius: 5px; border: 1px solid black; font-weight: bold; }
 .mypageBtns button:hover { background-color: #fdedea; }
 
 .pwTable { margin: 30px auto; }

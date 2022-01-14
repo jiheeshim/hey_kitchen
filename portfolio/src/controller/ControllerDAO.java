@@ -226,6 +226,21 @@ public class ControllerDAO {
 		return result;
 	}
 	
+	// pwUpdate() : 비밀번호 update하는 메소드
+	public int pwUpdate(UsersDTO user) {
+		accessDB();
+		int result = 0;
+		try {
+			stmt = conn.createStatement();
+			String sql = String.format("update users set pw = '%s' where id = '%s';", user.getPw(), user.getId());
+			result = stmt.executeUpdate(sql);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		closeDB();
+		return result;
+	}
+	
 	// noticeUpdate() : 수정한 내용으로 update하는 메소드
 	public int noticeUpdate(NoticeDTO notice) {
 		accessDB();
