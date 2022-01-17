@@ -20,6 +20,10 @@
 	<select id="mealplanDeliverySelect" parameterType="model.MealplanDeliveryDTO" resultType="model.MealplanDeliveryDTO">
 		select * from mealplanDelivery where deliveryNo = #{deliveryNo};
 	</select>
+	<select id="mealplanSelectID" parameterType="model.MealplanDTO" resultType="model.MealplanDTO">
+		select * from mealplan where id = #{id} and cancelDate is null;
+	</select>
+	
 	<insert id="mealplanInsert" parameterType="model.MealplanDTO">
 		insert into mealplan (mealplanNo, id, serving, servingCnt, subDate, subPrice) values (#{mealplanNo}, #{id}, #{serving}, #{servingCnt}, #{subDate}, #{serving} * (select price from mealplanPrice where servingCnt = #{servingCnt})); 
 	</insert>

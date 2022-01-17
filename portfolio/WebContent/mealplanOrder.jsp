@@ -68,7 +68,6 @@
 							<span class="subTitle">&nbsp;회</span>
 						</span>
 					</div>
-					<div>명 수와 식사 개수에 따른 가격은 하단을 확인해주세요.</div>
 					<div class="dotted"></div>
 
 					<div class="detailBox2">
@@ -80,7 +79,7 @@
 									<option value="${date}">${date}</option>
 								</c:forEach>
 							</select>
-							<br>* 배송 준비 시간을 위해, 현재 날짜로부터 3일 이후만 설정 가능합니다.
+							<br>* 배송 준비 시간을 위해, 신청 날짜로부터 3일 이후만 설정 가능합니다.
 							<br>* 다음 배송일은 자동으로 선택한 배송일의 7일 후로 지정되며, 구독관리에서 변경 가능합니다.
 						</div>
 						<div>

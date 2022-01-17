@@ -39,24 +39,43 @@ for(int i = 0; i < 4; i++)
 %>
 
 <%
+
+// 서버 단에서도 유효성 검사 제어를 해서 데이터를 받아줘야함
+// 왜? javascript는 보안에 취약하고, 클라이언트 서버 측에서 조작이 가능하므로, 서버에서도 무조건 제어가 필요함
+boolean success = false; // 백단에서 유효성 검사할 때 쓰일 결과 변수
+String errorMsg = null; // 에러 페이지가 뜨게 되는 경우, 어떤 에러 메시지를 담을지
+
 // 2) DB에 연결
 Connection conn = null;
 Statement stmt = null;
 try {
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webdb", "root", "9999");
-	if(conn == null)
+	if(conn == null) {
 		throw new Exception("데이터베이스에 연결할 수 없습니다");
+	}
 	stmt = conn.createStatement();
 	String command = String.format("insert into users values ('%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s, %s, %s, '%s', %d, %d, %s);", id, pw, name, email, tel, gender, birthday, postcode, addr1, extraAddr, addr2, refcode, familynum, point, marketing);
 	int rowNum = stmt.executeUpdate(command);
 	if(rowNum < 1)
-		throw new Exception("데이터를 DB에 입력할 수 없습니다");
+		throw new Exception("데이터를 DB에 입력할 수 없습니다"); // 이런 예외를 띄울 게 아니라, 뭐가 잘못 됐는지 알면 어떻게 처리할 건지를 적어줘야 함
+	
+	success = true;
+	
+} catch(Exception e) {
+	//  why
+	
 } finally {
 	try { stmt.close(); }
 	catch(Exception ignored) {}
 	try { conn.close(); }
 	catch(Exception ignored) {}
+}
+
+if (success) {
+	
+} else {
+	
 }
 
 // 3) 회원가입 완료 페이지로 이동

@@ -39,7 +39,7 @@
 					<br><br>메뉴 또는 배송지 변경 등은 <b>[밀플랜 정기구독 - 밀플랜 구독 관리]</b>에서 가능합니다.
 					<br><br>
 				</div>
-				<div class="orderBtn"><button type="button" onclick="mealplanManage.jsp">밀플랜 구독 관리</button></div>
+				<div class="orderBtn"><button type="button" onclick="location.href='mealplan.kitchen?where=mealplanManage'">밀플랜 구독 관리</button></div>
 				<br><br>
 			</section>
 		</main>

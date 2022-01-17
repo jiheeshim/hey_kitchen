@@ -6,6 +6,7 @@ public class MealplanDTO {
 	private int serving;
 	private int servingCnt;
 	private String subDate;
+	private String cancelDate;
 	private int subPrice;
 	
 	public void setMealplanNo(String mealplanNo) {

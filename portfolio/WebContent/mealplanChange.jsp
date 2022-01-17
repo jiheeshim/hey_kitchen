@@ -29,28 +29,29 @@
 					<div class="secTitle">나의 밀플랜 현황</div>
 					<div class="mealplanWrapper">
 						<ul>
-							<li>나의 구독번호 : <font>${mealplan.mealplanNo}</font></li>
-							<li>구독 신청 날짜 : <font>${mealplan.subDate}</font></li>
-							<li>주 <font>${mealplan.servingCnt}</font> 회 <font>${mealplan.serving}</font> 인분</li>
-							<li>가격 : <font>${mealplan.subPrice} 원</font></li>
+							<li>나의 구독번호 : mealplanNo</li>
+							<li>구독 신청 날짜 : subDate</li>
+							<li>주 servingCnt 회 serving 인분</li>
+							<li>가격 : price</li>
 						</ul>
 					</div>
-					<div class="secTitle">다음 밀플랜 배송 관리<button>배송 변경</button></div>
-					<div class="mealplanWrapper">
+					<div class="secTitle">다음 밀플랜 배송 관리<button>변경하기</button></div>
 						<ul>
-							<li>나의 배송번호 : <font>deliveryNo</font></li>
-							<li>다음 배송일 : <font>deliverDate - select</font></li>
+							<li>나의 배송번호 : deliveryNo</li>
+							<li>다음 배송일 : deliverDate - select</li>
 							<li>
 								다음 밀플랜 메뉴
-								<br><font>mealkitName - select</font>
+								<br>mealkitName - select
+								<br>mealkitName
 							</li>
 							<li>
 								나의 배송지
-								<br><font>postcode - text</font>
-								<br><font>addr1 extraAddr</font>
-								<br><font>addr2</font>
+								<br>postcode - text
+								<br>addr1 extraAddr
+								<br>addr2
 							</li>
 						</ul>
+					<div class="mealplanWrapper">
 					</div>
 				</section>
 			</div>

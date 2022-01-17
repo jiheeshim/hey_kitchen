@@ -26,7 +26,7 @@
 						<li><a href="javascript:askLogin();">구독하기</a></li>
 						<li><a href="#">메뉴 선택</a></li>
 						<li><a href="#">밀플랜 레시피</a></li>
-						<li><a href="mealplanManage.jsp">밀플랜 구독 관리</a></li>
+						<li><a href="mealplan.kitchen?where=mealplanManage">밀플랜 구독 관리</a></li>
 					</div>
 				</ul>
 			</li>
