@@ -32,9 +32,11 @@
 				<section class="mealplanBox">
 					<form action="mealplanMenu.kitchen">
 						<input type="hidden" name="where" value="mealplanInsert">
+						
 						<input type="hidden" name="mealplanNo" value="${mealplan.mealplanNo}">
 						<input type="hidden" name="serving" value="${mealplan.serving}">
 						<input type="hidden" name="servingCnt" value="${mealplan.servingCnt}">
+						<input type="hidden" name="deliveryNo" value="${mealplanDelivery.deliveryNo}">
 						<input type="hidden" name="postcode" value="${mealplanDelivery.postcode}">
 						<input type="hidden" name="addr1" value="${mealplanDelivery.addr1}">
 						<input type="hidden" name="extraAddr" value="${mealplanDelivery.extraAddr}">
@@ -43,7 +45,6 @@
 						
 						<div class="detailBox2">
 							<span class="detailTitle">3. 원하는 밀키트 메뉴를 선택해주세요.</span>
-							최소 3개 이상 선택하셔야 주문 가능합니다.
 							
 							<div class="mealkitPic">
 								<div class="lazy">

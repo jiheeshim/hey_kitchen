@@ -12,6 +12,7 @@ import model.MealkitDTO;
 import model.MealkitSelect;
 import model.MealplanDTO;
 import model.MealplanDeliveryDTO;
+import model.MealplanDeliverySelect;
 import model.MealplanSelect;
 
 public class CMealkitSelect implements CommandInterface {
@@ -47,12 +48,22 @@ public class CMealkitSelect implements CommandInterface {
 		
 		mealplan.setServing(Integer.parseInt(request.getParameter("serving")));
 		mealplan.setServingCnt(Integer.parseInt(request.getParameter("servingCnt")));
+		request.setAttribute("mealplan", mealplan);
+		
+		// 배달번호 생성 & 중복체크
+		String deliveryNo = createDeliveryNo();
+		mealplanDelivery.setDeliveryNo(deliveryNo);
+		MealplanDeliverySelect mpdSelect = MealplanDeliverySelect.getInstance();
+		while(mpdSelect.mealplanDeliverySelect(mealplanDelivery) != null) {
+			deliveryNo = createDeliveryNo();
+			mealplanDelivery.setDeliveryNo(deliveryNo);
+		}
+		
 		mealplanDelivery.setPostcode(request.getParameter("postcode"));
 		mealplanDelivery.setAddr1(request.getParameter("addr1"));
 		mealplanDelivery.setExtraAddr(request.getParameter("extraAddr"));
 		mealplanDelivery.setAddr2(request.getParameter("addr2"));
 		mealplanDelivery.setDeliverDate(deliverDate);
-		request.setAttribute("mealplan", mealplan);
 		request.setAttribute("mealplanDelivery", mealplanDelivery);
 		
 		// 사용자가 선택한 deliverDate에 해당하는 주간의 mealkit 메뉴 select해서 setAttribute()
@@ -68,6 +79,14 @@ public class CMealkitSelect implements CommandInterface {
 		String random = Integer.toString((int)(Math.random() * 900) + 100); // 3자리 랜덤숫자 생성
 		String mealplanNo = "S" + LocalDate.now().format(noFmt) + random;
 		return mealplanNo;
+	}
+	
+	// deliveryNo(배달번호) : D(Delivery) + yyMMdd(현재날짜=새배달등록날짜) + 랜덤숫자(100~999)
+	public String createDeliveryNo() {
+		DateTimeFormatter noFmt = DateTimeFormatter.ofPattern("yyMMdd");
+		String random = Integer.toString((int)(Math.random() * 900) + 100);
+		String deliveryNo = "D" + LocalDate.now().format(noFmt) + random;
+		return deliveryNo;
 	}
 	
 }

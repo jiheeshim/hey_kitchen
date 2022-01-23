@@ -23,3 +23,29 @@ function deleteNotice(noticeNo) {
 	}
 }
 
+// 첨부파일&이미지 파일명 출력하기
+
+var file = document.getElementById("file");
+var fileLabel = document.getElementById("fileLabel");
+var fileText = document.getElementById("fileText");
+file.addEventListener("change", function() {
+	if(window.FileReader){
+      var fileName = this.files[0].name;
+    } else {
+      var fileName = (this).value.split("/").pop().split("\\").pop();
+    }
+	fileText.value = fileName;
+});
+
+var image = document.getElementById("image");
+var imageLabel = document.getElementById("imageLabel");
+var imageText = document.getElementById("imageText");
+image.addEventListener("change", function() {
+	if(window.FileReader) {
+		var fileName = this.files[0].name;
+	} else {
+		var fileName = (this).value.split("/").pop().split("\\").pop();
+	}
+	imageText.value = fileName;
+});
+

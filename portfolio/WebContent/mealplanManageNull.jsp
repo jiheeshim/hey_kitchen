@@ -28,7 +28,8 @@
 				<section class="manageSec">
 					<div class="secTitle">나의 밀플랜 현황</div>
 					<div class="mealplanWrapper">
-						구독 중인 밀플랜이 없습니다. 밀플랜 구독하러 가기
+						구독 중인 밀플랜이 없습니다.
+						<br><br><a class="transfer" href="header.kitchen?where=mealplanOrder">밀플랜 구독하러 가기 &gt;&gt;</a>
 					</div>
 				</section>
 			</div>

@@ -47,10 +47,34 @@
 				</table>
 			</section>
 			
-			<div class="pages">1</div>
+			<div class="pages">
+				<c:if test="${pageInfo.page <= 1}">
+					<button>&lt;</button>
+				</c:if>
+				<c:if test="${pageInfo.page > 1}">
+					<button onclick="location.href='noticeListSelect.jsp?page=${pageInfo.page - 1}'">&lt;</button>
+				</c:if>
+				
+				<c:forEach var="p" begin="${pageInfo.startPage}" end="${pageInfo.endPage}">
+					<c:if test="${p == pageInfo.page}">
+						<b>${p}</b>&nbsp;
+					</c:if>
+					<c:if test="${p != pageInfo.page}">
+						<a href="noticeListSelect.jsp?page=${p}">${p}</a>&nbsp;
+					</c:if>
+				</c:forEach>
+				
+				<c:if test="${pageInfo.page >= pageInfo.maxPage}">
+					<button>&gt;</button>
+				</c:if>
+				<c:if test="${pageInfo.page < pageInfo.maxPage}">
+					<button onclick="location.href='noticeListSelect.jsp?page=${pageInfo.page + 1}'">&gt;</button>
+				</c:if>
+			</div>
+			
 			<div class="noticeSearch">
 				<form action="noticeSearch.jsp" onsubmit="return noticeSearchCheck();">
-					<select name="category">
+					<select name="field">
 						<option value="title">제목</option>
 						<option value="category">글분류</option>
 						<option value="content">글내용</option>

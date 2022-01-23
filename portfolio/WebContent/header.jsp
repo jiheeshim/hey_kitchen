@@ -14,8 +14,8 @@
 					<div class="level2_wrapper">
 						<li><a href="#">기획 의도</a></li>
 						<li><a href="#">웹사이트 소개</a></li>
-						<li><a href="#">회사 소개</a></li>
 						<li><a href="noticeListSelect.jsp">이벤트/공지사항</a></li>
+						<li><a href="qnaList.qna">문의사항</a></li>
 					</div>
 				</ul>
 			</li>
@@ -26,7 +26,7 @@
 						<li><a href="javascript:askLogin();">구독하기</a></li>
 						<li><a href="#">메뉴 선택</a></li>
 						<li><a href="#">밀플랜 레시피</a></li>
-						<li><a href="mealplan.kitchen?where=mealplanManage">밀플랜 구독 관리</a></li>
+						<li><a href="mealplanManage.sub">밀플랜 구독 관리</a></li>
 					</div>
 				</ul>
 			</li>

@@ -21,15 +21,7 @@ public class CMealplanDeliveryInsert implements CommandInterface {
 		MealplanDeliveryInsert mpdInsert = MealplanDeliveryInsert.getInstance();
 		MealplanDeliveryDTO mealplanDelivery = new MealplanDeliveryDTO();
 		
-		// 배달번호 생성 & 중복체크
-		String deliveryNo = createDeliveryNo();
-		mealplanDelivery.setDeliveryNo(deliveryNo);
-		MealplanDeliverySelect mpdSelect = MealplanDeliverySelect.getInstance();
-		while(mpdSelect.mealplanDeliverySelect(mealplanDelivery) != null) {
-			deliveryNo = createDeliveryNo();
-			mealplanDelivery.setDeliveryNo(deliveryNo);
-		}
-		
+		mealplanDelivery.setDeliveryNo(request.getParameter("deliveryNo"));
 		mealplanDelivery.setMealplanNo(request.getParameter("mealplanNo"));
 		mealplanDelivery.setPostcode(request.getParameter("postcode"));
 		mealplanDelivery.setAddr1(request.getParameter("addr1"));
@@ -41,13 +33,6 @@ public class CMealplanDeliveryInsert implements CommandInterface {
 		if(result != 1)
 			System.out.println("mealplanDelivery insert 오류");
 		return "mealplanFinish.jsp";
-	}
-	
-	public String createDeliveryNo() {
-		DateTimeFormatter noFmt = DateTimeFormatter.ofPattern("yyyyMMdd");
-		String random = (int)(Math.random() * 900) + 100 + "";
-		String deliveryNo = "D" + LocalDate.now().format(noFmt) + random;
-		return deliveryNo;
 	}
 	
 }

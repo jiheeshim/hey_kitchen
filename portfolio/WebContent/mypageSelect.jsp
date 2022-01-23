@@ -7,6 +7,11 @@ String id = (String)session.getAttribute("id");
 user = dao.userSelect(id);
 
 request.setAttribute("user", user);
-RequestDispatcher dispatcher = request.getRequestDispatcher("mypageUserInfo.jsp");
-dispatcher.forward(request, response);
+
+if(id == null) {
+	response.sendRedirect("login.jsp");
+} else {
+	RequestDispatcher dispatcher = request.getRequestDispatcher("mypageUserInfo.jsp");
+	dispatcher.forward(request, response);
+}
 %>

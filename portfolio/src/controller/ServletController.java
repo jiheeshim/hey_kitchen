@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import model.MealplanSelectID;
 
+@WebServlet("*.kitchen")
 public class ServletController extends HttpServlet {
 	
 	@Override
@@ -33,7 +35,7 @@ public class ServletController extends HttpServlet {
 						String page = cUSelect.commandData(request, response);
 						request.getRequestDispatcher(page).forward(request, response);
 					} else { // 현재 진행 중인 구독 정보가 있으면 구독 관리 페이지로 이동
-						response.sendRedirect("mealplan.kitchen?where=mealplanManage");
+						response.sendRedirect("/mealplanManage.sub");
 					}
 				} catch(Exception e) {
 					e.printStackTrace();
@@ -63,22 +65,6 @@ public class ServletController extends HttpServlet {
 					cMpdInsert.commandData(request, response);
 					String page = cMpmInsert.commandData(request, response);
 					request.getRequestDispatcher(page).forward(request, response);
-				} catch(Exception e) {
-					e.printStackTrace();
-				}
-			} else {
-				response.sendRedirect("login.jsp");
-			}
-		} else if(where.equals("mealplanManage")) { // mealplan, mealplanDelivery, mealplanMenu select + 구독 관리 페이지로 이동
-			CMealplanSelectID cMpSelectID = CMealplanSelectID.getInstance();
-			if(session.getAttribute("id") != null) {
-				try {
-					if(cMpSelectID.commandData(request, response).equals("null")) { // 구독 중인 밀플랜이 없으면,
-						response.sendRedirect("mealplanManageNull.jsp");
-					} else { // 구독 중인 밀플랜이 있으면 실행
-						String page = cMpSelectID.commandData(request, response);
-						request.getRequestDispatcher(page).forward(request, response);
-					}
 				} catch(Exception e) {
 					e.printStackTrace();
 				}

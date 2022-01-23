@@ -23,6 +23,9 @@
 					<td>[${notice.category}]${notice.title}</td>
 				</tr>
 				<tr>
+					<td>첨부파일 : <a href="noticeUpload/${notice.fileName}" download>${notice.fileName}</a></td>
+				</tr>
+				<tr>
 					<td>
 						<div class="row2">
 							<span>${notice.adminName}</span>

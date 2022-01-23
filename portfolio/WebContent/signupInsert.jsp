@@ -31,18 +31,14 @@ int point = 0;
 if(joincode != "")
 	point += 5000;
 
-// 아이디 + 숫자 4개의 랜덤 문자열 생성
+// 추천인 코드 생성 : 아이디 + 숫자 4개의 랜덤 문자열 생성
 // (굳이 추천인의 아이디 숨길 필요 없으므로, 추천인코드 중복을 막기 위해 아이디 사용 + 인터넷에서 아이디만 보고 코드로 사용하는 것 막기 위해 뒤에 난수 4자리 붙여주기)
 String refcode = id;
 for(int i = 0; i < 4; i++)
 	refcode += (int)(Math.random() * 10); // 0 ~ 9 : 한자리수
-%>
 
-<%
-
-// 서버 단에서도 유효성 검사 제어를 해서 데이터를 받아줘야함
-// 왜? javascript는 보안에 취약하고, 클라이언트 서버 측에서 조작이 가능하므로, 서버에서도 무조건 제어가 필요함
-boolean success = false; // 백단에서 유효성 검사할 때 쓰일 결과 변수
+// 서버 단에서도 유효성 검사 제어를 해서 데이터를 받아줘야함 (javascript는 보안에 취약하고, 클라이언트 서버 측에서 조작이 가능하므로)
+boolean signupSuccess = false; // 백단에서 유효성 검사할 때 쓰일 결과 변수
 String errorMsg = null; // 에러 페이지가 뜨게 되는 경우, 어떤 에러 메시지를 담을지
 
 // 2) DB에 연결
@@ -52,32 +48,41 @@ try {
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webdb", "root", "9999");
 	if(conn == null) {
-		throw new Exception("데이터베이스에 연결할 수 없습니다");
+		errorMsg = "데이터 연결에 실패하였습니다.";
 	}
 	stmt = conn.createStatement();
-	String command = String.format("insert into users values ('%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s, %s, %s, '%s', %d, %d, %s);", id, pw, name, email, tel, gender, birthday, postcode, addr1, extraAddr, addr2, refcode, familynum, point, marketing);
-	int rowNum = stmt.executeUpdate(command);
-	if(rowNum < 1)
-		throw new Exception("데이터를 DB에 입력할 수 없습니다"); // 이런 예외를 띄울 게 아니라, 뭐가 잘못 됐는지 알면 어떻게 처리할 건지를 적어줘야 함
 	
-	success = true;
-	
+	// 뒤로가기 후 다시 버튼 누른 경우에 대비하여, 아이디 중복검사 한 번 더
+	String command1 = String.format("select id from users where id = '%s';", id);
+	ResultSet rs = stmt.executeQuery(command1);
+	if(rs.next()) {
+		errorMsg = "이미 회원가입 되셨습니다.";
+	} else { // 아이디(PK) 문제 없으면 insert 진행
+		String command2 = String.format("insert into users values ('%s', '%s', '%s', '%s', '%s', %s, %s, %s, %s, %s, %s, '%s', %d, %d, %s);", id, pw, name, email, tel, gender, birthday, postcode, addr1, extraAddr, addr2, refcode, familynum, point, marketing);
+		int rowNum = stmt.executeUpdate(command2);
+		if(rowNum < 1) {
+			errorMsg = "회원가입 중 오류가 발생하였습니다.";
+		} else {
+			signupSuccess = true;
+		}
+	}
 } catch(Exception e) {
-	//  why
+	e.printStackTrace();
 	
 } finally {
-	try { stmt.close(); }
-	catch(Exception ignored) {}
-	try { conn.close(); }
-	catch(Exception ignored) {}
+	try {
+		stmt.close();
+		conn.close();
+	} catch(Exception e) {
+		e.printStackTrace();
+	}
 }
 
-if (success) {
-	
-} else {
-	
+//3) 회원가입 완료 페이지로 이동
+if (signupSuccess) { 
+	response.sendRedirect("signupSuccess.jsp");
+} else { // 오류 발생 시, 오류 메시지 alert 후 로그인 페이지로 이동
+	out.println("<script>alert('" + errorMsg + "'); location.href='login.jsp';</script>");
 }
 
-// 3) 회원가입 완료 페이지로 이동
-response.sendRedirect("signupSuccess.jsp");
 %>

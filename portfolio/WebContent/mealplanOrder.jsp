@@ -97,7 +97,7 @@
 								<button type="button" id="search" onclick="searchPostcode()">찾기</button><br>
 								<input type="text" name="addr1" size="30" placeholder="주소" readonly>
 								<input type="text" name="extraAddr" size="25" placeholder="참고항목" readonly><br>
-								<input type="text" name="addr2" size="80" placeholder="상세주소">
+								<input type="text" name="addr2" size="80" placeholder="상세주소" required>
 							</div>
 						</div>
 					</div>

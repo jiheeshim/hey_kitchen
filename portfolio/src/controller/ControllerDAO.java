@@ -110,13 +110,35 @@ public class ControllerDAO {
 		return user;
 	}
 	
-	// noticeListSelect() : 공지사항/이벤트 게시판 전체 목록 select하는 메소드
-	public ArrayList<NoticeDTO> noticeListSelect() {
+	// noticeListCount() : notice 전체 게시글 개수 select하는 메소드
+	public int noticeListCount() {
 		accessDB();
-		ArrayList<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
+		int listCount = 0;
 		try {
 			stmt = conn.createStatement();
-			String sql = "select * from notice order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc;";
+			String sql = "select count(*) from notice;";
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		closeDB();
+		return listCount;
+	}
+	
+	// noticeListSelect() : 공지사항/이벤트 게시판 전체 목록 select하는 메소드
+	public ArrayList<NoticeDTO> noticeListSelect(int page, int limit) {
+		accessDB();
+		ArrayList<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
+		
+		try {
+			int startrow = (page - 1) * 10; // 몇 번째 게시물부터 select할 것인지
+			
+			stmt = conn.createStatement();
+			String sql = String.format("select * from notice order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc limit %d, %d;", startrow, limit);
+			
 			ResultSet rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				NoticeDTO notice = new NoticeDTO();
@@ -131,8 +153,9 @@ public class ControllerDAO {
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
+		} 
 		closeDB();
+
 		return noticeList;
 	}
 	
@@ -163,18 +186,49 @@ public class ControllerDAO {
 		return notice;
 	}
 	
-	// noticeSearch() : 검색 조건에 따라 select하는 메소드 (검색 조건이 하나인 경우, field2는 ""로 지정)
-	public ArrayList<NoticeDTO> noticeSearch(String field1, String field2, String words) {
+	// noticeSearchCount(field1, field2, words) : 검색 조건에 따라 검색되는 값의 개수 select
+	public int noticeSearchCount(String field, String words) {
 		accessDB();
-		ArrayList<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
+		int listCount = 0;
+		
 		try {
 			stmt = conn.createStatement();
 			String sql = "";
-			if(field2.equals(""))
-				sql = String.format("select * from notice where %s like '%%%s%%' order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc;", field1, words);
-			else
-				sql = String.format("select * from notice where %s like '%%%s%%' or %s like '%%%s%%' order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc;", field1, words, field2, words);
+			if(field.equals("both")) {
+				sql = String.format("select count(*) from notice where title like '%%%s%%' or content like '%%%s%%';", words, words);
+			} else {
+				sql = String.format("select count(*) from notice where %s like '%%%s%%';", field, words);
+			}
 			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		closeDB();
+		return listCount;
+	}
+	
+	// noticeSearch() : 검색 조건에 따라 select하는 메소드 (검색 조건이 하나인 경우, field2는 ""로 지정)
+	public ArrayList<NoticeDTO> noticeSearch(String field, String words, int page, int limit) {
+		accessDB();
+		ArrayList<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
+		
+		try {
+			int startrow = (page - 1) * 10;
+			
+			stmt = conn.createStatement();
+			String sql = "";
+			if(field.equals("both")) {
+				sql = String.format("select * from notice where title like '%%%s%%' or content like '%%%s%%' order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc limit %d, %d", words, words, startrow, limit);
+			} else {
+				sql = String.format("select * from notice where %s like '%%%s%%' order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc limit %d, %d", field, words, startrow, limit);
+			}
+			
+			ResultSet rs = stmt.executeQuery(sql);
+			
 			while(rs.next()) {
 				NoticeDTO notice = new NoticeDTO();
 				notice.setNoticeNo(rs.getInt("noticeNo"));
@@ -189,6 +243,7 @@ public class ControllerDAO {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
 		closeDB();
 		return noticeList;
 	}

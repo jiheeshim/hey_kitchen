@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,17 +39,23 @@
 					<div class="secTitle">다음 밀플랜 배송 관리<button>배송 변경</button></div>
 					<div class="mealplanWrapper">
 						<ul>
-							<li>나의 배송번호 : <font>deliveryNo</font></li>
-							<li>다음 배송일 : <font>deliverDate - select</font></li>
+							<li>나의 배송번호 : <font>${delivery.deliveryNo}</font></li>
+							<li>다음 배송일 : <font>${delivery.deliverDate}</font></li>
 							<li>
 								다음 밀플랜 메뉴
-								<br><font>mealkitName - select</font>
+								<p>
+									<c:forEach var="mealkitName" items="${mealkitNames}">
+										<font>&nbsp;🍽&nbsp;&nbsp;${mealkitName}</font><br>
+									</c:forEach>
+								</p>
 							</li>
 							<li>
 								나의 배송지
-								<br><font>postcode - text</font>
-								<br><font>addr1 extraAddr</font>
-								<br><font>addr2</font>
+								<p>
+									<font>우편번호 : ${delivery.postcode}</font>
+									<br><font>주소 : ${delivery.addr1}&nbsp;${delivery.extraAddr}</font>
+									<br><font>상세주소 : ${delivery.addr2}</font>
+								</p>
 							</li>
 						</ul>
 					</div>

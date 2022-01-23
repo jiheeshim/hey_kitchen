@@ -17,7 +17,7 @@
 		
 		<main>
 			<div class="title">이벤트 및 공지사항 작성</div>
-			<form id="noticeForm" action="noticeUpdate.jsp">
+			<form id="noticeForm" action="noticeUpdate.jsp" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<td>
@@ -30,14 +30,16 @@
 						</td>
 					<tr>
 						<td>
-							<input type="button" value="첨부파일 추가하기">
-							<input type="text" name="fileName" readonly>
+							<label id="fileLabel" for="file">첨부파일 추가</label>
+							<input type="text" id="fileText" name="fileName" readonly>
+							<input type="file" id="file" name="noticeFile">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="button" value="이미지 추가하기">
-							<input type="text" name="imgName" readonly>
+							<label id="imageLabel" for="image">이미지 올리기</label>
+							<input type="text" id="imageText" name="imageName" readonly>
+							<input type="file" id="image" name="noticeImage">
 						</td>
 					</tr>
 					<tr>

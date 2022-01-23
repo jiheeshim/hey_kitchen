@@ -1,20 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.time.LocalDate" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <jsp:useBean id="dao" class="controller.ControllerDAO" />
 <jsp:useBean id="notice" class="model.NoticeDTO" />
 <%
-// 사용자가 입력한 parameter 값들 불러오기
-int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-String title = request.getParameter("title"); 
-String category = request.getParameter("category");
-String content = request.getParameter("content");
-//String fileName = request.getParameter("fileName");
-//String imgName = request.getParameter("imgName");
-String fileName = "";
-String imgName = "";
 String adminName = (String)session.getAttribute("adminName");
-String impo = request.getParameter("impo");
+if(adminName == null) {
+	out.println("<script>alert('권한이 없습니다.'); location.href='noticeListSelect.jsp';</script>");
+}
+
+String folder = "/noticeUpload";
+int fileSize = 10 * 1024 * 1024;
+String realFolder = getServletContext().getRealPath(folder);
+MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
+
+// 사용자가 입력한 parameter 값들 불러오기
+int noticeNo = Integer.parseInt(multi.getParameter("noticeNo"));
+String title = multi.getParameter("title"); 
+String category = multi.getParameter("category");
+String content = multi.getParameter("content");
+String fileName = multi.getParameter("fileName");
+String imgName = multi.getParameter("imageName");
+String impo = multi.getParameter("impo");
 LocalDate today = LocalDate.now();
 String editDate = today.toString();
 
