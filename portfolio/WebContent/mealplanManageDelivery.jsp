@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +27,17 @@
 					</ul>
 				</nav>
 				<section class="manageSec">
-					<div class="secTitle">나의 밀플랜 현황</div>
+					<div class="secTitle">밀플랜 배송지 변경</div>
 					<div class="mealplanWrapper">
-						구독 중인 밀플랜이 없습니다.
-						<br><br><a class="transfer" href="header.kitchen?where=mealplanOrder">밀플랜 구독하러 가기 &gt;&gt;</a>
+						<form id="deliveryForm" action="deliveryModifyPro.sub">
+						나의 배송지&nbsp;<button type="submit">변경 확인</button>
+						<input type="hidden" name="deliveryNo" value="${delivery.deliveryNo}">
+						<br>우편번호 : <input type="text" name="postcode" size="10" value="${delivery.postcode}" readonly>
+						<button type="button" id="search" onclick="searchPostcode()">찾기</button>
+						<br>주소 : <input type="text" name="addr1" size="30" value="${delivery.addr1}" readonly>
+						<input type="text" name="extraAddr" size="25" value="${delivery.extraAddr}" readonly>
+						<br>상세주소 : <input type="text" name="addr2" size="80" value="${delivery.addr2}" required>
+						</form>
 					</div>
 				</section>
 			</div>
@@ -38,4 +46,6 @@
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="postcode.js"></script>
 </html>

@@ -23,10 +23,9 @@
 				<a href="#">밀플랜 정기구독</a>
 				<ul class="level2">
 					<div class="level2_wrapper">
-						<li><a href="javascript:askLogin();">구독하기</a></li>
-						<li><a href="#">메뉴 선택</a></li>
+						<li><a href="javascript:askLogin(1);">구독하기</a></li>
 						<li><a href="#">밀플랜 레시피</a></li>
-						<li><a href="mealplanManage.sub">밀플랜 구독 관리</a></li>
+						<li><a href="javascript:askLogin(2);">밀플랜 구독 관리</a></li>
 					</div>
 				</ul>
 			</li>
@@ -112,8 +111,6 @@
 								<li><a href="#">타르트</a></li>
 								<li>|</li>
 								<li><a href="#">빵</a></li>
-								<li>|</li>
-								<li><a href="#">디저트</a></li>
 							</ul>
 						</li>
 						<li>

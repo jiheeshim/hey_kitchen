@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#subDateForm { margin: 50px 0 30px 0; }
+#subDateForm button { width: 80px; height: 40px; margin: 0 5px 10px 0;
+	background-color: white; border: 2px solid lightgray; 
+}
+#subDateForm button:hover, #subDateForm input[type='submit']:hover { font-weight: bold; cursor: pointer; }
+#subDateForm input[type='date'] { width: 154px; height: 30px; padding-left: 4px;
+	border: 1px solid gray; border-radius: 4px;
+}
+#subDateForm input[type='date']:focus { outline-color: black; }
+#subDateForm input[type='submit'] { width: 50px; height: 30px; margin-left: 5px;
+	background-color: black; border: none; color: white;
+}
+
+.historyTable { border-collapse: collapse; width: 100%; margin: 50px 0 70px 0; }
+.historyTable tr { border-top: 1px solid gray; border-bottom: 1px solid gray; }
+.historyTable th { padding: 6px 0; }
+.historyTable td { background-color: #F1F1F1; height: 50px; text-align: center; }

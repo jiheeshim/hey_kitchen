@@ -27,6 +27,9 @@ public class MealplanDTO {
 	public void setSubPrice(int subPrice) {
 		this.subPrice = subPrice;
 	}
+	public void setCancelDate(String cancelDate) {
+		this.cancelDate = cancelDate;
+	}
 	
 	public String getMealplanNo() {
 		return mealplanNo;
@@ -45,6 +48,9 @@ public class MealplanDTO {
 	}
 	public int getSubPrice() {
 		return subPrice;
+	}
+	public String getCancelDate() {
+		return cancelDate;
 	}
 	
 }

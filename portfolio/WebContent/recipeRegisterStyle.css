@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'KOTRALEAP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main { width: 900px; margin: 80px auto; font-size: 14px; }
+
+.title { font-size: 2.2em; font-family: KOTRALEAP; text-align: center; }
+
+#registerForm { margin: 40px 0; }
+#registerForm table { border-collapse: seperate; border-spacing: 0 25px; }
+#registerForm td { vertical-align: top; }
+td > span { font-size: 1.8em; font-family: KOTRALEAP; color: gray;
+	padding-right: 40px;
+}
+
+#registerForm input[type='text'] { padding-left: 5px; }
+#registerForm input[type='text']:focus, #registerForm textarea:focus { outline-color: black; }
+input[name='recipeName'] { width: 720px; height: 35px; }
+
+.categoryTd { border: 1px solid gray; border-radius: 3px; padding: 10px; }
+
+#registerForm textarea[name='recipeDesc'] { width: 722px; height: 100px; resize: none; }
+
+input[name='ingrName'] { width: 380px; height: 30px; }
+input[name='ingrAmount'] { width: 275px; height: 30px; margin-left: 3px; }
+#ingrTd button { width: 40px; height: 35px; color: #FF5D49; font-weight: bold;
+	border-radius: 20px; border: 2px solid #FF5D49; background-color: white;
+}
+#registerForm td button:hover { cursor: pointer; }
+#ingrTd > div { margin-bottom: 5px; }
+
+#imgTd button { margin-bottom: 5px;
+	background-color: white; font-weight: bold; color: #FF5D49; 
+	border: 2px solid #FF5D49; border-radius: 3px;
+}
+textarea[name='imgDesc'] { width: 722px; height: 60px; resize: none; margin-bottom: 10px; }
+
+.btnCenter { text-align: center; margin: 50px 0; }
+.btnCenter button { font-size: 1.5em; font-family: KOTRALEAP; color: #FF5D49;
+	background-color: white; box-shadow: 5px 5px gray; padding: 5px 20px 10px 20px;
+	border-radius: 5px; border: 2px solid #FF5D49;
+}
+.btnCenter button:hover { font-weight: bold; box-shadow: 2px 2px gray; cursor: pointer; }

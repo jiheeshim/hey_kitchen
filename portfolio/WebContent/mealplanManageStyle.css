@@ -7,7 +7,7 @@
     font-style: normal;
 }
 
-main { width: 950px; margin: 80px auto; font-size: 14px; }
+main { width: 950px; margin: 100px auto; font-size: 14px; min-height: 500px; }
 .title { margin: 30px; font-family: KOTRALEAP; font-size: 2.2em; text-align: center; }
 
 .mainWrapper { display: flex; justify-content: space-between; }
@@ -35,5 +35,22 @@ main { width: 950px; margin: 80px auto; font-size: 14px; }
 .mealplanWrapper ul { padding: 0 0 0 20px; }
 .mealplanWrapper li { list-style-type: none; margin: 8px 0; font-size: 1.1em; }
 .mealplanWrapper font { font-weight: bold; }
+.mealplanWrapper button { padding: 0 12px; height: 25px; margin-left: 5px; margin-bottom: 5px; 
+	border: 1px solid gray; border-radius: 5px;
+}
 .transfer:link, .transfer:visited { font-size: 1.2em; color: black; font-weight: bold; }
+
+#deliveryForm input[type='text'] { height: 25px; border-radius: 5px; border: 1px solid gray; 
+	margin-bottom: 10px;
+}
+#deliveryForm button { padding: 0 12px; margin-bottom: 10px; margin-left: 5px;
+	height: 30px; border: 1px solid gray; border-radius: 5px;
+}
+.mealplanWrapper button:hover, #deliveryForm button:hover { background-color: #CDCDCD; }
+
+.cancelDesc { margin-top: 50px; margin-left: 20px; line-height: 1.8em; }
+#cancelBtn { width: 150px; height: 50px; margin: 20px 20px; font-size: 1.1em;
+	background-color: white; border: 2px solid lightgray; color: gray;
+}
+#cancelBtn:hover { cursor: pointer; }
 

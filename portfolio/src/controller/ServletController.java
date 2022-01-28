@@ -35,7 +35,7 @@ public class ServletController extends HttpServlet {
 						String page = cUSelect.commandData(request, response);
 						request.getRequestDispatcher(page).forward(request, response);
 					} else { // 현재 진행 중인 구독 정보가 있으면 구독 관리 페이지로 이동
-						response.sendRedirect("/mealplanManage.sub");
+						response.sendRedirect("mealplanManage.sub");
 					}
 				} catch(Exception e) {
 					e.printStackTrace();

@@ -38,6 +38,7 @@ public class MealplanManageCommand implements MealplanCommand {
 				forward = new ActionForward();
 				forward.setPath("/mealplanManage.jsp");
 			} else { // 구독 정보는 있는데 현재 날짜 기준으로 다음 배송 정보가 없는 경우
+				response.setContentType("text/html; charset=utf-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>alert('다음 배송 정보를 불러오는데 실패하였습니다. -구독 자동 갱신 기능 준비중-'); location.href('mealplanManageNull.jsp');</script>");
 			}

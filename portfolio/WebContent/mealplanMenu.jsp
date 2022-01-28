@@ -59,9 +59,7 @@
 							<div>
 								<c:forEach var="i" begin="1" end="${mealplan.servingCnt}">
 									<div class="mealkitSelect">
-										<div>
-											${i}번째 메뉴
-										</div>
+										<div>${i}번째 메뉴</div>
 										<select name="mealkitNo">
 											<c:forEach var="mealkit" items="${mealkitList}">
 												<option value="${mealkit.mealkitNo}">${mealkit.mealkitName}</option>
