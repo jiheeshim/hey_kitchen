@@ -28,16 +28,14 @@
 						</td>
 					<tr>
 						<td>
-							<label id="fileLabel" for="file">첨부파일 추가</label>
-							<input type="text" id="fileText" name="fileName" readonly>
-							<input type="file" id="file" name="noticeFile">
+							<span class="fileSpan">첨부파일 추가</span>
+							<input type="file" name="fileName">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label id="imageLabel" for="image">이미지 올리기</label>
-							<input type="text" id="imageText" name="imageName" readonly>
-							<input type="file" id="image" name="noticeImage">
+							<span class="fileSpan">이미지 올리기</span>
+							<input type="file" name="imgName" accept="image/*">
 						</td>
 					</tr>
 					<tr>

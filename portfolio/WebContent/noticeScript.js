@@ -23,29 +23,44 @@ function deleteNotice(noticeNo) {
 	}
 }
 
-// 첨부파일&이미지 파일명 출력하기
-
-var file = document.getElementById("file");
+// 첨부파일 수정버튼(label) 클릭 -> 
 var fileLabel = document.getElementById("fileLabel");
-var fileText = document.getElementById("fileText");
-file.addEventListener("change", function() {
-	if(window.FileReader){
-      var fileName = this.files[0].name;
-    } else {
-      var fileName = (this).value.split("/").pop().split("\\").pop();
-    }
-	fileText.value = fileName;
-});
+var fileInput = document.getElementById("fileInput");
+var file_name = document.getElementById("file_name");
+var fileEdit = document.querySelector("input[name='fileEdit']");
+var imgLabel = document.getElementById("imgLabel");
+var imgInput = document.getElementById("imgInput");
+var img_name = document.getElementById("img_name");
+var imgEdit = document.querySelector("input[name='imgEdit']");
 
-var image = document.getElementById("image");
-var imageLabel = document.getElementById("imageLabel");
-var imageText = document.getElementById("imageText");
-image.addEventListener("change", function() {
-	if(window.FileReader) {
-		var fileName = this.files[0].name;
-	} else {
-		var fileName = (this).value.split("/").pop().split("\\").pop();
+function showFileInput() { // 첨부파일용 함수
+	file_name.style.display = "none";
+	fileInput.style.display = "inline";
+	fileInput.value = "";
+	fileEdit.value = "true";
+}
+
+function showImgInput() { // 이미지파일용 함수
+	img_name.style.display = "none";
+	imgInput.style.display = "inline";
+	imgInput.value = "";
+	imgEdit.value = "true";
+}
+
+function confirmDelete(input) { // 삭제 버튼 클릭 시
+	if(input == 0) { // 첨부파일용
+		if(confirm("첨부파일을 정말 삭제하시겠습니까?")) {
+			showFileInput();
+		} else {
+			return false;
+		}
+	} else { // 이미지파일용
+		if(confirm("이미지파일을 정말 삭제하시겠습니까?")) {
+			showImgInput();
+		} else {
+			return false;
+		}
 	}
-	imageText.value = fileName;
-});
+}
+
 

@@ -48,7 +48,10 @@
 								</c:forEach><br><br>
 							</li>
 							<li>나의 배송번호 : <font>${delivery.deliveryNo}</font></li>
-							<li>다음 배송일 : <font>${delivery.deliverDate}</font></li>
+							<li>
+								<fmt:parseDate var="deliverDay" value="${delivery.deliverDate}" pattern="yyyy-MM-dd" />
+								배송 요일 : <font><fmt:formatDate value="${deliverDay}" pattern="E" />요일</font>
+							</li>
 							<li>
 								나의 배송지
 								&nbsp;<button type="button" onclick="location.href='deliveryModifyForm.sub?mealplanNo=${mealplan.mealplanNo}'">배송 변경</button>

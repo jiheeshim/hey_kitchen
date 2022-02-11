@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'KOTRALEAP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main { font-size: 15px; }
+.title { width: 900px; margin: 80px auto 15px auto; font-family: KOTRALEAP; }
+.mainTitle { font-size: 2.2em; }
+.subTitle { font-size: 1.2em; color: gray; margin-top: 7px; }
+
+.sectionWrapper { width: 900px; height: 650px; overflow: scroll;
+	margin: 35px auto 120px auto;
+	border-radius: 10px; background-color: white;
+	box-shadow: 0 0 5px gray;
+}
+
+.recipeWrapper { width: 240px; height: 270px; margin: 40px 0 0 45px; display: inline-block; }
+.recipePic { width: 240px; height: 240px; border-radius: 5px; overflow: hidden; }
+.recipePic img { transition: all 0.3s ease-in-out; }
+.recipePic img:hover { transform: scale(1.05); }
+.recipePic a:hover { cursor: pointer; }
+.recipeTitle { text-align: center; margin-top: 10px; }
+.recipeTitle a:link, .recipeTitle a:visited { color: #FF5D49; font-weight: bold; text-decoration: none; }
+.recipeTitle a:hover { text-decoration: underline; }
+.details { font-size: 0.7em; color: gray; }
+
+.recipeNull { width: 100%; height: 650px;
+	display: flex; justify-content: center; align-items: center;
+}
+.recipeNull p { text-align: center; font-family: KOTRALEAP; color: gray;
+	font-size: 1.4em; line-height: 1.6em;
+}

@@ -38,11 +38,11 @@
 			</div>
 
 			<section class="main_menu">
-				<a href="#"><div class="menubox"><div id="nav1"></div></div></a>
+				<a href="header.kitchen?where=mealplanOrder"><div class="menubox"><div id="nav1"></div></div></a>
 				<div class="vline"></div>
 				<a href="#"><div class="menubox"><div id="nav2"></div></div></a>
 				<div class="vline"></div>
-				<a href="#"><div class="menubox"><div id="nav3"></div></div></a>
+				<a href="recipeMyFeedView.rec"><div class="menubox"><div id="nav3"></div></div></a>
 			</section>
 
 			<section class="maintitle">

@@ -30,16 +30,32 @@
 						</td>
 					<tr>
 						<td>
-							<label id="fileLabel" for="file">첨부파일 추가</label>
-							<input type="text" id="fileText" name="fileName" readonly>
-							<input type="file" id="file" name="noticeFile">
+							<span class="fileSpan">첨부파일 추가</span>
+							<c:if test="${notice.fileName != null}">
+								<label id="fileLabel" for="fileInput" onclick="showFileInput()">수정</label>
+								<button type="button" onclick="confirmDelete(0);">삭제</button>
+								<span id="file_name">${notice.fileName}</span>
+								<input id="fileInput" type="file" name="fileName">
+								<input type="hidden" name="fileEdit" value="false">
+							</c:if>
+							<c:if test="${notice.fileName == null}">
+								<input type="file" name="fileName">
+							</c:if>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<label id="imageLabel" for="image">이미지 올리기</label>
-							<input type="text" id="imageText" name="imageName" readonly>
-							<input type="file" id="image" name="noticeImage">
+							<span class="fileSpan">이미지 올리기</span>
+							<c:if test="${notice.imgName != null}">
+								<label id="imgLabel" for="imgInput" onclick="showImgInput()">수정</label>
+								<button type="button" onclick="confirmDelete(1);">삭제</button>
+								<span id="img_name">${notice.imgName}</span>
+								<input id="imgInput" type="file" name="imgName" accept="image/*">
+								<input type="hidden" name="imgEdit" value="false">
+							</c:if>
+							<c:if test="${notice.imgName == null}">
+								<input type="file" name="imgName" accept="image/*">
+							</c:if>
 						</td>
 					</tr>
 					<tr>

@@ -22,9 +22,11 @@
 				<tr>
 					<td>[${notice.category}]${notice.title}</td>
 				</tr>
-				<tr>
-					<td>첨부파일 : <a href="noticeUpload/${notice.fileName}" download>${notice.fileName}</a></td>
-				</tr>
+				<c:if test="${notice.fileName != null}">
+					<tr>
+						<td>첨부파일 : <a href="noticeUpload/${notice.fileName}" download>${notice.fileName}</a></td>
+					</tr>
+				</c:if>
 				<tr>
 					<td>
 						<div class="row2">
@@ -40,8 +42,12 @@
 				</tr>
 				<tr>
 					<td>
-						<%-- fileName & imgName --%>
-						<div class="content">${notice.content}</div>
+						<div class="content">
+							<c:if test="${notice.imgServerName != null}">
+								<img src="noticeUpload/${notice.imgServerName}">
+							</c:if>
+							<span>${notice.content}</span>
+						</div>
 					</td>
 				</tr>
 			</table>

@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'KOTRALEAP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main { width: 900px; margin: 100px auto; font-size: 14px; }
+.title { font-family: KOTRALEAP; font-size: 2.2em; text-align: center;
+}
+#helpIcon { position: relative; top: 5px; left: -10px; width: 28px; height: 28px; }
+.subTitle { margin-top: 10px; padding: 10px; display: none; color: #979797; 
+	border-radius: 5px; box-shadow: 0 0 5px lightgray; background-color: white;
+	position: relative; top: -30px; left: 300px; float: left;
+}
+
+.hline { height: 0; border: 1px solid gray; margin: 15px; }
+.ingrMain { margin-top: 20px; 
+	/*background-image: url(image/firstImgSlider.png);*/
+	/*background-color: #ccffc1; */
+}
+#notepad { width: 350px; height: 600px; margin: 60px auto; padding: 40px 50px;
+	border-radius: 10px; box-shadow: 0 0 10px lightgray; background-color: white;
+}
+#notepad form { width: 250px; margin: 0 auto; }

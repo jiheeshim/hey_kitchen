@@ -73,6 +73,7 @@ public class ServletController extends HttpServlet {
 			}
 		} else {
 			System.out.println("where parameter 오류");
+			System.out.println(where);
 		}
 	}
 }

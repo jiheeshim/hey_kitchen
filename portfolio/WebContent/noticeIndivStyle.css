@@ -11,11 +11,13 @@ main { width: 800px; min-height: 550px;
 #noticeForm td, #noticeTable td { padding: 8px 0; }
 select[name='category'], input[type='button'] { width: 120px; margin-right: 8px; height: 36px; }
 
-#noticeForm label { display:inline-block; padding: 9px 21px; margin-right: 8px;
-	background-color: #EFEFEF; border-radius: 3px; border: 1px solid lightgray;
+.fileSpan { display:inline-block; padding: 9px 21px; margin-right: 8px;
+	border-radius: 3px; border: 1px solid gray;
 }
-#noticeForm label:hover { background-color: #DDDDDD; }
-#file, #image { display: none; }
+#fileLabel, #imgLabel { background-color: #efefef; border-radius: 3px; border: 1px solid #767676;
+	font-size: 0.95em; padding: 2px 8px;
+}
+#fileInput, #imgInput { display: none; }
 
 .tdHead { margin-right: 10px; display: inline-block; }
 input[type='text'] { width: 654px; height: 30px; }
@@ -31,6 +33,7 @@ textarea { resize: none; width: 786px; height: 350px; }
 #noticeTable { width: 100%; border-collapse: collapse; margin: 50px 0; }
 #noticeTable tr { border-top: 1px solid lightgray; }
 #noticeTable tr:last-child { border-bottom: 1px solid lightgray; }
-#noticeTable .content { min-height: 300px; }
+#noticeTable .content { min-height: 300px; overflow: scroll; width: 800px; }
+.content > span { white-space: pre; }
 .row2 { display: flex; justify-content: space-between; }
 .noticeDates { float: right; }

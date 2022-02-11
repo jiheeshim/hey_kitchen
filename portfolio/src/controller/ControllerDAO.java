@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class ControllerDAO {
 	
 	Connection conn = null;
 	Statement stmt = null;
+	PreparedStatement pstmt = null;
 	
 	public void accessDB() {
 		try {
@@ -29,7 +31,12 @@ public class ControllerDAO {
 	
 	public void closeDB() {
 		try {
-			stmt.close();
+			if(stmt != null) {
+				stmt.close();
+			}
+			if(pstmt != null) {
+				pstmt.close();
+			}
 			conn.close();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -173,7 +180,9 @@ public class ControllerDAO {
 				notice.setTitle(rs.getString("title"));
 				notice.setContent(rs.getString("content"));
 				notice.setFileName(rs.getString("fileName"));
+				notice.setFileServerName(rs.getString("fileServerName"));
 				notice.setImgName(rs.getString("imgName"));
+				notice.setImgServerName(rs.getString("imgServerName"));
 				notice.setAdminName(rs.getString("adminName"));
 				notice.setImpo(rs.getString("impo"));
 				notice.setRegDate(rs.getString("regDate"));
@@ -253,11 +262,22 @@ public class ControllerDAO {
 		accessDB();
 		int result = 0;
 		try {
-			stmt = conn.createStatement();
-			String sql = String.format("insert into notice (noticeNo, title, category, content, fileName, imgName, adminName, impo, regDate)"
-					+ "values (default, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-					notice.getTitle(), notice.getCategory(), notice.getContent(), notice.getFileName(), notice.getImgName(), notice.getAdminName(), notice.getImpo(), notice.getRegDate());
-			result = stmt.executeUpdate(sql);
+			
+			String sql = "insert into notice (noticeNo, title, category, content, fileName, fileServerName, imgName, imgServerName, adminName, impo, regDate)"
+					+ "values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, notice.getTitle());
+			pstmt.setString(2, notice.getCategory());
+			pstmt.setString(3, notice.getContent());
+			pstmt.setString(4, notice.getFileName());
+			pstmt.setString(5, notice.getFileServerName());
+			pstmt.setString(6, notice.getImgName());
+			pstmt.setString(7, notice.getImgServerName());
+			pstmt.setString(8, notice.getAdminName());
+			pstmt.setString(9, notice.getImpo());
+			pstmt.setString(10, notice.getRegDate());
+			
+			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -297,14 +317,50 @@ public class ControllerDAO {
 	}
 	
 	// noticeUpdate() : 수정한 내용으로 update하는 메소드
-	public int noticeUpdate(NoticeDTO notice) {
+	public int noticeUpdate(NoticeDTO notice, int editVersion) {
 		accessDB();
 		int result = 0;
+		String sql = "";
+		
 		try {
-			stmt = conn.createStatement();
-			String sql = String.format("update notice set title = '%s', category = '%s', content = '%s', fileName = '%s', imgName = '%s', adminName = '%s', impo = '%s', editDate = '%s' where noticeNo = %d;",
-					notice.getTitle(), notice.getCategory(), notice.getContent(), notice.getFileName(), notice.getImgName(), notice.getAdminName(), notice.getImpo(), notice.getEditDate(), notice.getNoticeNo());
-			result = stmt.executeUpdate(sql);
+			
+			if(editVersion == 0) { // 파일 수정 x
+				sql = "update notice set title = ?, category = ?, content = ?, adminName = ?, impo = ?, editDate = ? where noticeNo = ?";
+			} else if(editVersion == 1) { // 첨부파일만 수정
+				sql = "update notice set title = ?, category = ?, content = ?, adminName = ?, impo = ?, editDate = ?, fileName = ?, fileServerName = ? where noticeNo = ?";
+			} else if(editVersion == 2) { // 이미지파일만 수정
+				sql = "update notice set title = ?, category = ?, content = ?, adminName = ?, impo = ?, editDate = ?, imgName = ?, imgServerName = ? where noticeNo = ?";
+			} else { // 모든 파일 수정
+				sql = "update notice set title = ?, category = ?, content = ?, adminName = ?, impo = ?, editDate = ?, fileName = ?, fileServerName = ?, imgName = ?, imgServerName = ? where noticeNo = ?";
+			}
+			 
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, notice.getTitle());
+			pstmt.setString(2, notice.getCategory());
+			pstmt.setString(3, notice.getContent());
+			pstmt.setString(4, notice.getAdminName());
+			pstmt.setString(5, notice.getImpo());
+			pstmt.setString(6, notice.getEditDate());
+			
+			if(editVersion == 0) {
+				pstmt.setInt(7, notice.getNoticeNo());
+			} else if(editVersion == 1) {
+				pstmt.setString(7, notice.getFileName());
+				pstmt.setString(8, notice.getFileServerName());
+				pstmt.setInt(9, notice.getNoticeNo());
+			} else if(editVersion == 2) {
+				pstmt.setString(7, notice.getImgName());
+				pstmt.setString(8, notice.getImgServerName());
+				pstmt.setInt(9, notice.getNoticeNo());
+			} else {
+				pstmt.setString(7, notice.getFileName());
+				pstmt.setString(8, notice.getFileServerName());
+				pstmt.setString(9, notice.getImgName());
+				pstmt.setString(10, notice.getImgServerName());
+				pstmt.setInt(11, notice.getNoticeNo());
+			}
+			
+			result = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

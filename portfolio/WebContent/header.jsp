@@ -13,7 +13,7 @@
 				<ul class="level2">
 					<div class="level2_wrapper">
 						<li><a href="#">기획 의도</a></li>
-						<li><a href="#">웹사이트 소개</a></li>
+						<li><a href="#">오프라인 매장 찾기</a></li>
 						<li><a href="noticeListSelect.jsp">이벤트/공지사항</a></li>
 						<li><a href="qnaList.qna">문의사항</a></li>
 					</div>
@@ -131,10 +131,9 @@
 				<a href="#">마이 키친</a>
 				<ul class="level2">
 					<div class="level2_wrapper">
-						<li><a href="#">레시피 스크랩 갤러리</a></li>
-						<li><a href="myRecipes.jsp">나의 레시피 피드</a></li>
-						<li><a href="#">나의 재료 쇼핑리스트</a></li>
-						<li><a href="#">마이 키친 관리</a></li>
+						<li><a href="recipeScrapView.rec">레시피 스크랩 갤러리</a></li>
+						<li><a href="recipeMyFeedView.rec">나의 레시피 피드</a></li>
+						<li><a href="ingrScrapView.jsp">나의 장보기 목록</a></li>
 					</div>
 				</ul>
 			</li>

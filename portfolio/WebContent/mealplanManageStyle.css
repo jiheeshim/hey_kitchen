@@ -48,8 +48,8 @@ main { width: 950px; margin: 100px auto; font-size: 14px; min-height: 500px; }
 }
 .mealplanWrapper button:hover, #deliveryForm button:hover { background-color: #CDCDCD; }
 
-.cancelDesc { margin-top: 50px; margin-left: 20px; line-height: 1.8em; }
-#cancelBtn { width: 150px; height: 50px; margin: 20px 20px; font-size: 1.1em;
+.cancelDesc { margin-top: 60px; margin-left: 20px; line-height: 1.8em; }
+#cancelBtn { width: 150px; height: 50px; margin: 30px 20px; font-size: 1.1em;
 	background-color: white; border: 2px solid lightgray; color: gray;
 }
 #cancelBtn:hover { cursor: pointer; }

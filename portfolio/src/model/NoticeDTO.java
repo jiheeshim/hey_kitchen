@@ -6,7 +6,9 @@ public class NoticeDTO {
 	private String title;
 	private String content;
 	private String fileName;
+	private String fileServerName;
 	private String imgName;
+	private String imgServerName;
 	private String adminName;
 	private	String impo;
 	private String regDate;
@@ -27,8 +29,14 @@ public class NoticeDTO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+	public void setFileServerName(String fileServerName) {
+		this.fileServerName = fileServerName;
+	}
 	public void setImgName(String imgName) {
 		this.imgName = imgName;
+	}
+	public void setImgServerName(String imgServerName) {
+		this.imgServerName = imgServerName;
 	}
 	public void setAdminName(String adminName) {
 		this.adminName = adminName;
@@ -58,8 +66,14 @@ public class NoticeDTO {
 	public String getFileName() {
 		return fileName;
 	}
+	public String getFileServerName() {
+		return fileServerName;
+	}
 	public String getImgName() {
 		return imgName;
+	}
+	public String getImgServerName() {
+		return imgServerName;
 	}
 	public String getAdminName() {
 		return adminName;
