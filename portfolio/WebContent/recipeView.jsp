@@ -41,7 +41,7 @@
 								<c:if test="${isScrapped == false}">
 									<button id="scrapBtn" class="isNotScrapped" type="button"></button>
 								</c:if>
-								<a href="#">스크랩</a>
+								<a href="">&nbsp;스크랩&nbsp;</a>
 							</div>
 						</div>
 						<div class="desc">${recipe.recipeDesc}</div>
@@ -107,12 +107,14 @@
 							<div class="reviewId">${review.id}</div>
 							<c:if test="${review.imgServerName != null}">
 								<div class="contentWithImg">
+									<c:set var="point" value="10" />
 									<img width="100px" height="100px" src="recipeUpload/${review.imgServerName}">
 									<div>${review.content}</div>
 								</div>
 							</c:if>
 							<c:if test="${review.imgServerName == null}">
 								<div class="contentOnly">
+									<c:set var="point" value="5" />
 									<div>${review.content}</div>
 								</div>
 							</c:if>
@@ -120,7 +122,7 @@
 								<span>
 									<c:if test="${review.id eq id}">
 										<button type="button">수정하기</button>&nbsp;
-										<button type="button" onclick="askDelete(${review.reviewNo}, ${recipe.recipeNo})">삭제하기</button>
+										<button type="button" onclick="askDelete(${review.reviewNo}, ${recipe.recipeNo}, ${point})">삭제하기</button>
 									</c:if>
 								</span>
 								<span class="reviewDates">

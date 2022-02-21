@@ -10,3 +10,12 @@ function loginCheck() {
 		}
 	}
 }
+
+// 카카오 소셜 로그인
+Kakao.init('9dba1125139c9fc4d8f64e57190988a7'); // 발급받은 키 중 javascript키
+
+function loginWithKakao() {
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:3306/portfolio/index.jsp'
+    })
+  }

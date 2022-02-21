@@ -6,22 +6,47 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 main { width: 900px; margin: 100px auto; font-size: 14px; }
-.title { font-family: KOTRALEAP; font-size: 2.2em; text-align: center;
+.title { font-family: KOTRALEAP; font-size: 2.2em; text-align: center; margin-bottom: 30px;
 }
 #helpIcon { position: relative; top: 5px; left: -10px; width: 28px; height: 28px; }
-.subTitle { margin-top: 10px; padding: 10px; display: none; color: #979797; 
+.subTitle { margin-top: 10px; padding: 12px; display: none; color: #979797; 
 	border-radius: 5px; box-shadow: 0 0 5px lightgray; background-color: white;
-	position: relative; top: -30px; left: 300px; float: left;
+	position: relative; top: -27px; left: 260px; float: left; line-height: 1.3em;
 }
 
-.hline { height: 0; border: 1px solid gray; margin: 15px; }
-.ingrMain { margin-top: 20px; 
-	/*background-image: url(image/firstImgSlider.png);*/
-	/*background-color: #ccffc1; */
+.hline { height: 0; border: 1px solid gray; margin: 15px 0; }
+
+.ingrMain { border-radius: 10px; padding: 20px 0; margin: 15px 0;
+	/* background-image: url(image/clipart.png); */
+	background-color: #fff4d5; 
 }
-#notepad { width: 350px; height: 600px; margin: 60px auto; padding: 40px 50px;
-	border-radius: 10px; box-shadow: 0 0 10px lightgray; background-color: white;
+#notepad { width: 330px; height: 480px; margin: 60px auto; padding: 30px 40px 30px 50px;
+	border-radius: 10px; box-shadow: 0 0 12px lightgray; background-color: white;
 }
-#notepad form { width: 250px; margin: 0 auto; }
+.ingrBox { height: 430px; overflow: scroll; }
+.ingrBox ul { padding: 0; }
+.ingrBox li { margin-bottom: 4px; list-style-type: none; }
+.ingrBox input[type='text'] { border: none; font-size: 1.3em; padding-bottom: 4px;
+	font-family: GangwonEdu_OTFBoldA;
+}
+.ingrBox input[type='text']:focus { outline: none; }
+.ingrBox input[type='checkbox'] { zoom: 1.5; position: relative; top: 3px; }
+.plusdiv { width: 10px; display: inline-block; }
+.ingrBox button { all: unset; }
+.ingrBox button:hover { cursor: pointer; }
+
+
+.btn { text-align: center; margin-top: 10px;}
+.btn button { padding: 5px 12px 8px 12px; background-color: white; box-shadow: 3px 3px lightgray;
+	border: 2px solid #5c5c5c; border-radius: 5px;
+	color: #5c5c5c; font-weight: bold; font-family: KOTRALEAP; font-size: 1.1em;
+}
+.btn button:hover { position: relative; top: 2px; left: 2px; box-shadow: 1px 1px lightgray; }

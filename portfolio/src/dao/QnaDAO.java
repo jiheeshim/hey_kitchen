@@ -75,7 +75,6 @@ public class QnaDAO {
 				qna.setQnaCategory(rs.getString("qnaCategory"));
 				qna.setSecret(rs.getString("secret"));
 				qna.setTitle(rs.getString("title"));
-				qna.setQnaFile(rs.getString("qnaFile"));
 				qna.setId(rs.getString("id"));
 				qna.setQnaRef(rs.getInt("qnaRef"));
 				qna.setQnaLev(rs.getInt("qnaLev"));
@@ -139,7 +138,6 @@ public class QnaDAO {
 				qna.setSecret(rs.getString("secret"));
 				qna.setTitle(rs.getString("title"));
 				qna.setContent(rs.getString("content"));
-				qna.setQnaFile(rs.getString("qnaFile"));
 				qna.setId(rs.getString("id"));
 				qna.setQnaPw(rs.getString("qnaPw"));
 				qna.setQnaRef(rs.getInt("qnaRef"));
@@ -283,7 +281,6 @@ public class QnaDAO {
 				qna.setSecret(rs.getString("secret"));
 				qna.setTitle(rs.getString("title"));
 				qna.setContent(rs.getString("content"));
-				qna.setQnaFile(rs.getString("qnaFile"));
 				qna.setId(rs.getString("id"));
 				qna.setQnaPw(rs.getString("qnaPw"));
 				qna.setQnaRef(rs.getInt("qnaRef"));
@@ -313,22 +310,21 @@ public class QnaDAO {
 			
 			int qnaNo = selectQnaNo();
 			String sql = "insert into qna"
-					+ "(qnaNo, qnaCategory, secret, title, content, qnaFile, id, qnaPw, qnaRef, qnaLev, qnaSeq, readCount, regDate)"
-					+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "(qnaNo, qnaCategory, secret, title, content, id, qnaPw, qnaRef, qnaLev, qnaSeq, readCount, regDate)"
+					+ "values (?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qnaNo);
 			pstmt.setString(2, qna.getQnaCategory());
 			pstmt.setString(3, qna.getSecret());
 			pstmt.setString(4, qna.getTitle());
 			pstmt.setString(5, qna.getContent());
-			pstmt.setString(6, qna.getQnaFile());
-			pstmt.setString(7, qna.getId());
-			pstmt.setString(8, qna.getQnaPw());
-			pstmt.setInt(9, qnaNo);
+			pstmt.setString(6, qna.getId());
+			pstmt.setString(7, qna.getQnaPw());
+			pstmt.setInt(8, qnaNo);
+			pstmt.setInt(9, 0);
 			pstmt.setInt(10, 0);
 			pstmt.setInt(11, 0);
-			pstmt.setInt(12, 0);
-			pstmt.setString(13, qna.getRegDate());
+			pstmt.setString(12, qna.getRegDate());
 			insertCount = pstmt.executeUpdate();
 			
 		} catch(Exception e) {
@@ -417,15 +413,14 @@ public class QnaDAO {
 		int updateCount = 0;
 		
 		try {
-			String sql = "update qna set qnaCategory = ?, secret = ?, title = ?, content = ?, qnaFile = ?, editDate = ? where qnaNo = ?";
+			String sql = "update qna set qnaCategory = ?, secret = ?, title = ?, content = ?, editDate = ? where qnaNo = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, qna.getQnaCategory());
 			pstmt.setString(2, qna.getSecret());
 			pstmt.setString(3, qna.getTitle());
 			pstmt.setString(4, qna.getContent());
-			pstmt.setString(5, qna.getQnaFile());
-			pstmt.setString(6, qna.getEditDate());
-			pstmt.setInt(7, qna.getQnaNo());
+			pstmt.setString(5, qna.getEditDate());
+			pstmt.setInt(6, qna.getQnaNo());
 			updateCount = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();

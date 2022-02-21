@@ -1,25 +1,25 @@
 
 // 리뷰 댓글 삭제 확인 함수
-function askDelete(reviewNo, recipeNo) {
+function askDelete(reviewNo, recipeNo, point) {
 	if(confirm("정말로 삭제하시겠습니까?")) {
-		location.href = "reviewDelete.rec?reviewNo=" + reviewNo + "&recipeNo=" + recipeNo;
+		location.href = "reviewDelete.rec?reviewNo=" + reviewNo + "&recipeNo=" + recipeNo + "&point=" + point;
 	} else {
 		return false;
 	}
 }
 
-// 마우스 올리면 스크랩 아이콘 배경색 & 글씨 바뀌도록
+// 마우스 올리면 스크랩 버튼 더 진하게 효과
 var scraps = document.getElementById("scraps");
 var scrapBtn = document.getElementById("scrapBtn");
 var scrapA = document.querySelector("#scraps > a");
 
 scraps.addEventListener("mouseover", function() {
-	scrapA.style.fontWeight = "bold";
 	scrapA.style.color = "#313131";
+	scraps.style["box-shadow"] = "0 0 5px gray";
 });
 scraps.addEventListener("mouseout", function() {
-	scrapA.style.fontWeight = "normal";
 	scrapA.style.color = "#5a5a5a";
+	scraps.style["box-shadow"] = "0 0 2px gray";
 });
 
 // 스크랩 div 클릭 시, 스크랩 기능으로 이동
@@ -73,18 +73,18 @@ $(function () {
 					data: {
 						ingr: ingr
 					},
-					success: function(result) { // 성공한 경우
+					success: function(result) { // ajax 성공한 경우
 						if(result.includes("?")) { // insert 성공한 경우, 장보기 목록으로 갈지 질문
 							if(confirm(result)) {
-								location.href = ""; // 장보기 목록으로 이동
-							} else {
+								location.href = "ingrScrapView.rec"; // 장보기 목록으로 이동
+							} else { // insert 실패한 경우
 								return false;
 							}
 						} else {
 							alert(result);
 						}
 					},
-					error: function() { // 실패한 경우
+					error: function() { // ajax 실패한 경우
 						alert("오류가 발생하였습니다.");
 					}
 				});

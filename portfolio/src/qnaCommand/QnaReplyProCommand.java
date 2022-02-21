@@ -19,15 +19,21 @@ public class QnaReplyProCommand implements Command {
 		
 		HttpSession session = request.getSession();
 		String page = request.getParameter("page");
+		ActionForward forward = null;
 		
 		// 답글 데이터로 qna 객체 값 설정
-		ActionForward forward = null;
+		String id = "";
+		if(((String)session.getAttribute("auth9999")).equals("admin9999")) { // 관리자의 경우, 목록페이지에서 아이디 대신 이름이 뜨도록 이름을 저장
+			id = (String)session.getAttribute("adminName");
+		} else {
+			id = (String)session.getAttribute("id");
+		}
 		QnaDTO qna = new QnaDTO();
 		qna.setQnaCategory(request.getParameter("qnaCategory"));
 		qna.setSecret(request.getParameter("secret"));
 		qna.setTitle(request.getParameter("title"));
 		qna.setContent(request.getParameter("content"));
-		qna.setId((String)session.getAttribute("id"));
+		qna.setId(id);
 		qna.setQnaPw(request.getParameter("qnaPw"));
 		qna.setQnaRef(Integer.parseInt(request.getParameter("qnaRef")));
 		qna.setQnaLev(Integer.parseInt(request.getParameter("qnaLev")));

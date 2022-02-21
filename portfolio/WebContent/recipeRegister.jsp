@@ -38,8 +38,8 @@
 							<input type="checkbox" name="category" id="snack" value="간식">
 							<label for="snack">간식</label><br>
 							
-							<input type="checkbox" name="category" id="app" value="애피타이저">
-							<label for="app">애피타이저</label>
+							<input type="checkbox" name="category" id="appetizer" value="애피타이저">
+							<label for="appetizer">애피타이저</label>
 							<input type="checkbox" name="category" id="main" value="메인">
 							<label for="main">메인</label>
 							<input type="checkbox" name="category" id="side" value="반찬">
@@ -55,26 +55,30 @@
 							<label for="ch">중식</label>
 							<input type="checkbox" name="category" id="jpn" value="일식">
 							<label for="jpn">일식</label>
-							<input type="checkbox" name="category" id="eur" value="유럽">
-							<label for="eur">유럽</label>
+							<input type="checkbox" name="category" id="fusion" value="퓨전">
+							<label for="fusion">퓨전</label>
 							<input type="checkbox" name="category" id="asia" value="동남아">
 							<label for="asia">동남아</label><br>
 							
+							<input type="checkbox" name="category" id="rice" value="밥">
+							<label for="rice">밥</label>
+							<input type="checkbox" name="category" id="meat" value="육류">
+							<label for="meat">육류</label>
+							<input type="checkbox" name="category" id="seafood" value="해산물">
+							<label for="seafood">해산물</label>
+							<input type="checkbox" name="category" id="veg" value="채소">
+							<label for="veg">채소</label>
+							<input type="checkbox" name="category" id="noodles" value="면요리">
+							<label for="noodles">면요리</label>
 							<input type="checkbox" name="category" id="vegan" value="비건">
-							<label for="vegan">비건</label>
-							<input type="checkbox" name="category" id="veg" value="베지테리언">
-							<label for="veg">베지테리언</label>
-							<input type="checkbox" name="category" id="low" value="로칼로리">
-							<label for="low">로칼로리</label><br>
+							<label for="vegan">비건</label><br>
 							
 							<input type="checkbox" name="category" id="group" value="단체 식사">
 							<label for="group">단체 식사</label>
 							<input type="checkbox" name="category" id="holiday" value="명절">
 							<label for="holiday">명절</label>
 							<input type="checkbox" name="category" id="xmas" value="크리스마스">
-							<label for="xmas">크리스마스</label>
-							<input type="checkbox" name="category" id="hlw" value="할로윈">
-							<label for="hlw">할로윈</label><br>
+							<label for="xmas">크리스마스</label><br>
 							
 							<input type="checkbox" name="category" id="cookie" value="쿠키">
 							<label for="cookie">쿠키</label>
@@ -83,7 +87,9 @@
 							<input type="checkbox" name="category" id="tart" value="타르트">
 							<label for="tart">타르트</label>
 							<input type="checkbox" name="category" id="bread" value="빵">
-							<label for="bread">빵</label><br>
+							<label for="bread">빵</label>
+							<input type="checkbox" name="category" id="etc" value="기타">
+							<label for="etc">기타</label><br>
 							
 							<input type="checkbox" name="category" id="smoothie" value="스무디">
 							<label for="smoothie">스무디</label>

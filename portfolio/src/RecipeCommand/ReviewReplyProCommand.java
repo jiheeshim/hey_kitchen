@@ -21,6 +21,7 @@ public class ReviewReplyProCommand implements RecipeCommand {
 		
 		ActionForward forward = null;
 		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
 		
 		// 첨부 사진 저장
 		String realFolder = request.getServletContext().getRealPath("/recipeUpload");
@@ -35,14 +36,23 @@ public class ReviewReplyProCommand implements RecipeCommand {
 		review.setContent(multi.getParameter("content"));
 		review.setImgName(multi.getOriginalFileName("imgName"));
 		review.setImgServerName(multi.getFilesystemName("imgName"));
-		review.setId((String)session.getAttribute("id"));
+		review.setId(id);
 		review.setRegDate(LocalDate.now().toString());		
 		
 		// insert 시행
 		ReviewReplyProService reviewReplyProService = new ReviewReplyProService();
 		boolean replySuccess = reviewReplyProService.replyReview(review);
 		
-		if(replySuccess) { // insert 성공하면, view 페이지로 이동
+		// 적립금
+		int point = 0;
+		if(review.getImgName() == null) { // 일반 리뷰 5포인트
+			point = 5;
+		} else { // 포토 리뷰 10포인트
+			point = 10;
+		}
+		boolean pointSuccess = reviewReplyProService.plusReviewPoint(id, point);
+		
+		if(replySuccess && pointSuccess) { // insert & 적립 성공하면, view 페이지로 이동
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("recipeView.rec?recipeNo=" + recipeNo);

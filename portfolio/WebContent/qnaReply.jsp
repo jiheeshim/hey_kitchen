@@ -32,7 +32,7 @@
 						</tr>
 						<tr>
 							<td>제목</td>
-							<td><input type="text" name="title" maxlength="50" required></td>
+							<td><input type="text" name="title" value="re: ${qna.title}" maxlength="50" required></td>
 						</tr>
 						<tr>
 							<td>비밀글 설정</td>

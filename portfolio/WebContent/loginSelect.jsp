@@ -8,10 +8,11 @@
 String purpose = request.getParameter("purpose");
 
 String id = "";
-if(purpose.equals("login"))
+if(purpose.equals("login")) {
 	id = request.getParameter("id");
-else if(purpose.equals("pwCheck") || purpose.equals("pwChange"))
+} else if(purpose.equals("pwCheck") || purpose.equals("pwChange")) {
 	id = (String)session.getAttribute("id");
+}
 String pw = request.getParameter("pw");
 
 int result = dao.loginSelect(id, pw);

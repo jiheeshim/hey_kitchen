@@ -31,4 +31,25 @@ public class ReviewReplyProService {
 		return replySuccess;
 		
 	}
+	
+	public boolean plusReviewPoint(String id, int point) {
+		
+		Connection con = getConnection();
+		RecipeDAO recipeDAO = RecipeDAO.getInstance();
+		recipeDAO.setConnection(con);
+		
+		boolean isSuccess = false;
+		
+		int updateCount = recipeDAO.plusPoint(id, point);
+		if(updateCount > 0) {
+			isSuccess = true;
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return isSuccess;
+	}
 }

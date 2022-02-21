@@ -7,7 +7,6 @@ public class QnaDTO {
 	private String secret;
 	private String title;
 	private String content;
-	private String qnaFile;
 	private String id;
 	private String qnaPw;
 	private int qnaRef;
@@ -31,9 +30,6 @@ public class QnaDTO {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public void setQnaFile(String qnaFile) {
-		this.qnaFile = qnaFile;
 	}
 	public void setId(String id) {
 		this.id = id;
@@ -74,9 +70,6 @@ public class QnaDTO {
 	}
 	public String getContent() {
 		return content;
-	}
-	public String getQnaFile() {
-		return qnaFile;
 	}
 	public String getId() {
 		return id;

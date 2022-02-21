@@ -33,7 +33,9 @@
 						<div>
 							<c:forEach var="price" items="${priceList}">
 								<input type="hidden" name="prices" value="${price.price}">
-								<span class="priceSpan">주 <font>${price.servingCnt}</font> 회 밀플랜 - <font><fmt:formatNumber value="${price.price}" groupingUsed="true" /></font>  원</span>
+								<span class="priceSpan">
+									주 <font>${price.servingCnt}</font> 회 밀플랜 - <font><fmt:formatNumber value="${price.price}" groupingUsed="true" /></font>  원
+								</span> 
 							</c:forEach>
 						</div>
 					</div>

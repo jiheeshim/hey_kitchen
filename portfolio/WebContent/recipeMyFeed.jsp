@@ -22,17 +22,17 @@
 			<nav class="sectionNav">
 				<ul>
 					<li><a href="recipeMyFeedView.rec">나의 레시피 피드</a></li>
-					<li><a href="#">내가 쓴 레시피 리뷰</a></li>
+					<li><a href="myReviewView.rec">내가 쓴 레시피 리뷰</a></li>
 				</ul>
 			</nav>
 			<section class="sectionWrapper">
 				<c:forEach var="recipe" items="${recipeList}">
 					<div class="recipeWrapper">
 						<div class="recipePic">
-							<a href="recipeView.rec?recipeNo=${recipe.recipeNo}&where=myFeed"><img width="240px" height="240px" src="recipeUpload/${recipe.thumbnailServer}"></a>
+							<a href="recipeView.rec?recipeNo=${recipe.recipeNo}"><img width="240px" height="240px" src="recipeUpload/${recipe.thumbnailServer}"></a>
 						</div>
 						<div class="recipeTitle">
-							<a href="recipeView.rec?recipeNo=${recipe.recipeNo}&where=myFeed">${recipe.recipeName}</a>
+							<a href="recipeView.rec?recipeNo=${recipe.recipeNo}">${recipe.recipeName}</a>
 							<div class="details">조회수 : ${recipe.readCount}</div>
 							<div class="details">${recipe.regDate}</div>
 						</div>

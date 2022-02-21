@@ -18,7 +18,7 @@
 		<main>
 			<section class="title">문의하기</section>
 			<section>
-				<form action="qnaEditPro.qna" method="post" enctype="multipart/form-data" name="qnaEditForm">
+				<form action="qnaEditPro.qna" name="qnaEditForm">
 					<input type="hidden" name="qnaNo" value="${qna.qnaNo}">
 					<input type="hidden" name="page" value="${page}">
 					<table class="qnaDetailTable">
@@ -26,10 +26,10 @@
 							<td>문의 분류</td>
 							<td>
 								<select name="qnaCategory">
-									<option value="구독 문의">구독 문의</option>
-									<option value="배송 문의">배송 문의</option>
-									<option value="레시피 피드 문의">레시피 피드 문의</option>
-									<option value="기타 문의">기타 문의</option>
+									<option value="구독 문의" <c:if test="${qna.qnaCategory eq '구독 문의'}">selected</c:if> >구독 문의</option>
+									<option value="배송 문의" <c:if test="${qna.qnaCategory eq '배송 문의'}">selected</c:if> >배송 문의</option>
+									<option value="레시피 피드 문의" <c:if test="${qna.qnaCategory eq '레시피 피드 문의'}">selected</c:if> >레시피 피드 문의</option>
+									<option value="기타 문의" <c:if test="${qna.qnaCategory eq '기타 문의'}">selected</c:if> >기타 문의</option>
 								</select>
 							</td>
 						</tr>
@@ -48,12 +48,6 @@
 							<td>비밀번호</td>
 							<td><input type="password" name="qnaPw" required></td>
 						</tr>
-						<c:if test="${qna.qnaFile != null}">
-							<tr>
-								<td>첨부파일</td>
-								<td id="fileTd"><span id="qnaFile">${qna.qnaFile}</span><button type="button" id="removeBtn">삭제</button></td>
-							</tr>
-						</c:if>
 						<tr>
 							<td colspan="2"><textarea name="content">${qna.content}</textarea></td>
 						</tr>
@@ -69,6 +63,4 @@
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
-
-<script type="text/javascript" src="qnaScript.js"></script>
 </html>

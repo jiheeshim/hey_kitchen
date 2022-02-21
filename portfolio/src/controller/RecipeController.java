@@ -9,8 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import RecipeCommand.IngrScrapDeleteCommand;
 import RecipeCommand.IngrScrapProCommand;
+import RecipeCommand.IngrScrapSaveCommand;
+import RecipeCommand.IngrScrapViewCommand;
+import RecipeCommand.MyReviewViewCommand;
 import RecipeCommand.RecipeCommand;
+import RecipeCommand.RecipeListCommand;
 import RecipeCommand.RecipeMyFeedViewCommand;
 import RecipeCommand.RecipeRegisterProCommand;
 import RecipeCommand.RecipeScrapDeleteCommand;
@@ -101,9 +106,42 @@ public class RecipeController extends HttpServlet {
 					e.printStackTrace();
 				}
 			} else if(where.equals("/ingrScrapPro.rec")) {
+			// 나의 장보기 목록에 재료 담기(추가) - ajax 통해서 왔다 가므로 forward = null
 				command = new IngrScrapProCommand(); // ajax용 커맨드
 				try {
 					command.execute(request, response);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			} else if(where.equals("/ingrScrapView.rec")) {
+			// 나의 장보기 목록 select + 페이지로 이동
+				command = new IngrScrapViewCommand();
+				try {
+					forward = command.execute(request, response);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			} else if(where.equals("/ingrScrapDelete.rec")) {
+			// 나의 장보기 목록 delete + insert로 이동
+				command = new IngrScrapDeleteCommand();
+				try {
+					forward = command.execute(request, response);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			} else if(where.equals("/ingrScrapSave.rec")) {
+			// 나의 장보기 목록 insert + view로 이동
+				command = new IngrScrapSaveCommand();
+				try {
+					forward = command.execute(request, response);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			} else if(where.equals("/myReviewView.rec")) {
+			// 내가 쓴 리뷰 select + 페이지로 이동
+				command = new MyReviewViewCommand();
+				try {
+					forward = command.execute(request, response);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -118,6 +156,13 @@ public class RecipeController extends HttpServlet {
 		if(where.equals("/recipeView.rec")) { // recipeNo parameter값 필수
 		// 레시피 개별 뷰페이지로 이동
 			command = new RecipeViewCommand();
+			try {
+				forward = command.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(where.equals("/recipeList.rec")) {
+			command = new RecipeListCommand();
 			try {
 				forward = command.execute(request, response);
 			} catch(Exception e) {

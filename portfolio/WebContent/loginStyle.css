@@ -34,3 +34,5 @@ form[name='loginForm'] button:hover { background-color: #FF5D49; color: white; }
 .findIdPw a:visited, .findIdPw a:link { text-decoration: none; color: black; }
 
 .snsLogin > p { font-size: 14px; font-weight: bold; text-align: center; }
+#naverIdLogin { display: inline-block; }
+#naverIdLogin:hover { cursor: pointer; }

@@ -27,10 +27,11 @@ main { font-size: 15px; }
 .sectionNav a:link, .sectionNav a:visited { text-decoration: none; color: #FF4949; }
 .sectionNav a:hover { text-decoration: underline; }
 
-.sectionWrapper { width: 900px; height: 650px; overflow: scroll; border: 2px solid gray;
+.sectionWrapper { width: 900px; height: 690px; overflow: scroll; border: 2px solid gray;
 	margin: 0 auto 120px auto; border-radius: 0 10px 10px 10px; background-color: white;
 	position: relative; top: -10px;
 }
+
 .recipeWrapper { width: 240px; height: 270px; margin: 40px 0 0 45px; display: inline-block; }
 .recipePic { width: 240px; height: 240px; border-radius: 5px; overflow: hidden; }
 .recipePic img { transition: all 0.3s ease-in-out; }
@@ -47,3 +48,12 @@ main { font-size: 15px; }
 .recipeNull p { text-align: center; font-family: KOTRALEAP; color: gray;
 	font-size: 1.4em; line-height: 1.6em;
 }
+
+.sectionWrapper ul { padding: 0; margin: 55px 80px; overflow: scroll; height: 550px; }
+.sectionWrapper li { margin-bottom: 18px; padding-bottom: 18px; 
+	border-bottom: 1px solid gray; list-style-type: none;
+}
+.sectionWrapper li:last-child { border: none; }
+.sectionWrapper li > a:link, .sectionWrapper li > a:visited { color: #FF5D49; font-family: KOTRALEAP; font-size: 1.3em; }
+.sectionWrapper .content { margin: 5px 0; white-space: pre; }
+.sectionWrapper .dates { color: #f3993e; font-size: 0.8em; }

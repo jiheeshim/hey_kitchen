@@ -18,9 +18,13 @@ main { width: 750px; margin: 80px auto; padding: 50px 60px;
 	overflow: visible; margin-top: 15px;
 }
 .writer { font-family: KOTRALEAP; margin-top: 10px; }
-.details { margin: 10px 0 30px 0; font-size: 0.8em; color: gray; }
+.details { margin: 10px 0px; font-size: 0.8em; color: gray; }
 
-#scraps { display: inline-flex; align-items: center; }
+#scraps { width: 99%; height: 35px; margin-bottom: 15px;
+	display: flex; align-items: center; justify-content: center;
+	border: 1px solid gray; border-radius: 5px; font-weight: bold;
+	box-shadow: 0 0 2px gray;
+}
 #scrapBtn { width: 20px; height: 20px; padding: 0px; margin-right: 2px;
 	background-color: white; background-size: 20px; border: none;
 }
@@ -29,7 +33,7 @@ main { width: 750px; margin: 80px auto; padding: 50px 60px;
 #scrapBtn:hover { cursor: pointer; }
 #scraps > a:link, #scraps > a:visited { color: #5a5a5a; text-decoration: none; }
 
-.desc { white-space: pre; }
+.desc { width: 350px; overflow: scroll; white-space: pre; font-size: 0.9em; }
 
 #recipeNav { padding: 30px 0 10px 0; 
 	border-bottom: 1px solid gray; font-size: 1.2em;

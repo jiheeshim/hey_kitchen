@@ -8,14 +8,14 @@ import dao.QnaDAO;
 
 public class QnaDeleteProService {
 	
-	Connection con = getConnection();
-	QnaDAO qnaDAO = QnaDAO.getInstance();
-	
 	public boolean isRightPw(int qnaNo, String qnaPw) throws Exception {
 		
 		boolean isRightPw = false;
 		
+		Connection con = getConnection();
+		QnaDAO qnaDAO = QnaDAO.getInstance();
 		qnaDAO.setConnection(con);
+		
 		isRightPw = qnaDAO.isRightPw(qnaNo, qnaPw);
 		close(con);
 		return isRightPw;
@@ -25,7 +25,10 @@ public class QnaDeleteProService {
 		
 		Boolean isDeleteSuccess = false;
 		
+		Connection con = getConnection();
+		QnaDAO qnaDAO = QnaDAO.getInstance();
 		qnaDAO.setConnection(con);
+		
 		int deleteCount = qnaDAO.deleteQna(qnaNo);
 		
 		if(deleteCount > 0) {

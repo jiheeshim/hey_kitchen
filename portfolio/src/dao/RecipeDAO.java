@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import model.IngrScrapDTO;
+import model.MyReviewDTO;
 import model.RecipeDTO;
 import model.RecipeImgDTO;
 import model.RecipeReviewDTO;
@@ -194,7 +195,7 @@ public class RecipeDAO {
 		ArrayList<RecipeDTO> recipeList = new ArrayList<RecipeDTO>();
 		
 		try {
-			String sql = "select * from recipe where id = ?";
+			String sql = "select * from recipe where id = ? order by regDate desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -296,7 +297,7 @@ public class RecipeDAO {
 		ArrayList<RecipeReviewDTO> reviewList = new ArrayList<RecipeReviewDTO>();
 		
 		try {
-			String sql = "select * from recipeReview where recipeNo = ?";
+			String sql = "select * from recipeReview where recipeNo = ? order by regDate desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, recipeNo);
 			rs = pstmt.executeQuery();
@@ -321,6 +322,41 @@ public class RecipeDAO {
 		}
 		
 		return reviewList;
+	}
+	
+	// myReviewSelect(id) : 해당 아이디의 recipeReview select & 각 review별 recipeTitle select
+	public ArrayList<MyReviewDTO> myReviewSelect(String id) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<MyReviewDTO> myReviewList = new ArrayList<MyReviewDTO>();
+		
+		try {
+			String sql = "select recipe.recipeNo, recipeName, recipeReview.content, recipeReview.id, recipeReview.regDate, recipeReview.editDate from recipeReview"
+					+ " join recipe on recipeReview.recipeNo = recipe.recipeNo where recipeReview.id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				MyReviewDTO myReview = new MyReviewDTO();
+				myReview.setRecipeNo(rs.getInt("recipeNo"));
+				myReview.setRecipeName(rs.getString("recipeName"));
+				myReview.setContent(rs.getString("content"));
+				myReview.setId(rs.getString("id"));
+				myReview.setRegDate(rs.getString("regDate"));
+				myReview.setEditDate(rs.getString("editDate"));
+				myReviewList.add(myReview);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return myReviewList;
+		
 	}
 	
 	// scrapSelect(scrap) : scrap의 id와 recipeNo가 동시에 겹치는 게 있는지 select -> boolean 리턴
@@ -358,7 +394,7 @@ public class RecipeDAO {
 		ArrayList<RecipeDTO> recipeList = new ArrayList<RecipeDTO>();
 		
 		try {
-			String sql = "select * from recipe where recipeNo in (select recipeNo from recipeScrap where id = ?)";
+			String sql = "select * from recipe where recipeNo in (select recipeNo from recipeScrap where id = ?) order by regDate desc";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			
@@ -368,6 +404,99 @@ public class RecipeDAO {
 				recipe.setRecipeNo(rs.getInt("recipeNo"));
 				recipe.setRecipeName(rs.getString("recipeName"));
 				recipe.setThumbnailServer(rs.getString("thumbnailServer"));
+				recipe.setRegDate(rs.getString("regDate"));
+				recipe.setReadCount(rs.getInt("readCount"));
+				recipeList.add(recipe);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return recipeList;
+	}
+	
+	// ingrScrapSelect(id) : 해당 id의 ingrScrap select
+	public ArrayList<IngrScrapDTO> ingrScrapSelect(String id) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<IngrScrapDTO> ingrScrapList = new ArrayList<IngrScrapDTO>();
+		
+		try {
+			String sql = "select * from ingrScrap where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				IngrScrapDTO ingrScrap = new IngrScrapDTO();
+				ingrScrap.setIngrNo(rs.getInt("ingrNo"));
+				ingrScrap.setIngr(rs.getString("ingr"));
+				ingrScrap.setChecked(rs.getString("checked"));
+				ingrScrap.setId(rs.getString("id"));
+				ingrScrapList.add(ingrScrap);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return ingrScrapList;
+	}
+	
+	// listCountSelect(category) : 해당 카테고리에 맞는 레시피 글 개수 select
+	public int listCountSelect(String category) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int listCount = 0;
+		
+		try {
+			String sql = "select count(*) from recipe where category like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + category + "%");
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+	
+	// recipeListSelect(category) : 해당 카테고리에 맞는 레시피들 select
+	public ArrayList<RecipeDTO> recipeListSelect(String category, int page, int limit) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<RecipeDTO> recipeList = new ArrayList<RecipeDTO>();
+		int startrow = (page - 1) * 12;
+		
+		try {
+			String sql = "select * from recipe where category like ? order by regDate desc limit ?, ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + category + "%");
+			pstmt.setInt(2, startrow);
+			pstmt.setInt(3, limit);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				RecipeDTO recipe = new RecipeDTO();
+				recipe.setRecipeNo(rs.getInt("recipeNo"));
+				recipe.setRecipeName(rs.getString("recipeName"));
+				recipe.setThumbnailServer(rs.getString("thumbnailServer"));
+				recipe.setId(rs.getString("id"));
 				recipe.setRegDate(rs.getString("regDate"));
 				recipe.setReadCount(rs.getInt("readCount"));
 				recipeList.add(recipe);
@@ -473,6 +602,50 @@ public class RecipeDAO {
 		
 	}
 	
+	// plusPoint(String id, int point) : 해당 아이디 적립금 적립
+	public int plusPoint(String id, int point) {
+		
+		PreparedStatement pstmt = null;
+		int updateCount = 0;
+		
+		try {
+			String sql = "update users set point = point + ? where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, point);
+			pstmt.setString(2, id);
+			
+			updateCount = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return updateCount;
+	}
+	
+	// minusPoint(String id, int point) : 해당 아이디 적립금 철회
+	public int minusPoint(String id, int point) {
+		
+		PreparedStatement pstmt = null;
+		int updateCount = 0;
+		
+		try {
+			String sql = "update users set point = point - ? where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, point);
+			pstmt.setString(2, id);
+			
+			updateCount = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return updateCount;
+	}
+	
 	// deleteReview(reviewNo) : 해당 번호에 맞는 레시피 후기 delete
 	public int deleteReview(int reviewNo) {
 		
@@ -515,6 +688,28 @@ public class RecipeDAO {
 		}
 		
 		return deleteCount;
+	}
+	
+	// deleteIngrScrap(id) : 해당 id의 ingrScrap 정보 delete
+	public int deleteIngrScrap(String id) {
+		
+		PreparedStatement pstmt = null;
+		int deleteCount = 0;
+		
+		try {
+			String sql = "delete from ingrScrap where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+		
+			deleteCount = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return deleteCount;
+		
 	}
 
 }

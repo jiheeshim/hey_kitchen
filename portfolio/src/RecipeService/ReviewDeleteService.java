@@ -29,4 +29,25 @@ public class ReviewDeleteService {
 		return deleteSuccess;
 	}
 	
+	public boolean minusReviewPoint(String id, int point) {
+		
+		Connection con = getConnection();
+		RecipeDAO recipeDAO = RecipeDAO.getInstance();
+		recipeDAO.setConnection(con);
+		
+		boolean pointSuccess = false;
+		
+		int updateCount = recipeDAO.minusPoint(id, point);
+		if(updateCount > 0) {
+			pointSuccess = true;
+			commit(con);
+		} else {
+			rollback(con);
+		}
+		
+		close(con);
+		
+		return pointSuccess;
+	}
+	
 }

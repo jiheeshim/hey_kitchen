@@ -32,6 +32,9 @@ public class RecipeRegisterProCommand implements RecipeCommand {
 		
 		int emptyCheck = 0;
 		
+		// id값 설정
+		String id = (String)session.getAttribute("id");
+		
 		// recipeNo 설정
 		int recipeNo = recipeRegisterProService.getMaxNo() + 1;
 		
@@ -61,9 +64,10 @@ public class RecipeRegisterProCommand implements RecipeCommand {
 			emptyCheck = 2;
 		}
 		
-		Boolean recipeSuccess = false; // 레시피 테이블 입력 결과
-		Boolean imgSuccess = false; // 레시피 이미지(요리단계) 테이블 입력 결과
-		Boolean registerSuccess = false; // 종합적 입력 결과
+		boolean recipeSuccess = false; // 레시피 테이블 입력 결과
+		boolean imgSuccess = false; // 레시피 이미지(요리단계) 테이블 입력 결과
+		boolean registerSuccess = false; // 종합적 입력 결과
+		boolean pointSuccess = false; // 적립금 적립 결과
 		
 		// recipe 객체 값 설정 + insert
 		RecipeDTO recipe = new RecipeDTO();
@@ -77,7 +81,7 @@ public class RecipeRegisterProCommand implements RecipeCommand {
 		recipe.setRecipeDesc(multi.getParameter("recipeDesc"));
 		recipe.setIngredients(ingredients);
 		recipe.setRegDate(LocalDate.now().toString());
-		recipe.setId((String)session.getAttribute("id"));
+		recipe.setId(id);
 		recipeSuccess = recipeRegisterProService.registerRecipe(recipe);
 		 
 		// 요리단계 개수만큼 for문으로 recipeImg 객체 값 설정 + insert
@@ -98,7 +102,10 @@ public class RecipeRegisterProCommand implements RecipeCommand {
 			}
 		}
 		
-		if(recipeSuccess && imgSuccess) { // 레시피와 요리단계 테이블 모두 입력 성공하면,
+		// 적립금 적립
+		pointSuccess = recipeRegisterProService.plusRecipePoint(id, 100);
+		
+		if(recipeSuccess && imgSuccess && pointSuccess) { // 레시피와 요리단계 테이블 모두 입력 성공 + 적립금 적립하면,
 			registerSuccess = true;
 		}
 		

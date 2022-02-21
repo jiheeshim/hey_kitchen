@@ -32,7 +32,7 @@ public class QnaDeleteProCommand implements Command {
 			} else {
 				response.setContentType("text/html; charset=utf-8");
 				PrintWriter out=response.getWriter();
-				out.println("<script>alert('오류가 발생하였습니다. 홈페이지로 돌아갑니다.'); location.href='index.jsp';</script>");
+				out.println("<script>alert('오류가 발생하였습니다.'); history.go(-1);</script>");
 			}
 		} else {
 			response.setContentType("text/html; charset=utf-8");

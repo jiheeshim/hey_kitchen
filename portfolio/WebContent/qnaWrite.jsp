@@ -17,7 +17,7 @@
 		<main>
 			<section class="title">문의하기</section>
 			<section>
-				<form action="qnaWritePro.qna" method="post" enctype="multipart/form-data" name="qnaForm">
+				<form action="qnaWritePro.qna" name="qnaForm">
 					<table class="qnaDetailTable">
 						<tr>
 							<td>문의 분류</td>
@@ -44,10 +44,6 @@
 						<tr>
 							<td>비밀번호</td>
 							<td><input type="password" name="qnaPw" required></td>
-						</tr>
-						<tr>
-							<td>첨부파일</td>
-							<td><input type="file" name="qnaFile"></td>
 						</tr>
 						<tr>
 							<td colspan="2"><textarea name="content"></textarea></td>
