@@ -55,15 +55,29 @@ public class ServletController extends HttpServlet {
 			} else {
 				response.sendRedirect("login.jsp");
 			}
+		} else if(where.equals("mealplanPay")) {
+			CMealplanPay cMpPay = new CMealplanPay();
+			if(session.getAttribute("id") != null) {
+				try {
+					String page = cMpPay.commandData(request, response);
+					request.getRequestDispatcher(page).forward(request, response);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				response.sendRedirect("login.jsp");
+			}
 		} else if(where.equals("mealplanInsert")) { // mealplan & mealplanMenu & mealplanDelivery 테이블 insert + 완료 페이지로 이동
 			CMealplanInsert cMpInsert = CMealplanInsert.getInstance();
 			CMealplanDeliveryInsert cMpdInsert = CMealplanDeliveryInsert.getInstance();
 			CMealplanMenuInsert cMpmInsert = CMealplanMenuInsert.getInstance();
+			CPointUpdate cPUpdate = new CPointUpdate();
 			if(session.getAttribute("id") != null) {
 				try {
 					cMpInsert.commandData(request, response);
 					cMpdInsert.commandData(request, response);
-					String page = cMpmInsert.commandData(request, response);
+					cMpmInsert.commandData(request, response);
+					String page = cPUpdate.commandData(request, response);
 					request.getRequestDispatcher(page).forward(request, response);
 				} catch(Exception e) {
 					e.printStackTrace();

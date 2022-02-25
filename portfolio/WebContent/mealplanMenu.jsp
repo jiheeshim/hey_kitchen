@@ -30,8 +30,8 @@
 				</section>
 			
 				<section class="mealplanBox">
-					<form action="mealplanMenu.kitchen">
-						<input type="hidden" name="where" value="mealplanInsert">
+					<form action="mealplan.kitchen">
+						<input type="hidden" name="where" value="mealplanPay">
 						
 						<input type="hidden" name="mealplanNo" value="${mealplan.mealplanNo}">
 						<input type="hidden" name="serving" value="${mealplan.serving}">

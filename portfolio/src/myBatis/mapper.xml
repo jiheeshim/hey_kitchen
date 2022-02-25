@@ -11,8 +11,17 @@
 	<select id="mealplanPriceSelect" resultType="model.MealplanPriceDTO">
 		select * from mealplanPrice;
 	</select>
+	<select id="priceSelect" resultType="model.MealplanPriceDTO">
+		select * from mealplanPrice where servingCnt = #{servingCnt};
+	</select>
 	<select id="mealkitSelect" parameterType="model.MealplanDeliveryDTO" resultType="model.MealkitDTO">
 		select * from mealkit where #{deliverDate} between startDate and endDate;
+	</select>
+	<select id="mealkitNameSelect" resultType="model.MealkitDTO">
+		select * from mealkit where mealkitNo in
+		<foreach collection="array" item="mealkitNo" open="(" close=")" separator=",">
+			#{mealkitNo}
+		</foreach>;
 	</select>
 	<select id="mealplanSelect" parameterType="model.MealplanDTO" resultType="model.MealplanDTO">
 		select * from mealplan where mealplanNo = #{mealplanNo};
@@ -34,4 +43,8 @@
 	<insert id="mealplanDeliveryInsert" parameterType="model.MealplanDeliveryDTO">
 		insert into mealplanDelivery (deliveryNo, mealplanNo, postcode, addr1, extraAddr, addr2, deliverDate) values (#{deliveryNo}, #{mealplanNo}, #{postcode}, #{addr1}, #{extraAddr}, #{addr2}, #{deliverDate});
 	</insert>
+	
+	<update id="pointUpdate" parameterType="model.UsersDTO">
+		update users set point = (point - #{point}) where id = #{id};
+	</update>
 </mapper>

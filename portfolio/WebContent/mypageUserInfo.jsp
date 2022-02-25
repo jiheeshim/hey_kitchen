@@ -27,9 +27,8 @@ if(session.getAttribute("id") == null) {
 					<ul>
 						<li class="currentLi"><a href="mypage.jsp">회원정보 관리</a></li>
 						<li><a href="mypagePwChange.jsp">비밀번호 변경</a></li>
-						<li><a href="#">적립금 조회</a></li>
-						<li><a href="#">밀플랜 구독관리</a></li>
-						<li><a href="#">1:1 문의내역</a></li>
+						<li><a href="mealplanManage.sub">밀플랜 구독관리</a></li>
+						<li><a href="qnaList.qna">1:1 문의하기</a></li>
 						<li><a href="mypageQuit.jsp">회원 탈퇴</a></li>
 					</ul>
 				</nav>
@@ -121,6 +120,14 @@ if(session.getAttribute("id") == null) {
 										<option value="6" <c:if test="${user.familynum eq 6}">selected</c:if>>6+</option>
 									</select>
 								</td>
+							</tr>
+							<tr>
+								<td>적립금 조회</td>
+								<td>${user.point} 원</td>
+							</tr>
+							<tr>
+								<td>추천인 코드</td>
+								<td>${user.refcode}</td>
 							</tr>
 							<tr>
 								<td>마케팅 수신동의</td>

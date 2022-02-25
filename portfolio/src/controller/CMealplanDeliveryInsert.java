@@ -1,14 +1,11 @@
 package controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.MealplanDeliveryDTO;
 import model.MealplanDeliveryInsert;
-import model.MealplanDeliverySelect;
 
 public class CMealplanDeliveryInsert implements CommandInterface {
 	private static CMealplanDeliveryInsert cMpdInsert = new CMealplanDeliveryInsert();
@@ -30,8 +27,9 @@ public class CMealplanDeliveryInsert implements CommandInterface {
 		mealplanDelivery.setDeliverDate(request.getParameter("deliverDate"));
 		
 		int result = mpdInsert.mealplanDeliveryInsert(mealplanDelivery);
-		if(result != 1)
+		if(result != 1) {
 			System.out.println("mealplanDelivery insert 오류");
+		}
 		return "mealplanFinish.jsp";
 	}
 	

@@ -21,6 +21,7 @@ import RecipeCommand.RecipeRegisterProCommand;
 import RecipeCommand.RecipeScrapDeleteCommand;
 import RecipeCommand.RecipeScrapProCommand;
 import RecipeCommand.RecipeScrapViewCommand;
+import RecipeCommand.RecipeSearchCommand;
 import RecipeCommand.RecipeViewCommand;
 import RecipeCommand.ReviewDeleteCommand;
 import RecipeCommand.ReviewReplyProCommand;
@@ -162,7 +163,15 @@ public class RecipeController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(where.equals("/recipeList.rec")) {
+		// 레시피 커뮤니티 목록 화면
 			command = new RecipeListCommand();
+			try {
+				forward = command.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} else if(where.equals("/recipeSearch.rec")) {
+			command = new RecipeSearchCommand();
 			try {
 				forward = command.execute(request, response);
 			} catch(Exception e) {

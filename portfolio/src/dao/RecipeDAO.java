@@ -511,6 +511,68 @@ public class RecipeDAO {
 		return recipeList;
 	}
 	
+	// searchCountSelect(searchTxt) : 검색어를 가진 레시피 글 개수 select
+	public int searchCountSelect(String searchTxt) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int listCount = 0;
+		
+		try {
+			String sql = "select count(*) from recipe where recipeName like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + searchTxt + "%");
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+	
+	// searchRecipeList(searchTxt) : 이름에 searchTxt가 들어간 레시피들 select
+	public ArrayList<RecipeDTO> searchRecipeList(String searchTxt, int page, int limit) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<RecipeDTO> recipeList = new ArrayList<RecipeDTO>();
+		int startrow = (page - 1) * 12;
+		
+		try {
+			String sql = "select * from recipe where recipeName like ? order by regDate desc limit ?, ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%" + searchTxt + "%");
+			pstmt.setInt(2, startrow);
+			pstmt.setInt(3, limit);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				RecipeDTO recipe = new RecipeDTO();
+				recipe.setRecipeNo(rs.getInt("recipeNo"));
+				recipe.setRecipeName(rs.getString("recipeName"));
+				recipe.setThumbnailServer(rs.getString("thumbnailServer"));
+				recipe.setId(rs.getString("id"));
+				recipe.setRegDate(rs.getString("regDate"));
+				recipe.setReadCount(rs.getInt("readCount"));
+				recipeList.add(recipe);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return recipeList;
+	}
+	
 	// updateReadCount(recipeNo) : 해당 번호에 맞는 레시피 게시글 조회수 + 1
 	public int updateReadCount(int recipeNo) {
 		

@@ -148,8 +148,8 @@
 			<li id="right1"><a href="signup.jsp">회원가입</a></li>
 			<li id="right2"><a href="login.jsp">로그인</a></li>
 			<li>
-				<form id="searchbox">
-					<input type="text" id="searchtxt" placeholder="레시피 검색">
+				<form id="searchbox" action="recipeSearch.rec">
+					<input type="text" name="searchTxt" id="searchtxt" placeholder="레시피 검색">
 					<button type="submit" id="searchbtn"><img src="image/searchicon.png" /></button>
 				</form>
 			</li>

@@ -1,9 +1,16 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'KOTRALEAP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 main { width: 1000px; min-height: 550px; 
 	margin: 100px auto; font-size: 14px;
 }
-.title { text-align: center; color: #626262; font-size: 1.6em;
+.title { text-align: center; color: #626262; font-size: 1.8em; font-family: KOTRALEAP; 
 	margin: 30px 0; padding: 15px 0;
 	border-bottom: 2px solid lightgray; border-top: 2px solid lightgray;
 }
@@ -15,8 +22,8 @@ section { margin-top: 60px; }
 tr.impoColor { background-color: #fdedea; }
 tr { border-top: 1px solid lightgray; }
 tr:last-child { border-bottom: 1px solid lightgray; }
-th, td { padding: 8px 0; }
-td { text-align: center; }
+th, td { padding: 10px 0; }
+td { text-align: center; font-size: 0.95em; }
 
 .pages { display: flex; justify-content: center;
 	margin: 80px 0 10px 0;

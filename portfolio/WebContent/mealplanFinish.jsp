@@ -8,10 +8,6 @@
 <link rel="stylesheet" type="text/css" href="headerFooter.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="menuslide.js"></script>
-<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-<script type="text/javascript" src="slick/slick.min.js"></script>
-<script type="text/javascript" src="slick/slickInitSmall.js"></script>
 <title>밀플랜 구독하기</title>
 </head>
 <body>
