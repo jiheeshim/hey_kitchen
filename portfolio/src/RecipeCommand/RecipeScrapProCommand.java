@@ -28,17 +28,13 @@ public class RecipeScrapProCommand implements RecipeCommand {
 		
 		// insert 실행
 		RecipeScrapProService recipeScrapProService = new RecipeScrapProService();
-		int scrapResult = recipeScrapProService.scrapRecipe(scrap);
+		boolean scrapResult = recipeScrapProService.scrapRecipe(scrap);
 		
 		// 결과 값에 따른 실행
-		if(scrapResult == 1) { // 스크랩 성공
+		if(scrapResult) { // 스크랩 성공
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("recipeView.rec?recipeNo=" + recipeNo);
-		} else if(scrapResult == 2) { // 이미 스크랩되어 있는 경우(스크랩한 후, 뒤로가기 후 다시 아이콘 누르면 가능한 상황)
-			response.setContentType("text/html; charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('이미 스크랩되었습니다. 레시피 스크랩 갤러리를 확인해주세요.'); history.go(-1);</script>");
 		} else { // db 처리 오류
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();

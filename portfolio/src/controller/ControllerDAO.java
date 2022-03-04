@@ -229,8 +229,11 @@ public class ControllerDAO {
 			int startrow = (page - 1) * 10;
 			
 			stmt = conn.createStatement();
-			String sql = "";
+			String sql = "select * from notice";
 			if(field.equals("both")) {
+				sql += "where title like '%%%s%%' or content like '%%%s%%'"
+						+ "order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc limit %d, %d";
+				
 				sql = String.format("select * from notice where title like '%%%s%%' or content like '%%%s%%' order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc limit %d, %d", words, words, startrow, limit);
 			} else {
 				sql = String.format("select * from notice where %s like '%%%s%%' order by impo desc, ifnull(editDate, regDate) desc, noticeNo desc limit %d, %d", field, words, startrow, limit);

@@ -24,7 +24,7 @@ main { width: 1100px; margin: 90px auto 120px; font-size: 12px; }
 	border: 1px solid gray; border-radius: 8px; background-color: #ffe4d9;
 }
 #mapSearchBtn:hover { cursor: pointer; background-color: #ffd8c1; }
-#mapList { padding: 10px; }
-#mapList a:link, #mapList a:visited { font-weight: bold; color: #FF5D49; font-size: 1.4em; }
-#mapList li { list-style-type: none; line-height: 1.4em; border-bottom: 2px solid gray; padding: 15px 0; }
+#mapUl { padding: 10px; }
+#mapUl a:link, #mapUl a:visited { font-weight: bold; color: #FF5D49; font-size: 1.4em; }
+#mapUl li { list-style-type: none; line-height: 1.4em; border-bottom: 2px solid gray; padding: 15px 0; }
 

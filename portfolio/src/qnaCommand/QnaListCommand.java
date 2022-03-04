@@ -25,16 +25,15 @@ public class QnaListCommand implements Command {
 		QnaListService qnaListService = new QnaListService();
 		int listCount = qnaListService.getListCount(); // 총 게시물 개수 구하기
 		qnaList = qnaListService.getQnaList(page,limit); // 페이지에 따라 필요한 게시물들 select
+		request.setAttribute("qnaList", qnaList);
 		
 		// 페이징
-   		int maxPage = (int)((double)listCount/limit+0.95); // 최대 페이지(총 페이지 수)
+   		int maxPage = (int)((double)listCount/limit + 0.95); // 최대 페이지(총 페이지 수)
    		int startPage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1; // 나열된 페이지 수들 중 시작 숫자
-   	    // page 1 ~ 10 : startPage = 1
-   		// page 11 ~ 20 : startPage = 11 ...
    	    int endPage = startPage + 10 - 1; // 나열된 페이지 수들 중 마지막 숫자
    		if (endPage > maxPage) endPage = maxPage; // 마지막 숫자가 전체 페이지 수보다 큰 경우에는, 전체 페이지까지만 나타내게끔
 
-   		// 페이징으로 구한 페이지 정보들 pageInfo 객체에 저장
+   		// 페이지 정보들 pageInfo 객체에 저장
    		PageInfoDTO pageInfo = new PageInfoDTO();
    		pageInfo.setEndPage(endPage);
    		pageInfo.setListCount(listCount);
@@ -42,10 +41,12 @@ public class QnaListCommand implements Command {
 		pageInfo.setPage(page);
 		pageInfo.setStartPage(startPage);	
 		request.setAttribute("pageInfo", pageInfo);
-		request.setAttribute("qnaList", qnaList);
+		
 		ActionForward forward= new ActionForward();
    		forward.setPath("/qnaList.jsp");
    		return forward;
 	}
+	// page 1 ~ 10 : startPage = 1
+		// page 11 ~ 20 : startPage = 11 ...
 
 }

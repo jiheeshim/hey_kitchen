@@ -18,20 +18,19 @@ function removeIngr(btn) {
 
 // 추가 버튼 기능
 function addIngr(btn) {
-	// 추가할 버튼 노드 생성
-	var li = document.createElement("li");
+	var li = document.createElement("li"); // 추가할 버튼 노드 생성
 	li.innerHTML = '<div class="plusdiv"><button type="button" name="plus" onclick="addIngr(this)">+</button></div>&nbsp;'
 		+ '<input type="checkbox" name="checked" value="">&nbsp;&nbsp;'
 		+ '<input type="text" name="ingr" value="" size="30" placeholder="재료를 입력하세요.">&nbsp;'
 		+ '<button type="button" name="x" onclick="removeIngr(this)">x</button>';
 	
-	// insertBefore()의 위치 레퍼런스 노드 찾기
-	if(btn != 0) {
-	var nextLi = btn.parentNode.parentNode.nextSibling; // 현재 버튼의 부모 li의 다음 sibling
+	if(btn != 0) { // 재료 목록 밖의 추가 버튼의 경우 btn = 0
+		var nextLi = btn.parentNode.parentNode.nextSibling; // 현재 버튼의 sibling 찾기 
 	}
-	if(nextLi != null) { // 다음 li sibling이 있는 경우
+	
+	if(nextLi != null) { // 다음 sibling이 있는 경우
 		ul.insertBefore(li, nextLi);
-	} else { // 다음 li sibling이 없는 경우, 즉 마지막 li인 경우
+	} else { // 다음 sibling이 없는 경우
 		ul.appendChild(li);
 	}
 }

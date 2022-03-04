@@ -24,7 +24,7 @@
 				</tr>
 				<c:if test="${notice.fileName != null}">
 					<tr>
-						<td>첨부파일 : <a href="noticeUpload/${notice.fileName}" download>${notice.fileName}</a></td>
+						<td>첨부파일 : <a href="noticeFileDown.jsp?file_name=${notice.fileServerName}">${notice.fileName}</a></td>
 					</tr>
 				</c:if>
 				<tr>
@@ -44,7 +44,7 @@
 					<td>
 						<div class="content">
 							<c:if test="${notice.imgServerName != null}">
-								<img src="noticeUpload/${notice.imgServerName}">
+								<div class="imgContent"><img src="noticeUpload/${notice.imgServerName}"></div>
 							</c:if>
 							<span>${notice.content}</span>
 						</div>

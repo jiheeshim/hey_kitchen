@@ -13,18 +13,17 @@
 				<ul class="level2">
 					<div class="level2_wrapper">
 						<li><a href="#">기획 의도</a></li>
-						<li><a href="mapSearch.jsp">오프라인 매장 찾기</a></li>
+						<li><a href="map.kitchen?where=mapSearch">오프라인 매장 찾기</a></li>
 						<li><a href="noticeListSelect.jsp">이벤트/공지사항</a></li>
 						<li><a href="qnaList.qna">문의사항</a></li>
 					</div>
 				</ul>
 			</li>
 			<li class="level1">
-				<a href="#">밀플랜 정기구독</a>
+				<a href="javascript:askLogin(1);">밀플랜 정기구독</a>
 				<ul class="level2">
 					<div class="level2_wrapper">
 						<li><a href="javascript:askLogin(1);">구독하기</a></li>
-						<li><a href="#">밀플랜 레시피</a></li>
 						<li><a href="javascript:askLogin(2);">밀플랜 구독 관리</a></li>
 					</div>
 				</ul>
@@ -97,7 +96,7 @@
 							<a href="#">특별한 날</a>
 							<ul class="level3">
 								<li>></li>
-								<li><a href="recipeList.rec?group=특별한날&categ=단체식사">단체 식사</a></li>
+								<li><a href="recipeList.rec?group=특별한날&categ=단체 식사">단체 식사</a></li>
 								<li>|</li>
 								<li><a href="recipeList.rec?group=특별한날&categ=명절">명절</a></li>
 								<li>|</li>
@@ -163,7 +162,8 @@
 </script>
 <%
 String id = (String)session.getAttribute("id");
-if(id != null) {
+String socialId = (String)session.getAttribute("socialId");
+if(id != null || socialId != null) {
 %>
 <script>
 	right1.innerHTML = "<a href='javascript:askLogout()'>로그아웃</a>";

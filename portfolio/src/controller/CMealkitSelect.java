@@ -38,11 +38,11 @@ public class CMealkitSelect implements CommandInterface {
 		
 		// 구독번호 생성 & 중복체크 : createMealplanNo()를 통해 구독번호 생성한 후,
 		// mealplan 객체에 해당 구독번호 값을 설정하여, mealplan 객체와 같은 구독번호로 select한 결과가 null이 아니면, 구독번호 재생
-		String mealplanNo = createMealplanNo();
-		mealplan.setMealplanNo(mealplanNo);
+		String mealplanNo = createMealplanNo(); // mealplanNo 생성
+		mealplan.setMealplanNo(mealplanNo); 
 		MealplanSelect mpSelect = MealplanSelect.getInstance();
-		while(mpSelect.mealplanSelect(mealplan) != null) {
-			mealplanNo = createMealplanNo();
+		while(mpSelect.mealplanSelect(mealplan) != null) { // 중복되는 경우,
+			mealplanNo = createMealplanNo(); // 재생성
 			mealplan.setMealplanNo(mealplanNo);
 		}
 		

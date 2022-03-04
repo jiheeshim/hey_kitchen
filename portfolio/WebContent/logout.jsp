@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%
-if(((String)session.getAttribute("id")).equals("kakao****")) { // 카카오 로그아웃 API
+
+String socialId = (String)session.getAttribute("socialId");
+if(socialId != null) { 
+	if(socialId.equals("kakao")) { // 카카오 로그아웃 API
 %>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
@@ -20,8 +23,10 @@ if (Kakao.Auth.getAccessToken()) { // 로그인 되어 있으면,
 </script>
 
 <%
+	}
 }
 session.removeAttribute("id"); // 헤이키친의 로그인 세션 정보 제거
+session.removeAttribute("socialId");
 
 session.removeAttribute("adminName");
 session.removeAttribute("auth9999");

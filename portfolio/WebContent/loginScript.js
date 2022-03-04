@@ -21,7 +21,7 @@ function kakaoLogin() {
         Kakao.API.request({
           url: '/v2/user/me',
           success: function (response) {
-        	  location.href = "loginKakaoGoogle.jsp?id=" + response.id;
+        	  location.href = "loginKakaoGoogle.jsp?socialId=" + response.id;
           },
           fail: function (error) {
             console.log(error);

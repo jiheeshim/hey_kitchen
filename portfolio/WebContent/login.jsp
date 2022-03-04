@@ -17,18 +17,6 @@
 	<title>헤이키친 로그인</title>
 </head>
 <body>
-	<%
-		// 네이버 소셜 로그인
-		String clientId = "ZKuwqzVwlCAldtVAiRPW"; //애플리케이션 클라이언트 아이디값
-	    String redirectURI = URLEncoder.encode("http://localhost:8080/portfolio/loginNaver.jsp", "UTF-8");
-	    SecureRandom random = new SecureRandom();
-	    String state = new BigInteger(130, random).toString();
-	    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
-	    apiURL += "&client_id=" + clientId;
-	    apiURL += "&redirect_uri=" + redirectURI;
-	    apiURL += "&state=" + state;
-	    session.setAttribute("state", state);
-	%>
 	
 	<div>
 		<jsp:include page="header.jsp" />
@@ -50,12 +38,29 @@
 
 				<div class="snsLogin">
 					<p>SNS 계정으로 로그인하기</p>
-					<a href="<%=apiURL%>"><img src="image/navericon.png" width="48px" height="48px" /></a>
+					<div id="naver_id_login" style="display: none;"></div>
+					<a id="nLogin" href="javascript:clickNaverLogin()"><img src="image/navericon.png" width="48px" height="48px" /></a>
 					<a href="javascript:kakaoLogin()"><img src="image/kakaoicon.png" width="48px" height="48px" /></a>
 					<a id="gLogin" href="javascript:void(0)"><img src="image/googleicon.png" width="48px" height="48px" /></a>
 				</div>
 			</div>
 		</main>
+
+		<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			function clickNaverLogin() {
+				var naverLoginDiv = document.getElementById("naver_id_login").firstChild;
+				naverLoginDiv.click();
+			}
+		
+			// 네이버 로그인 
+		  	var naver_id_login = new naver_id_login("ZKuwqzVwlCAldtVAiRPW", "http://localhost:8080/portfolio/loginNaver.jsp");
+		  	var state = naver_id_login.getUniqState();
+		  	naver_id_login.setDomain("http://localhost:8080");
+		  	naver_id_login.setState(state);
+		  	naver_id_login.setPopup(false);
+		  	naver_id_login.init_naver_id_login();
+		</script>
 
 		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 		<script type="text/javascript" src="loginScript.js"></script>
@@ -86,9 +91,8 @@
 			})
 			.done(function(e){
 		        //프로필을 가져온다.
-				//var profile = googleUser.getBasicProfile();
-				//console.log(profile);
-				location.href="loginKakaoGoogle.jsp?access_token=" + access_token;
+				var profile = googleUser.getBasicProfile();
+				location.href="loginKakaoGoogle.jsp?socialId=" + profile.SW;
 			})
 			.fail(function(error){
 				console.log(error);

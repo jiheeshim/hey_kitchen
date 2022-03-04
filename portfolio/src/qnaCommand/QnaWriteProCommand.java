@@ -23,12 +23,12 @@ public class QnaWriteProCommand implements Command {
 		
 		// input 값으로 qna 객체 값 설정
 		String id = "";
-		if(((String)session.getAttribute("auth9999")).equals("admin9999")) { // 관리자의 경우, 목록페이지에서 아이디 대신 이름이 뜨도록 이름을 저장
-			id = (String)session.getAttribute("adminName");
-			System.out.println("a");
+		if(session.getAttribute("auth9999") != null) { // 관리자의 경우, 목록페이지에서 아이디 대신 이름이 뜨도록 이름을 저장
+			if(((String)session.getAttribute("auth9999")).equals("admin9999")) {
+				id = (String)session.getAttribute("adminName");
+			}
 		} else {
 			id = (String)session.getAttribute("id");
-			System.out.println("b");
 		}
 		qna.setQnaCategory(request.getParameter("qnaCategory"));
 		qna.setSecret(request.getParameter("secret"));

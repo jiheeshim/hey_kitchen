@@ -26,7 +26,7 @@ public class RecipeRegisterProCommand implements RecipeCommand {
 		RecipeRegisterProService recipeRegisterProService = new RecipeRegisterProService();
 		
 		String folder = "/recipeUpload";
-		int fileSize = 10 * 1024 * 1024; // 최대 15MB
+		int fileSize = 10 * 1024 * 1024; // 최대 10MB
 		String realFolder = request.getServletContext().getRealPath(folder);
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
 		

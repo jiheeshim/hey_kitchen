@@ -85,6 +85,14 @@ public class ServletController extends HttpServlet {
 			} else {
 				response.sendRedirect("login.jsp");
 			}
+		} else if(where.equals("mapSearch")) {
+			CMapSelect cMapSelect = new CMapSelect();
+			try {
+				String page = cMapSelect.commandData(request, response);
+				request.getRequestDispatcher(page).forward(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 		} else {
 			System.out.println("where parameter 오류");
 			System.out.println(where);

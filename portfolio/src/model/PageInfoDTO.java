@@ -4,8 +4,8 @@ public class PageInfoDTO {
 
 	private int page; // 현재 페이지
 	private int maxPage; // 총 페이지 
-	private int startPage; // 나열된 페이지 수들 중 첫번째 숫자
-	private int endPage; // 나열된 페이지 수들 중 두번째 숫자
+	private int startPage; // 첫번째 페이지번호
+	private int endPage; // 마지막 페이지번호
 	private int listCount; // 총 게시물 개수
 	
 	public void setPage(int page) {

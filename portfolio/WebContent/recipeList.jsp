@@ -42,11 +42,11 @@
 					<b>${p}</b>&nbsp;
 				</c:if>
 				<c:if test="${p != pageInfo.page}">
-					<a href="recipeList.rec?page=${p}">${p}</a>&nbsp;
+					<a href="recipeList.rec?page=${p}&group=${category[0]}&categ=${category[1]}">${p}</a>&nbsp;
 				</c:if>
 			</c:forEach>
 			
-			<button type="button" <c:if test="${pageInfo.page < pageInfo.maxPage}"> onclick="location.href='recipeList.rec?page=${pageInfo.page + 1}'" </c:if> >&gt;</button>
+			<button type="button" <c:if test="${pageInfo.page < pageInfo.maxPage}"> onclick="location.href='recipeList.rec?page=${pageInfo.page + 1}&group=${category[0]}&categ=${category[1]}'" </c:if> >&gt;</button>
 		</div>
 	</main>
 	

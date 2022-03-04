@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import RecipeCommand.IndexCommand;
 import RecipeCommand.IngrScrapDeleteCommand;
 import RecipeCommand.IngrScrapProCommand;
 import RecipeCommand.IngrScrapSaveCommand;
@@ -147,7 +148,7 @@ public class RecipeController extends HttpServlet {
 					e.printStackTrace();
 				}
 			}
-		} else {
+		} else { // 로그인 안 되어 있고, 로그인 필요한 페이지인 경우
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("login.jsp");
@@ -171,13 +172,22 @@ public class RecipeController extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(where.equals("/recipeSearch.rec")) {
+		// 레시피 검색 기능
 			command = new RecipeSearchCommand();
 			try {
 				forward = command.execute(request, response);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} else if(where.equals("/index.rec")) {
+		// 인덱스의 레시피 불러오기 + 게시판 글 불러오기 + 밀키트 불러오기
+			command = new IndexCommand();
+			try {
+				forward = command.execute(request, response);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		} 
 		
 		
 		if(forward != null) {

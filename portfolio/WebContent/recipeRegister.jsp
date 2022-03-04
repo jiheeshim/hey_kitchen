@@ -16,7 +16,7 @@
 
 		<main>
 			<section class="title">레시피 등록하기</section>
-			<form id="registerForm" action="recipeRegisterPro.rec" method="post" enctype="multipart/form-data" onsubmit="return saveLines();">
+			<form id="registerForm" action="recipeRegisterPro.rec" method="post" enctype="multipart/form-data">
 				<table>
 					<tr>
 						<td><span>음식명<font>&nbsp;*</font></span></td>

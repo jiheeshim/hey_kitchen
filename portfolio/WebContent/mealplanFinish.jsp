@@ -15,15 +15,6 @@
 		<jsp:include page="header.jsp" />
 		
 		<main>
-			<section class="title">나만의 밀플랜 구독하기</section>
-			<section class="steps">
-				<div class="step"><span>1</span><span>구독 옵션</span></div>
-				<div class="dashed"></div>
-				<div class="step"><span>2</span><span>메뉴 선택</span></div>
-				<div class="dashed"></div>
-				<div class="step"><span>3</span>구독 완료</div>
-			</section>
-			
 			<section class="mealplanBox">
 				<div class="detailBox2">
 					<div class="title">구독 신청이 완료되었습니다!</div>

@@ -31,5 +31,6 @@ section { margin: 25px auto; min-height: 350px; }
 	margin-top: 140px; text-decoration: underline; font-weight: bold; }
 
 .pages { text-align: center; }
+.pages a:link, .pages a:visited { color: black; }
 .pages button { background-color: #eaeaea; border-radius: 10px; border: none; color: #6c6c6c; padding: 5px 10px; }
 .pages button:hover { cursor: pointer; }

@@ -21,18 +21,19 @@ public class IngrScrapSaveCommand implements RecipeCommand {
 		
 		String[] checkedArr = request.getParameterValues("checked");
 		String[] ingrArr = request.getParameterValues("ingr");
+		
 		boolean saveSuccess = false;
 		
 		if(ingrArr != null) { // 저장해야 할 목록이 있을 경우에만 insert 실행
 			IngrScrapSaveService ingrScrapSaveService = new IngrScrapSaveService();
+			IngrScrapDTO ingrScrap = null;
 			
-			IngrScrapDTO ingrScrap = new IngrScrapDTO();
-			for(int i = 0; i < ingrArr.length; i++) { // 재료 텍스트 개수만큼 반복문
+			for(int i = 0; i < ingrArr.length; i++) { // 재료 항목 개수만큼 반복문
 				String checked = "0"; // 체크되어 있는지 (기본 0 : 체크 안 됨)
 				
 				// 체크되어 있는 재료 항목들만 checked 값 변경
 				if(checkedArr != null) { // 체크된 항목들이 있는 경우,
-					for(int j = 0; j < checkedArr.length; j++) { // 체크된 체크박스의 value들 중 해당 재료가 있으면,
+					for(int j = 0; j < checkedArr.length; j++) { 
 						if(ingrArr[i].equals(checkedArr[j])) {
 							checked = "1"; // 1 : 체크됨
 						}
@@ -40,6 +41,7 @@ public class IngrScrapSaveCommand implements RecipeCommand {
 				}
 				
 				// ingrScrap 객체 값 설정
+				ingrScrap = new IngrScrapDTO();
 				ingrScrap.setIngr(ingrArr[i]);
 				ingrScrap.setChecked(checked);
 				ingrScrap.setId(id);

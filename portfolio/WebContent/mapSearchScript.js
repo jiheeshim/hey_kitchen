@@ -1,56 +1,56 @@
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new kakao.maps.LatLng(37.548065, 126.814818), // 지도의 중심좌표
-        level: 9 // 지도의 확대 레벨
-    };
-
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
- 
-// 마커를 표시할 위치와 title 객체 배열입니다 
-var positions = [
-    {
-        title: '헤이키친 연희점', 
-        latlng: new kakao.maps.LatLng(37.572944, 126.935171),
-        address: '서울특별시 서대문구 연희동 78-43'
-    },
-    {
-        title: '헤이키친 도화점', 
-        latlng: new kakao.maps.LatLng(37.542959, 126.949774),
-        address: '서울특별시 마포구 도화동 17-3'
-    },
-    {
-        title: '헤이키친 아현점', 
-        latlng: new kakao.maps.LatLng(37.555536, 126.955538),
-        address: '서울특별시 마포구 아현동 291-8'
-    },
-    {
-        title: '헤이키친 동대문점',
-        latlng: new kakao.maps.LatLng(37.574668, 127.038741),
-        address: '서울특별시 동대문구 용두동 33-1'
-    },
-    {
-        title: '헤이키친 회기점',
-        latlng: new kakao.maps.LatLng(37.590745, 127.054903),
-        address: '서울특별시 동대문구 회기동 회기로25길 4'
-    },
-    {
-        title: '헤이키친 석관점',
-        latlng: new kakao.maps.LatLng(37.608491, 127.054488),
-        address: '서울특별시 성북구 석관동 338-363'
-    },
-    {
-        title: '헤이키친 강남점',
-        latlng: new kakao.maps.LatLng(37.500399, 127.027994),
-        address: '서울특별시 강남구 강남대로98길 12-5'
-    },
-    {
-        title: '헤이키친 부천점',
-        latlng: new kakao.maps.LatLng(37.502625, 126.772029),
-        address: '경기도 부천시 중동로262번길 54'
-    }
-];
-
-var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; // 마커 이미지의 이미지 주소 
+//var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+//    mapOption = { 
+//        center: new kakao.maps.LatLng(37.548065, 126.814818), // 지도의 중심좌표
+//        level: 9 // 지도의 확대 레벨
+//    };
+//
+//var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+// 
+//// 마커를 표시할 위치와 title 객체 배열입니다 
+//var positions = [
+//    {
+//        title: '헤이키친 연희점', 
+//        latlng: new kakao.maps.LatLng(37.572944, 126.935171),
+//        address: '서울특별시 서대문구 연희동 78-43'
+//    },
+//    {
+//        title: '헤이키친 도화점', 
+//        latlng: new kakao.maps.LatLng(37.542959, 126.949774),
+//        address: '서울특별시 마포구 도화동 17-3'
+//    },
+//    {
+//        title: '헤이키친 아현점', 
+//        latlng: new kakao.maps.LatLng(37.555536, 126.955538),
+//        address: '서울특별시 마포구 아현동 291-8'
+//    },
+//    {
+//        title: '헤이키친 동대문점',
+//        latlng: new kakao.maps.LatLng(37.574668, 127.038741),
+//        address: '서울특별시 동대문구 용두동 33-1'
+//    },
+//    {
+//        title: '헤이키친 회기점',
+//        latlng: new kakao.maps.LatLng(37.590745, 127.054903),
+//        address: '서울특별시 동대문구 회기동 회기로25길 4'
+//    },
+//    {
+//        title: '헤이키친 석관점',
+//        latlng: new kakao.maps.LatLng(37.608491, 127.054488),
+//        address: '서울특별시 성북구 석관동 338-363'
+//    },
+//    {
+//        title: '헤이키친 강남점',
+//        latlng: new kakao.maps.LatLng(37.500399, 127.027994),
+//        address: '서울특별시 강남구 강남대로98길 12-5'
+//    },
+//    {
+//        title: '헤이키친 부천점',
+//        latlng: new kakao.maps.LatLng(37.502625, 126.772029),
+//        address: '경기도 부천시 중동로262번길 54'
+//    }
+//];
+//
+//var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; // 마커 이미지의 이미지 주소 
     
 for (var i = 0; i < positions.length; i ++) {
     
@@ -85,11 +85,11 @@ for (var i = 0; i < positions.length; i ++) {
 mapSearch(); // 검색창의 키워드로 검색
 
 function mapSearch() {
-	var mapList = document.getElementById("mapList"); // 검색 결과를 붙일 부모 태그(ul)
+	var mapUl = document.getElementById("mapUl"); // 검색 결과를 붙일 부모 태그(ul)
 	var keyword = document.getElementById("keyword").value; // 검색창에 입력한 텍스트값
 	
-	while(mapList.hasChildNodes()) { // 이전에 붙어 있는 자식태그들 삭제
-		mapList.removeChild(mapList.firstChild);
+	while(mapUl.hasChildNodes()) { // 이전에 붙어 있는 자식태그들 삭제
+		mapUl.removeChild(mapUl.firstChild);
 	}
 	
 	for(var i = 0; i < positions.length; i++) {
@@ -98,7 +98,7 @@ function mapSearch() {
 			// 검색 결과 클릭하면, panTo() 호출 -> 해당 위치로 확대 
 			mapItem.innerHTML = '<a href="javascript:panTo(' + positions[i].latlng.Ma + ','
 			+ positions[i].latlng.La + ')">' + positions[i].title + '</a>' + '<br>' + positions[i].address;
-			mapList.appendChild(mapItem); // ul 태그에 붙이기
+			mapUl.appendChild(mapItem); // ul 태그에 붙이기
 		}
 	}
 }

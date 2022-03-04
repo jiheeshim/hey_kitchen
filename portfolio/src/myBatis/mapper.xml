@@ -9,11 +9,15 @@
 		select * from mealkit where endDate = (select max(endDate) from mealkit) limit 1;
 	</select>
 	<select id="mealplanPriceSelect" resultType="model.MealplanPriceDTO">
-		select * from mealplanPrice;
+		SELECT * FROM mealplanPrice;
 	</select>
+	
+	<sql id="price">FROM mealplanPrice WHERE servingCnt = #{servingCnt}</sql>
 	<select id="priceSelect" resultType="model.MealplanPriceDTO">
-		select * from mealplanPrice where servingCnt = #{servingCnt};
+		SELECT * 
+		<include refid="price" />
 	</select>
+	
 	<select id="mealkitSelect" parameterType="model.MealplanDeliveryDTO" resultType="model.MealkitDTO">
 		select * from mealkit where #{deliverDate} between startDate and endDate;
 	</select>
@@ -33,18 +37,49 @@
 		select * from mealplan where id = #{id} and cancelDate is null;
 	</select>
 	
+	<select id="readCountRecipeSelect" parameterType="int" resultType="model.RecipeDTO">
+		SELECT *
+		FROM RECIPE
+		WHERE recipeNo = (SELECT recipeNo FROM recipe order by readCount DESC LIMIT #{startNo}, 1);
+	</select>
+	<select id="reviewCountRecipeSelect" parameterType="int" resultType="model.RecipeDTO">
+		SELECT *
+		FROM recipe
+		WHERE recipeNo = (SELECT recipeNo FROM recipeReview GROUP BY recipeNo ORDER BY count(*) DESC LIMIT #{startNo}, 1);
+	</select>
+	<select id="categoryRecipeSelect" parameterType="map" resultType="model.RecipeDTO">
+		SELECT *
+		FROM recipe
+		WHERE category LIKE CONCAT('%', #{category}, '%') ORDER BY regDate DESC LIMIT 1;
+	</select>
+	
+	<select id="indexNoticeSelect" resultType="model.NoticeDTO">
+		SELECT *
+		FROM notice
+		ORDER BY regDate DESC LIMIT 3;
+	</select>
+	
+	<select id="mapSelect" resultType="model.MapDTO">
+		SELECT * FROM map;
+	</select>
+	
 	
 	<insert id="mealplanInsert" parameterType="model.MealplanDTO">
-		insert into mealplan (mealplanNo, id, serving, servingCnt, subDate, subPrice) values (#{mealplanNo}, #{id}, #{serving}, #{servingCnt}, #{subDate}, #{serving} * (select price from mealplanPrice where servingCnt = #{servingCnt})); 
+		INSERT INTO mealplan (mealplanNo, id, serving, servingCnt, subDate, subPrice)
+		VALUES (#{mealplanNo}, #{id}, #{serving}, #{servingCnt}, #{subDate}, #{serving} * (SELECT price <include refid="price" />)) 
 	</insert>
+	
 	<insert id="mealplanMenuInsert" parameterType="model.MealplanMenuDTO">
-		insert into mealplanMenu (menuNo, deliveryNo, mealkitNo) values (#{menuNo}, #{deliveryNo}, #{mealkitNo});
+		INSERT INTO mealplanMenu (menuNo, deliveryNo, mealkitNo) 
+		VALUES (#{menuNo}, #{deliveryNo}, #{mealkitNo});
 	</insert>
+	
 	<insert id="mealplanDeliveryInsert" parameterType="model.MealplanDeliveryDTO">
-		insert into mealplanDelivery (deliveryNo, mealplanNo, postcode, addr1, extraAddr, addr2, deliverDate) values (#{deliveryNo}, #{mealplanNo}, #{postcode}, #{addr1}, #{extraAddr}, #{addr2}, #{deliverDate});
+		INSERT INTO mealplanDelivery (deliveryNo, mealplanNo, postcode, addr1, extraAddr, addr2, deliverDate) 
+		VALUES (#{deliveryNo}, #{mealplanNo}, #{postcode}, #{addr1}, #{extraAddr}, #{addr2}, #{deliverDate});
 	</insert>
 	
 	<update id="pointUpdate" parameterType="model.UsersDTO">
-		update users set point = (point - #{point}) where id = #{id};
+		UPDATE users SET point = (point - #{point}) WHERE id = #{id};
 	</update>
 </mapper>

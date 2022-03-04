@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="mealplanStyle.css?ver=1">
+<link rel="stylesheet" type="text/css" href="modalStyle.css">
 <link rel="stylesheet" type="text/css" href="headerFooter.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="menuslide.js"></script>
@@ -28,7 +29,7 @@
 					<div class="dashed"></div>
 					<div class="step"><span>3</span><span>구독 완료</span></div>
 				</section>
-			
+				
 				<section class="mealplanBox">
 					<form action="mealplan.kitchen">
 						<input type="hidden" name="where" value="mealplanPay">

@@ -73,12 +73,12 @@ main > .maintitle {
 .contact > p, .help > p { font-size: 14px; text-align: center; }
 .banners { display: flex; justify-content: center; }
 .banners img { width: 150px; height: 100px; border: 2px solid darkgray; margin: 0 10px;}
-.notice ul { margin: 0; padding: 20px; }
-.notice li {
+.notices ul { margin: 0; padding: 20px; }
+.notices li {
 	list-style-type: none; margin: 4px 0;
 	display: flex; justify-content: space-between;
 }
-.notice div { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.notices div { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .noticeT, .noticeD { font-size: 14px; }
 
 

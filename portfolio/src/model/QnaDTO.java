@@ -9,9 +9,9 @@ public class QnaDTO {
 	private String content;
 	private String id;
 	private String qnaPw;
-	private int qnaRef;
-	private int qnaLev;
-	private int qnaSeq;
+	private int qnaRef; // 원글 번호
+	private int qnaLev; // 답글 단계
+	private int qnaSeq; // 답글 순서
 	private int readCount;
 	private String regDate;
 	private String editDate;

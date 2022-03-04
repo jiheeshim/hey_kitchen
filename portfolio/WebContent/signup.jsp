@@ -16,14 +16,7 @@
 
 		<main>
 			<section>회원가입</section>
-			<section>
-				<div class="sns">
-					SNS계정으로 회원가입하기<br>
-					<img src="image/navericon.png" />
-					<img src="image/kakaoicon.png" />
-					<img src="image/googleicon.png" />
-				</div>
-			</section>
+			
 			<section>
 				<div class="topDesc">
 					<span>직접 회원가입하기</span>
@@ -234,7 +227,7 @@
 		</main>
 		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 		<script type="text/javascript" src="postcode.js"></script>
-		<script type="text/javascript" src="signupScript.js?"></script>
+		<script type="text/javascript" src="signupScript.js"></script>
 
 		<jsp:include page="footer.jsp" />
 	</div>

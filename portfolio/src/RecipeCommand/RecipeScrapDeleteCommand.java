@@ -28,16 +28,12 @@ public class RecipeScrapDeleteCommand implements RecipeCommand {
 		
 		// delete 실행
 		RecipeScrapDeleteService recipeScrapDeleteService = new RecipeScrapDeleteService();
-		int unscrapResult = recipeScrapDeleteService.unscrapRecipe(scrap);
+		boolean unscrapResult = recipeScrapDeleteService.unscrapRecipe(scrap);
 		
-		if(unscrapResult == 1) { // 스크랩 취소 성공 시,
+		if(unscrapResult) { // 스크랩 취소 성공 시,
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("recipeView.rec?recipeNo=" + recipeNo);
-		} else if(unscrapResult == 2) { // 스크랩 취소할 게 없어서 실패 시,
-			response.setContentType("text/html; charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>alert('이미 스크랩 취소되었습니다.'); history.go(-1);</script>");
 		} else { // DB 오류 시,
 			response.setContentType("text/html; charset=utf-8");
 			PrintWriter out = response.getWriter();
