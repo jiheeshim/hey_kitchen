@@ -45,28 +45,6 @@
 	    };
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-	 
-	// 마커를 표시할 위치와 title 객체 배열입니다 
-	/* var positions = [];
-	positions.push({
-        title: '${mapList[0].title}', 
-        latlng: new kakao.maps.LatLng(${mapList[0].ma}, ${mapList[0].la}),
-        address: '${mapList[0].address}'
-    });
-	positions.push({
-        title: '${mapList[1].title}', 
-        latlng: new kakao.maps.LatLng(${mapList[1].ma}, ${mapList[1].la}),
-        address: '${mapList[1].address}'
-    }); */
-	
-	/*for(var map of ${mapList}) {
-		positions.push({
-			title: "${mapList[i].title}",
-			latlng: new kakao.maps.LatLng(37.572944, 126.935171),
-			address: "${mapList[i].address}"
-		}); 
-	};*/
-	
 	
 	var positions = [
 	    {
