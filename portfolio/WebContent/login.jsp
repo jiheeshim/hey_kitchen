@@ -54,7 +54,7 @@
 			}
 		
 			// 네이버 로그인 
-		  	var naver_id_login = new naver_id_login("ZKuwqzVwlCAldtVAiRPW", "http://localhost:8080/portfolio/loginNaver.jsp");
+		  	var naver_id_login = new naver_id_login("naverapikey", "http://localhost:8080/portfolio/loginNaver.jsp");
 		  	var state = naver_id_login.getUniqState();
 		  	naver_id_login.setDomain("http://localhost:8080");
 		  	naver_id_login.setState(state);
@@ -86,7 +86,7 @@
 		    	// people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다
 				url: 'https://people.googleapis.com/v1/people/me'
 		        // key : 자신의 API 키
-				, data: {personFields:'birthdays', key:'AIzaSyCZTDHH776IDSH9JD6anOzwjvS58kmv098', 'access_token': access_token}
+				, data: {personFields:'birthdays', key:'googleapikey', 'access_token': access_token}
 				, method:'GET'
 			})
 			.done(function(e){

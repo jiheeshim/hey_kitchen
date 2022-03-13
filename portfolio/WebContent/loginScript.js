@@ -12,7 +12,7 @@ function loginCheck() {
 }
 
 // 카카오 소셜 로그인
-Kakao.init('9dba1125139c9fc4d8f64e57190988a7'); // 발급받은 키 중 javascript키
+Kakao.init('kakaoapikey'); // 발급받은 키 중 javascript키
 
 //카카오로그인
 function kakaoLogin() {
